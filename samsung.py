@@ -2088,7 +2088,7 @@ def lineBot(op):
                             settings["restartPoint"] = to
                             restartBot()
                         elif cmd == "me" or cmd == "tes":
-                            client.sendMentionFooter(to, '「aku」\n', sender, "https://line.me/ti/p/~calon_almarhum99", "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName);client.sendMessage(to, client.getContact(sender).displayName, contentMetadata = {'previewUrl': 'http://dl.profile.line-cdn.net/'+client.getContact(sender).pictureStatus, 'i-installUrl': 'https://line.me/ti/p/~calon_almarhum99', 'type': 'mt', 'subText': "ᴄᴀʟᴏɴ ᴀʟᴍᴀʀʜᴜᴍ™", 'a-installUrl': 'https://line.me/ti/p/~calon_almarhum99', 'a-installUrl': ' https://line.me/ti/p/~calon_almarhum99', 'a-packageName': 'com.spotify.music', 'countryCode': 'ID', 'a-linkUri': 'https://line.me/ti/p/~calon_almarhum99', 'i-linkUri': 'https://line.me/ti/p/~calon_almarhum99', 'id': 'mt000000000a6b79f9', 'text': 'ᴀʜʟɪ ᴋᴜʙᴜʀ™', 'linkUri': 'https://line.me/ti/p/~calon_almarhum99'}, contentType=19)
+                            client.sendMentionFooter(to, '「ini aku」\n', sender, "https://line.me/ti/p/~calon_almarhum99", "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName);client.sendMessage(to, client.getContact(sender).displayName, contentMetadata = {'previewUrl': 'http://dl.profile.line-cdn.net/'+client.getContact(sender).pictureStatus, 'i-installUrl': 'https://line.me/ti/p/~calon_almarhum99', 'type': 'mt', 'subText': "ᴄᴀʟᴏɴ ᴀʟᴍᴀʀʜᴜᴍ™", 'a-installUrl': 'https://line.me/ti/p/~calon_almarhum99', 'a-installUrl': ' https://line.me/ti/p/~calon_almarhum99', 'a-packageName': 'com.spotify.music', 'countryCode': 'ID', 'a-linkUri': 'https://line.me/ti/p/~calon_almarhum99', 'i-linkUri': 'https://line.me/ti/p/~calon_almarhum99', 'id': 'mt000000000a6b79f9', 'text': 'ᴀʜʟɪ ᴋᴜʙᴜʀ™', 'linkUri': 'https://line.me/ti/p/~calon_almarhum99'}, contentType=19)
                         elif cmd == "aku":
                             userid = "https://line.me/ti/p/~" + client.profile.userid
                             client.sendImageWithFooter(to, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
@@ -2202,25 +2202,25 @@ def lineBot(op):
                             else:
                                 client.sendMessage(to, "")
 #==============================================================================================================
-                        elif cmd == 'ไอดี':
+                        elif cmd == 'idku':
                             client.sendMessage(to,"「 MID 」\n" +  to)
-                        elif cmd == 'คท':
+                        elif cmd == 'scku':
                             client.sendMessage(to, text=None, contentMetadata={'mid': receiver}, contentType=13)
-                        elif cmd == 'ชื่อ':
+                        elif cmd == 'nameku':
                             me = client.getContact(to)
                             client.sendMessage(to,"「 DisplayName 」\n" + me.displayName)
-                        elif cmd == 'ตัส':
+                        elif cmd == 'statusku':
                             me = client.getContact(to)
                             client.sendMessage(to,"「 StatusMessage 」\n" + me.statusMessage)
-                        elif cmd == 'ดิส':
+                        elif cmd == 'pictku':
                             me = client.getContact(to)
                             client.sendImageWithURL(to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
-                        elif cmd == 'วีดีโอ':
+                        elif cmd == 'vidku':
                             me = client.getContact(to)
                             client.sendVideoWithURL(to,"http://dl.profile.line-cdn.net/" + me.pictureStatus + "/vp")
                         elif cmd == 'memecode':
-                            client.sendMessage(to,"10 Guy, tenguy\nAfraid to Ask Andy, afraid\nAn Older Code Sir, But It Checks Out, older\nAncient Aliens Guy, aag\nAt Least You Tried, tried\nBaby Insanity Wolf, biw\nBad Luck Brian, blb\nBut That's None of My Business, kermit\nButthurt Dweller, bd\nCaptain Hindsight, ch\nComic Book Guy, cbg\nCondescending Wonka, wonka\nConfession Bear, cb\nConspiracy Keanu, keanu\nDating Site Murderer, dsm\nDo It Live!, live\nDo You Want Ants?, ants\nDoge, doge\nDrake Always On Beat, alwaysonbeat\nErmahgerd, ermg\nFirst World Problems, fwp\nForever Alone, fa\nFoul Bachelor Frog, fbf\nFuck Me, Right?, fmr\nFuturama Fry, fry\nGood Guy Greg, ggg\nHipster Barista, hipster\nI Can Has Cheezburger?, icanhas\nI Feel Like I'm Taking Crazy Pills, crazypills\nI Immediately Regret This Decision!, regret\nI Should Buy a Boat Cat, boat\nI Would Be So Happy, sohappy\nI am the Captain Now, captain\nInigo Montoya, inigo\nInsanity Wolf, iw\nIt's A Trap!, ackbar\nIt's Happening, happening\nIt's Simple, Kill the Batman, joker\nJony Ive Redesigns Things, ive\nLaughing Lizard, ll\nMatrix Morpheus, morpheus\nMilk Was a Bad Choice, badchoice\nMinor Mistake Marvin, mmm\nNothing To Do Here, jetpack\nOh, Is That What We're Going to Do Today?, red\nOne Does Not Simply Walk into Mordor, mordor\nOprah You Get a Car, oprah\nOverlay Attached Girlfriend, oag\nPepperidge Farm Remembers, remembers\nPhilosoraptor, philosoraptor\nProbably Not a Good Idea, jw\nSad Barack Obama, sad-obama\nSad Bill Clinton, sad-clinton\nSad Frog / Feels Bad Man, sadfrog\nSad George Bush, sad-bush\nSad Joe Biden, sad-biden\nSad John Boehner, sad-boehner\nSarcastic Bear, sarcasticbear\nSchrute Facts, dwight\nScumbag Brain, sb\nScumbag Steve, ss\nSealed Fate, sf\nSee? Nobody Cares, dodgson\nShut Up and Take My Money!, money\nSo Hot Right Now, sohot\nSocially Awesome Awkward Penguin, awesome-awkward\nSocially Awesome Penguin, awesome\nSocially Awkward Awesome Penguin, awkward-awesome\nSocially Awkward Penguin, awkward\nStop Trying to Make Fetch Happen, fetch\nSuccess Kid, success\nSuper Cool Ski Instructor, ski\nThat Would Be Great, officespace\nThe Most Interesting Man in the World, interesting\nThe Rent Is Too Damn High, toohigh\nThis is Bull, Shark, bs\nWhy Not Both?, both\nWinter is coming, winter\nX all the Y, xy\nX, X Everywhere, buzz\nXzibit Yo Dawg, yodawg\nY U NO Guy, yuno\nY'all Got Any More of Them, yallgot\nYou Should Feel Bad, bad\nYou Sit on a Throne of Lies, elf\nYou Were the Chosen One!, chosen\n\nExample : Meme buzz|look that|khie is cool")     
-                        elif cmd == 'ปก':
+                            client.sendMessage(to,"10 Guy, tenguy\nAfraid to Ask Andy, afraid\nAn Older Code Sir, But It Checks Out, older\nAncient Aliens Guy, aag\nAt Least You Tried, tried\nBaby Insanity Wolf, biw\nBad Luck Brian, blb\nBut That's None of My Business, kermit\nButthurt Dweller, bd\nCaptain Hindsight, ch\nComic Book Guy, cbg\nCondescending Wonka, wonka\nConfession Bear, cb\nConspiracy Keanu, keanu\nDating Site Murderer, dsm\nDo It Live!, live\nDo You Want Ants?, ants\nDoge, doge\nDrake Always On Beat, alwaysonbeat\nErmahgerd, ermg\nFirst World Problems, fwp\nForever Alone, fa\nFoul Bachelor Frog, fbf\nFuck Me, Right?, fmr\nFuturama Fry, fry\nGood Guy Greg, ggg\nHipster Barista, hipster\nI Can Has Cheezburger?, icanhas\nI Feel Like I'm Taking Crazy Pills, crazypills\nI Immediately Regret This Decision!, regret\nI Should Buy a Boat Cat, boat\nI Would Be So Happy, sohappy\nI am the Captain Now, captain\nInigo Montoya, inigo\nInsanity Wolf, iw\nIt's A Trap!, ackbar\nIt's Happening, happening\nIt's Simple, Kill the Batman, joker\nJony Ive Redesigns Things, ive\nLaughing Lizard, ll\nMatrix Morpheus, morpheus\nMilk Was a Bad Choice, badchoice\nMinor Mistake Marvin, mmm\nNothing To Do Here, jetpack\nOh, Is That What We're Going to Do Today?, red\nOne Does Not Simply Walk into Mordor, mordor\nOprah You Get a Car, oprah\nOverlay Attached Girlfriend, oag\nPepperidge Farm Remembers, remembers\nPhilosoraptor, philosoraptor\nProbably Not a Good Idea, jw\nSad Barack Obama, sad-obama\nSad Bill Clinton, sad-clinton\nSad Frog / Feels Bad Man, sadfrog\nSad George Bush, sad-bush\nSad Joe Biden, sad-biden\nSad John Boehner, sad-boehner\nSarcastic Bear, sarcasticbear\nSchrute Facts, dwight\nScumbag Brain, sb\nScumbag Steve, ss\nSealed Fate, sf\nSee? Nobody Cares, dodgson\nShut Up and Take My Money!, money\nSo Hot Right Now, sohot\nSocially Awesome Awkward Penguin, awesome-awkward\nSocially Awesome Penguin, awesome\nSocially Awkward Awesome Penguin, awkward-awesome\nSocially Awkward Penguin, awkward\nStop Trying to Make Fetch Happen, fetch\nSuccess Kid, success\nSuper Cool Ski Instructor, ski\nThat Would Be Great, officespace\nThe Most Interesting Man in the World, interesting\nThe Rent Is Too Damn High, toohigh\nThis is Bull, Shark, bs\nWhy Not Both?, both\nWinter is coming, winter\nX all the Y, xy\nX, X Everywhere, buzz\nXzibit Yo Dawg, yodawg\nY U NO Guy, yuno\nY'all Got Any More of Them, yallgot\nYou Should Feel Bad, bad\nYou Sit on a Throne of Lies, elf\nYou Were the Chosen One!, chosen\n\nExample : Meme buzz|look that|to is cool")     
+                        elif cmd == 'coverku':
                             if client != None:
                                 path = client.getProfileCoverURL(to)
                                 path = str(path)
@@ -2231,7 +2231,7 @@ def lineBot(op):
                                     client.sendImage(to, "steal.jpg")
                             else:
                                 client.sendMessage(to, "Talk Exception")
-                        elif cmd == 'ดึงหมด':
+                        elif cmd == 'myinfo':
                             if client != None:
                                 me = client.getContact(to)
                                 path = client.getProfileCoverURL(to)
@@ -2280,10 +2280,10 @@ def lineBot(op):
                                     ret_+="\n"+sam.find('h2').text+"\n"
                                     ret_+="http://nekopoi.faith"+sam.find('a')['href']+"\n"                                                                                       
                                client.sendMessage(to,ret_)
-                        elif cmd == "เชครอบหนัง" or cmd == "zzzzz":
+                        elif cmd == "checkmovie" or cmd == "zzzzz":
                                result = requests.get("http://jadwalnonton.com/")
                                data = BeautifulSoup(result.content, 'html5lib')
-                               hasil = "ã Cinema XX1 ã\nType : รอบหนังในโรงวันนี้\n"
+                               hasil = "ã Cinema XX1 ã\nType : In the movie today.\n"
                                no = 1
                                for dzin in data.findAll('div', attrs={'class':'col-xs-6 moside'}):
                                    hasil += "\n\n{}. {}".format(str(no), str(dzin.find('h2').text))
@@ -2366,7 +2366,7 @@ def lineBot(op):
                                 b.thumbnail = "http://dl.profile.line-cdn.net/{}".format(anu.pictureStatus)
                                 client.createChatRoomAnnouncement(groups, 1, b)
                             client.sendMessage(to, "Succes announce link to all group")
-                        elif cmd.startswith("ไอดี "):
+                        elif cmd.startswith("id "):
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -2433,7 +2433,7 @@ def lineBot(op):
                                    logError(error)
                                    var= traceback.print_tb(error.__traceback__)
                                    client.sendMessage(to,str(var))
-                        elif cmd.startswith("คท "):
+                        elif cmd.startswith("sc "):
                             if client != None:
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
@@ -2446,7 +2446,7 @@ def lineBot(op):
                                     for ls in lists:
                                         me = client.getContact(ls)
                                     client.sendMessage(to, text=None, contentMetadata={'mid': ls}, contentType=13)
-                        elif cmd.startswith("ดึงชื่อ "):
+                        elif cmd.startswith("dn "):
                             if client != None:
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
@@ -2458,8 +2458,8 @@ def lineBot(op):
                                             lists.append(mention["M"])
                                     for ls in lists:
                                         me = client.getContact(ls)
-                                    client.sendMessage(msg.to,"「 ชื่อ 」\n" + me.displayName)
-                        elif cmd.startswith("ชื่อ "):
+                                    client.sendMessage(msg.to,"「 display name 」\n" + me.displayName)
+                        elif cmd.startswith("name "):
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -2473,9 +2473,9 @@ def lineBot(op):
                                     try:
                                 	    rename = contact.displayNameOverridden
                                     except:
-                                	    rename = "「 ชื่อของคุณ 」\nERROR"
-                                    client.sendMessage(to, "「 ชื่อของคุณ 」\n" + contact.displayName + "\n\n「 ชื่อของคุณ 」\n{}".format(rename))
-                        elif cmd.startswith("ตัส "):
+                                	    rename = "「 Your Name 」\nERROR"
+                                    client.sendMessage(to, "「 Your Name 」\n" + contact.displayName + "\n\n「 ชื่อของคุณ 」\n{}".format(rename))
+                        elif cmd.startswith("bio "):
                             if client != None:
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
@@ -2488,7 +2488,7 @@ def lineBot(op):
                                     for ls in lists:
                                         me = client.getContact(ls)
                                     client.sendMessage(msg.to,"「 StatusMessage 」\n" + me.statusMessage)
-                        elif cmd.startswith("ดิส "):
+                        elif cmd.startswith("pict "):
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -2504,7 +2504,7 @@ def lineBot(op):
                                     else:
                                         urllib.urlretrieve(path, "steal.jpg")
                                         client.sendImage(to, "steal.jpg")
-                        elif cmd.startswith("ปก "):
+                        elif cmd.startswith("cover "):
                             if client != None:
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
@@ -2524,7 +2524,7 @@ def lineBot(op):
                                             client.sendImage(to, "steal.jpg")
                             else:
                                 client.sendMessage(to, "Tidak dapat masuk di line channel")
-                        elif cmd.startswith("วีดีโอ "):
+                        elif cmd.startswith("vid "):
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -2539,7 +2539,7 @@ def lineBot(op):
                                         client.sendVideoWithURL(to, str(path))
                                     else:
                                         client.sendMessage(to, "User doesnt have profile Video ^_^")
-                        elif cmd.startswith("เพิ่มเพื่อน "):
+                        elif cmd.startswith("add "):
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -2551,8 +2551,8 @@ def lineBot(op):
                                 for ls in lists:
                                     contact = client.getContact(ls)
                                     client.findAndAddContactsByMid(ls)
-                                client.sendMessage(to, "เพิ่มคุณ" + str(contact.displayName) + " เป็นเพื่อนแล้ว")
-                        elif cmd.startswith("บล็อค "):
+                                client.sendMessage(to, "berhasil tambahkan" + str(contact.displayName) + " teman")
+                        elif cmd.startswith("block "):
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -2564,7 +2564,7 @@ def lineBot(op):
                                 for ls in lists:
                                     contact = client.getContact(ls)
                                     client.blockContact(ls)
-                                client.sendMessage(to, "คุณได้ทำการบล็อค {} เรียบร้อยแล้ว".format(str(contact.displayName)))
+                                client.sendMessage(to, "masuk daftar block {} completed".format(str(contact.displayName)))
                         elif cmd.startswith("block:del "):
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
@@ -2578,7 +2578,7 @@ def lineBot(op):
                                     contact = client.getContact(ls)
                                     client.unblockContact(ls)
                                 client.sendMessage(to, "Success Delete {} in Blocklist".format(str(contact.displayName)))
-                        elif cmd.startswith("ดึงหมด "):
+                        elif cmd.startswith("info "):
                             if client != None:
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
@@ -2610,7 +2610,7 @@ def lineBot(op):
                                         client.sendMessage(to, "Talk Exception You are not Related to LineChannel")
                             else:
                                  client.sendMessage(to, "Talk Exception You are not Related to LineChannel")
-                        elif cmd == "รูปห้อง":
+                        elif cmd == "gpict":
                             if msg.toType == 2:
                                 group = client.getGroup(to)
                                 path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
@@ -2677,7 +2677,7 @@ def lineBot(op):
                                 except:
                                     client.sendMessage(msg.to, "Gagal restore profile failure!")
 #==============================================================================================================
-                        elif cmd.startswith("รันคลอ "):
+                        elif cmd.startswith("gcall "):
                             sep = text.split(" ")
                             text = text.replace(sep[0] + " ","")
                             cond = text.split(" ")
@@ -2689,8 +2689,8 @@ def lineBot(op):
                                 client.acquireGroupCallRoute(to)
                                 client.inviteIntoGroupCall(to, contactIds=members)
                             else:
-                                client.sendMessage(to, "ก็คนทันเหงาอะ".format(str(jml)))
-                        elif cmd.startswith("ว่า "):
+                                client.sendMessage(to, "i am a lonely person".format(str(jml)))
+                        elif cmd.startswith("that "):
                             sep = text.split(" ")
                             text = text.replace(sep[0] + " ","")
                             cond = text.split(" ")
@@ -2709,7 +2709,7 @@ def lineBot(op):
                                     for receiver in lists:
                                         contact = client.getContact(receiver)
                                         RhyN_(to, contact.mid)
-                        elif cmd.startswith("เหงา "):
+                        elif cmd.startswith("namemid "):
                             sep = text.split(" ")
                             text = text.replace(sep[0] + " ","")
                             cond = text.split(" ")
@@ -2724,7 +2724,7 @@ def lineBot(op):
                                 group = client.getGroup(to)
                                 contact = [mem.mid for mem in group.members]
                                 mentionMembers(to, contact)
-                        elif cmd.startswith("แจก "):
+                        elif cmd.startswith("gift "):
                             sep = text.split(" ")
                             text = text.replace(sep[0] + " ","")
                             cond = text.split(" ")
@@ -2742,10 +2742,10 @@ def lineBot(op):
                                             lists.append(mention["M"])
                                     for receiver in lists:
                                         client.sendMessage(receiver, text=None, contentMetadata=None, contentType=9)
-                                        client.sendMessage(to, "ส่งของขวัญใน ส.ต แล้ว".format(str(jml)))
+                                        client.sendMessage(to, "Send gifts in today".format(str(jml)))
                                     else:
                                         pass
-                        elif cmd.startswith("ไวรัส "):
+                        elif cmd.startswith("virus "):
                             sep = text.split(" ")
                             text = text.replace(sep[0] + " ","")
                             cond = text.split(" ")
@@ -2763,18 +2763,18 @@ def lineBot(op):
                                             lists.append(mention["M"])
                                     for receiver in lists:
                                         client.sendMessage(receiver, text=None, contentMetadata={'mid': "0',"}, contentType=13)
-                                        client.sendMessage(to, "ไปดู ส.ต ด้วย".format(str(jml)))
+                                        client.sendMessage(to, "View user's profile Send private message".format(str(jml)))
                                     else:
                                         pass
 #==============================================================================================================
-                        elif cmd.startswith("ประกาศ "):
+                        elif cmd.startswith("gbcast "):
                             sep = text.split(" ")
                             txt = text.replace(sep[0] + " ","")
                             groups = client.groups
                             for group in groups:
-                                client.sendMessage(group, "「 ประกาศๆ 」\n{}".format(str(txt)))
-                            client.sendMessage(to, "ส่งข้อความ ปะกาศ ทั้งหมด {} กลุ่ม".format(str(len(groups))))
-                        elif cmd.startswith("friendbcast "):
+                                client.sendMessage(group, "「 Announcement 」\n{}".format(str(txt)))
+                            client.sendMessage(to, "Send all message {} groups".format(str(len(groups))))
+                        elif cmd.startswith("fbcast "):
                             sep = text.split(" ")
                             txt = text.replace(sep[0] + " ","")
                             friends = client.friends
@@ -2812,7 +2812,7 @@ def lineBot(op):
                                     client.acceptGroupInvitationByTicket(group.id,ticket_id)
                                     client.sendMessage(to, "Succes join to group %s" % str(group.name))
 #==============================================================================================================
-                        elif cmd == "เวลา" or cmd == "kalender":
+                        elif cmd == "today" or cmd == "kalender":
                             tz = pytz.timezone("Asia/Jakarta")
                             timeNow = datetime.datetime.now(tz=tz)
                             day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
@@ -2826,13 +2826,13 @@ def lineBot(op):
                                 if bln == str(k): bln = bulan[k-1]
                             anu = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nเวลา : 「 " + timeNow.strftime('%H:%M:%S') + " 」"
                             client.sendMessage(to, anu)
-                        elif cmd == "ลบแชท":
+                        elif cmd == "delete chat":
                             client.removeAllMessages(op.param2)
-                            client.sendMessage(to, "ล้างแชทหมดแล้ว")
-                        elif cmd == "ไปละ":
+                            client.sendMessage(to, "succes Clear chat")
+                        elif cmd == "bye":
                             if msg.toType == 2:
                                 client.leaveGroup(to)
-                        elif cmd == "คนสร้างกลุ่ม":
+                        elif cmd == "gcreator":
                             ginfo = client.getGroup(to)
                             gCreator = ginfo.creator.mid
                             try:
@@ -2840,39 +2840,39 @@ def lineBot(op):
                             except:
                                 gCreator = "Not Found"
                             client.sendMessage(to, text=None, contentMetadata={'mid': gCreator}, contentType=13)
-                            sendMention(to, gCreator, "สวัสดีครับ", "ฝากตัวด้วยนะครับแอด")
-                        elif cmd == "คนในกลุ่ม":
+                            sendMention(to, gCreator, "Hello", "thanks")
+                        elif cmd == "memlist":
                                 kontak = client.getGroup(to)
                                 group = kontak.members
                                 num=1
-                                msgs="「 รายชื่อคนในกลุ่ม 」"
+                                msgs="「 list member 」"
                                 for ids in group:
                                     msgs+="\n%i. %s" % (num, ids.displayName)
                                     num=(num+1)
-                                msgs+="\nจำนวน: %i คน" % len(group)
+                                msgs+="\njumlah: %i persons" % len(group)
                                 client.sendMessage(to, msgs)
-                        elif cmd == 'บล็อค':
+                        elif cmd == 'blocklist':
                             blockedlist = client.getBlockedContactIds()
                             kontak = client.getContacts(blockedlist)
                             num=1
-                            msgs="「 คนที่เราบล็อค 」"
+                            msgs="「 daftar block 」"
                             for ids in kontak:
                                 msgs+="\n %i %s" % (num, ids.displayName)
                                 num=(num+1)
-                            msgs+="\nคุณได้ทำการบล็อคเพื่อนแล้ว %i" % len(kontak)
+                            msgs+="\nYou have blocked a friend. %i" % len(kontak)
                             client.sendMessage(msg.to, msgs)
-                        elif cmd == "เชคดำ" or cmd == "banlist":
+                        elif cmd == "bl" or cmd == "banlist":
                             if settings["blacklist"] == []:
-                                client.sendMessage(to,"「 รายชื่อคนติดดำ 」")
+                                client.sendMessage(to,"「 banlist 」")
                             else:
                                 num = 1
-                                mc = "「 รายชื่อคนติดดำ 」"
+                                mc = "「 List of black people 」"
                                 for me in settings["blacklist"]:
                                     mc += "\n%i.  %s" % (num, client.getContact(me).displayName)
                                     num = (num+1)
-                                mc += "\n「จำนวน %i คนติดดำ」" % len(settings["blacklist"])
+                                mc += "\n「jumlah %i accounts」" % len(settings["blacklist"])
                                 client.sendMessage(to, mc)
-                        elif cmd.startswith("ตั้งชื่อกลุ่ม "):
+                        elif cmd.startswith("gname "):
                             sep = text.split(" ")
                             if msg.toType == 2:
                                 try:
@@ -2881,7 +2881,7 @@ def lineBot(op):
                                     client.updateGroup(group)
                                 except:
                                     pass
-                        elif cmd == "เปิดลิ้ง" or cmd == "ourl":
+                        elif cmd == "open" or cmd == "ourl":
                             if msg.toType == 2:
                                 g = client.getGroup(msg.to)
                                 if g.preventedJoinByTicket == True:
@@ -2889,14 +2889,14 @@ def lineBot(op):
                                     client.updateGroup(g)
                                 gurl = client.reissueGroupTicket(msg.to)
                                 client.sendMessage(msg.to,"「กลุ่ม」\n\n\nhttp://line.me/R/ti/g/" + gurl)
-                        elif cmd == "ปิดลิ้ง" or cmd == "close":
+                        elif cmd == "curl" or cmd == "close":
                             if msg.toType == 2:
                                 group = client.getGroup(msg.to)
                                 group.preventedJoinByTicket = True
                                 client.updateGroup(group)
-                        elif cmd == ".คท" or cmd == "mycon":
+                        elif cmd == ".me" or cmd == "mycon":
                             try:
-                    	        sendMention(to, sender, "「 ☬ชื่อ เชลบอท☬ 」\n•", "")
+                    	        sendMention(to, sender, "「 ☬aku disebut☬ 」\n•", "")
                     	        client.sendContact(to, sender)
                             except Exception as error:
                                 client.sendMessage(to, "「 Result Error 」\n" + str(error))                              
