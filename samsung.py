@@ -33,9 +33,9 @@ clientSettings = client.getSettings()
 #==============================================================================================================
 clientPoll = OEPoll(client)
 #==============================================================================================================
-admin = "ude3230559bf63a55b9c28aa20ea194e3"
-owner = "ude3230559bf63a55b9c28aa20ea194e3"
-Bots=[mid,"ude3230559bf63a55b9c28aa20ea194e3"]
+admin = "u31d8aba9dff04c75242f2a2097b8adae"
+owner = "u31d8aba9dff04c75242f2a2097b8adae"
+Bots=[mid,"u31d8aba9dff04c75242f2a2097b8adae"]
 #==============================================================================================================
 #==============================================================================================================
 contact = client.getProfile()
@@ -82,7 +82,7 @@ settings = json.load(settingsOpen)
 images = json.load(imagesOpen)
 stickers = json.load(stickersOpen)
 msg_dict = {}
-bl = ["ue4341206714a63166f6540501005a5d9"]
+bl = ["u9f478c580a9c4e1de5e407e9b10c2da1"]
 
 try:
     with open("Log_data.json","r",encoding="utf_8_sig") as f:
@@ -193,7 +193,7 @@ def speedtest(วินาที):
     ชั่วโมง, นาที = divmod(นาที,60)
     วัน, ชั่วโมง = divmod(ชั่วโมง,24)
     อาทิตย์, วัน = divmod(วัน,7)
-    if วัน == 0:
+    if  == 0:
         return '%02d' % (วินาที)
     elif วัน > 0 and อาทิตย์ == 0:
         return '%02d' %(วินาที)
@@ -629,16 +629,16 @@ def lineBot(op):
             if msg.contentType == 0:
                 if text is None:
                     return
-                elif msg.text.lower().startswith("ตั้งอ่าน1 "):
+                elif msg.text.lower().startswith("read1 "):
                     sep = text.split(" ")
                     say = text.replace(sep[0] + " ","")
                     settings["anu"] = str(say).lower()
-                    client.sendMessage(msg.to, "ข้อความคนอ่าน 「 " + str(settings["anu"]) + " 」")
-                elif msg.text.lower().startswith("ตั้งอ่าน2 "):
+                    client.sendMessage(msg.to, "Read Message 「 " + str(settings["anu"]) + " 」")
+                elif msg.text.lower().startswith("read2 "):
                     sep = text.split(" ")
                     say = text.replace(sep[0] + " ","")
                     settings["anu2"] = str(say).lower()
-                    client.sendMessage(msg.to, "ข้อความคนอ่าน 「 " + str(settings["anu2"]) + " 」")
+                    client.sendMessage(msg.to, "Read Message 「 " + str(settings["anu2"]) + " 」")
                 elif msg.text.lower().startswith("say "):
                     sep = text.split(" ")
                     say = text.replace(sep[0] + " ","")
@@ -647,7 +647,7 @@ def lineBot(op):
                     kicker.sendMessage(to, (say))
                     kicker2.sendMessage(to, (say))
 #==============================================================================================================
-                elif text.lower() == "คำสั่ง" or text.lower() == ".":
+                elif text.lower() == "help" or text.lower() == ".":
                     helpmessagee = helpmsg
                     client.sendMessage(to, str(helpmessagee))
                 elif text.lower() == "self" or text.lower() == ".":
@@ -725,7 +725,7 @@ def lineBot(op):
                         settings["winvite"] = True
                         client.sendMessage(msg.to,"Send Contact to Invite")
 #==============================================================================================================
-                elif "ส่งแขก " in msg.text:
+                elif "kick " in msg.text:
                     if msg._from in clientMID:                                                                                                                                       
                         key = eval(msg.contentMetadata["MENTION"])
                         key["MENTIONEES"][0]["M"]                                                                                                                                
@@ -737,7 +737,7 @@ def lineBot(op):
                                 client.kickoutFromGroup(msg.to,[target])
                             except:
                                 pass
-                elif "จุก " in msg.text:
+                elif "Nk " in msg.text:
                     if msg._from in clientMID:                                                                                                                                       
                         key = eval(msg.contentMetadata["MENTION"])
                         key["MENTIONEES"][0]["M"]                                                                                                                                
@@ -1101,7 +1101,7 @@ def lineBot(op):
                     tts = gTTS(text=say, lang=lang)
                     tts.save("hasil.mp3")
                     client.sendAudio(msg.to,"hasil.mp3")
-                elif msg.text.lower().startswith("พูด "):
+                elif msg.text.lower().startswith("say-th "):
                     sep = text.split(" ")
                     say = text.replace(sep[0] + " ","")
                     lang = 'th'
@@ -1865,22 +1865,22 @@ def lineBot(op):
                     hasil = translator.translate(isi, dest='he')
                     A = hasil.text
                     client.sendMessage(msg.to, A)
-                elif msg.text.lower() == "เปิดแทค":
+                elif msg.text.lower() == "detectmention on":
                     settings["detectMention"] = True
-                    client.sendMessage(msg.to,"เปิดแทคเรีบร้อยครับ")
-                elif msg.text.lower() == "ปิดแทค":
+                    client.sendMessage(msg.to,"respon by mention diaktifkan")
+                elif msg.text.lower() == "detectmention off":
                     settings["detectMention"] = False
-                    client.sendMessage(msg.to,"ปิดแทคเรีบร้อยครับ")
-                elif msg.text.lower() == "เปิดแทคแชท":
+                    client.sendMessage(msg.to,"respon by mention dinonaktifkan")
+                elif msg.text.lower() == "privatemention on":
                     settings["detectMentionPM"] = True
-                    client.sendMessage(msg.to,"เปิดแทคแชทเรียบร้อยครับ")
-                elif msg.text.lower() == "ปิดแทคแชท":
+                    client.sendMessage(msg.to,"respon mention to PM diaktifkan")
+                elif msg.text.lower() == "privatemention off":
                     settings["detectMentionPM"] = False
-                    client.sendMessage(msg.to,"ปิดแทคแชทเรียบร้อยครับ")
-                elif msg.text.lower().startswith("ตั้งแทคแชท: "):
-                    text = msg.text.lower().replace("ตั้งแทคแชท: ","")
+                    client.sendMessage(msg.to,"respon mention to PM dinonaktifkan")
+                elif msg.text.lower().startswith("setpm: "):
+                    text = msg.text.lower().replace("setpm: ","")
                     settings["pmMessage"] = text
-                    client.sendMessage(msg.to, "คำแทคแชท สต คือ : {}".format(str(settings["pmMessage"])))
+                    client.sendMessage(msg.to, "Success Update Response Message to : {}".format(str(settings["pmMessage"])))
                 elif msg.text.lower().startswith("setrespongroup: "):
                     text = msg.text.lower().replace("setrespongroup: ","")
                     settings["respMessage"] = text
@@ -1976,7 +1976,7 @@ def lineBot(op):
                         if "@!" in settings["replyPesan"]:
                             msg_ = settings["replyPesan"].split("@!")
                             sendMention(to, sender, "Sleep Mode :\n" + msg_[0], msg_[1])
-                        sendMention(to, sender, "Sleep Mode :\nจ๊ะเอ๋", settings["replyPesan"])
+                        sendMention(to, sender, "Sleep Mode :\nHai", settings["replyPesan"])
                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                     if settings["detectMentionPM"] == True:
                         names = re.findall(r'@(\w+)', text)
@@ -1984,7 +1984,7 @@ def lineBot(op):
                         mentionees = mention['MENTIONEES']
                         for mention in mentionees:
                             if clientMID in mention["M"]:
-                                sendMention(sender, sender, "「ตอบแทคอัตโนมัติ」\n", "\n" + str(settings["pmMessage"]))
+                                sendMention(sender, sender, "「Auto Respon」\n", "\n" + str(settings["pmMessage"]))
                                 break
                 if msg.contentType == 0: 
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
@@ -2009,7 +2009,7 @@ def lineBot(op):
                                         sendSticker(to, sver, spkg, sid)
                                     if "@!" in settings["mentionPesan"]:
                                         msg_ = settings["mentionPesan"].split("@!")
-                                        return sendMention(to, sender, "ข้อความอัตโนมัติ\n" + msg_[0], msg_[1])
+                                        return sendMention(to, sender, "Auto Reply\n" + msg_[0], msg_[1])
                                     sendMention(receiver, sender, "😎" ,"\n{}".format(str(settings['mentionPesan'])))
                                 break
                 if 'MENTION' in msg.contentMetadata.keys() != None:
@@ -2019,7 +2019,7 @@ def lineBot(op):
                         mentionees = mention['MENTIONEES']
                         for mention in mentionees:
                             if clientMID in mention["M"]:
-                               client.sendMessage(msg.to, "บอกแล้วอย่าแทคเยอะจุกเลย5555")
+                               client.sendMessage(msg.to, "Tell me ,don't tag me")
                                client.kickoutFromGroup(msg.to, [msg._from])
                                break
 #==============================================================================================================
@@ -2030,7 +2030,7 @@ def lineBot(op):
                 if msg.contentType == 0:
                     if msg.toType == 0:
                         if settings["responpm"] == True:
-                            sendMention(sender, sender, "จ๊ะเอ๋", "saya sedang offline, PM nanti :)")
+                            sendMention(sender, sender, "hai", "saya sedang offline, PM nanti :)")
 #==============================================================================================================
                 if msg.contentType == 13:
                     if settings["checkContact"] == True:
@@ -2088,15 +2088,15 @@ def lineBot(op):
                             settings["restartPoint"] = to
                             restartBot()
                         elif cmd == "me" or cmd == "tes":
-                            client.sendMentionFooter(to, '「ผู้ใช้」\n', sender, "https://line.me/ti/p/~gg880.", "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName);client.sendMessage(to, client.getContact(sender).displayName, contentMetadata = {'previewUrl': 'http://dl.profile.line-cdn.net/'+client.getContact(sender).pictureStatus, 'i-installUrl': 'https://line.me/ti/p/~gg880.', 'type': 'mt', 'subText': "phuselfbot", 'a-installUrl': 'https://line.me/ti/p/~gg880.', 'a-installUrl': ' https://line.me/ti/p/~gg880.', 'a-packageName': 'com.spotify.music', 'countryCode': 'ID', 'a-linkUri': 'https://line.me/ti/p/~gg880.', 'i-linkUri': 'https://line.me/ti/p/~gg880.', 'id': 'mt000000000a6b79f9', 'text': 'Khie', 'linkUri': 'https://line.me/ti/p/~gg880'}, contentType=19)
-                        elif cmd == "yabi":
+                            client.sendMentionFooter(to, '「aku」\n', sender, "https://line.me/ti/p/~calon_almarhum99", "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName);client.sendMessage(to, client.getContact(sender).displayName, contentMetadata = {'previewUrl': 'http://dl.profile.line-cdn.net/'+client.getContact(sender).pictureStatus, 'i-installUrl': 'https://line.me/ti/p/~calon_almarhum99', 'type': 'mt', 'subText': "ᴄᴀʟᴏɴ ᴀʟᴍᴀʀʜᴜᴍ™", 'a-installUrl': 'https://line.me/ti/p/~calon_almarhum99', 'a-installUrl': ' https://line.me/ti/p/~calon_almarhum99', 'a-packageName': 'com.spotify.music', 'countryCode': 'ID', 'a-linkUri': 'https://line.me/ti/p/~calon_almarhum99', 'i-linkUri': 'https://line.me/ti/p/~calon_almarhum99', 'id': 'mt000000000a6b79f9', 'text': 'ᴀʜʟɪ ᴋᴜʙᴜʀ™', 'linkUri': 'https://line.me/ti/p/~calon_almarhum99'}, contentType=19)
+                        elif cmd == "aku":
                             userid = "https://line.me/ti/p/~" + client.profile.userid
                             client.sendImageWithFooter(to, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                             client.sendMentionFooter(to, '「Me」\n', sender, str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                             client.sendMusic(to, client.getContact(sender).displayName, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, str(userid), "Khie Bot", client.getContact(sender).displayName)
                         elif cmd == "speed":
                             start = time.time()
-                            client.sendMessage(to, "Counting...")
+                            client.sendMessage(to, "Proses...")
                             speed = time.time() - start
                             ping = speed * 1000
                             client.sendMessage(to, "The result is {} ms".format(str(speedtest(ping))))
@@ -2115,29 +2115,29 @@ def lineBot(op):
                                 cc = bb.link
                                 textt = bb.text
                                 client.sendMessage(to, 'Link: ' + str(cc) + '\nText: ' + str(textt) + '\nCreator: ' + str(aa))
-                        elif cmd == "ออน":
+                        elif cmd == "on":
                             timeNow = time.time()
                             runtime = timeNow - botStart
                             runtime = format_timespan(runtime)
                             resetTime = timeNow - int(settings["timeRestart"])
                             userid = "https://line.me/ti/p/~" + client.profile.userid
-                            client.sendFooter(to, "「เวลาทำงานของบอท」\n{} ".format(str(runtime)), str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
-                        elif cmd == "แจก":
+                            client.sendFooter(to, "「Bot has been work」\n{} ".format(str(runtime)), str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
+                        elif cmd == "gift":
                             client.sendMessage(to, text=None, contentMetadata=None, contentType=9)
-                        elif cmd == "อัพรูป":
+                        elif cmd == "updatefoto":
                             settings["changePicture"] = True
-                            sendMention(to, sender, "「 เปลี่ยนรูปสำเร็จแล้ว」\n•", "\nSend pict !")
-                        elif cmd == "อัพวีดีโอ" and sender == clientMID:
+                            sendMention(to, sender, "「 Successfully converted」\n•", "\nSend pict !")
+                        elif cmd == "upvideo" and sender == clientMID:
                             settings['changeProfileVideo']['status'] = True
                             settings['changeProfileVideo']['stage'] = 1
-                            sendMention(to, sender, "「 เปลียนวีดีโอสำเร็จแล้ว 」\n•", "\nSend video !")
-                        elif cmd == "อัพรูปกลุ่ม":
+                            sendMention(to, sender, "「 Successfully complete the video. 」\n•", "\nSend video !")
+                        elif cmd == "updategroup":
                             if msg.toType == 2:
                                 if to not in settings["changeGroupPicture"]:
                                     settings["changeGroupPicture"].append(to)
-                            sendMention(to, sender, "「 ส่งรูปที่จะเปลี่ยนลงมา 」\n•", "\nตั้งรูปกลุ่ม !")
-                        elif cmd.startswith("อัพชื่อ "):
-                            string = cmd.replace("อัพชื่อ", "")
+                            sendMention(to, sender, "「 Send a picture that will turn down 」\n•", "\nGroup photo !")
+                        elif cmd.startswith("updatename "):
+                            string = cmd.replace("updatename", "")
                             if len(string) <= 10000000000:
                                 pname = client.getContact(sender).displayName
                                 profile = client.getProfile()
@@ -2145,8 +2145,8 @@ def lineBot(op):
                                 client.updateProfile(profile)
                                 userid = "https://line.me/ti/p/~" + client.profile.userid
                                 client.sendFooter(to, "Update Name\nStatus : Success\nFrom : "+str(pname)+"\nTo :"+str(string), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
-                        elif cmd.startswith("อัพตัส "):
-                            string = cmd.replace("อัพตัส", "")
+                        elif cmd.startswith("updatebio "):
+                            string = cmd.replace("updatebio", "")
                             if len(string) <= 10000000000:
                                 pname = client.getContact(sender).statusMessage
                                 profile = client.getProfile()
@@ -2155,10 +2155,10 @@ def lineBot(op):
                                 userid = "https://line.me/ti/p/~" + client.profile.userid
                                 client.sendFooter(to, "Update Status\nStatus : Success\nFrom : "+str(pname)+"\nTo :"+str(string), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
 #==============================================================================================================
-                        elif cmd == "ไอดีเรา":
+                        elif cmd == "mymid":
                             userid = "https://line.me/ti/p/" + client.getUserTicket().id
                             client.sendFooter(to, "Mid :\n"+str(sender), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
-                        elif cmd == "โปรไฟลเรา":
+                        elif cmd == "myprofile":
                             contact = client.getContact(clientMID)
                             cu = client.getProfileCoverURL(clientMID)
                             path = str(cu)
@@ -2167,27 +2167,27 @@ def lineBot(op):
                             client.sendImageWithFooter(to, image, userid, image, client.getContact(sender).displayName)
                             client.sendImageWithFooter(to, path, userid, path, client.getContact(sender).displayName)
                             client.sendFooter(to, "My Profile\nMid : "+str(sender)+"\nName : "+str(contact.displayName)+"\nStatus :\n"+str(contact.statusMessage), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
-                        elif cmd == "ชิ่อเรา":
+                        elif cmd == "myname":
                             h = client.getContact(clientMID)
                             userid = "https://line.me/ti/p/~" + client.profile.userid
                             client.sendFooter(to, "Name :\n"+str(h.displayName), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
-                        elif cmd == "ตัสเรา":
+                        elif cmd == "mystatus":
                             h = client.getContact(clientMID)
                             userid = "https://line.me/ti/p/~" + client.profile.userid
                             client.sendFooter(to, "Status :\n"+str(h.statusMessage), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
-                        elif cmd == "ดิสเรา":
+                        elif cmd == "mypict":
                             h = client.getContact(clientMID)
                             image = "http://dl.profile.line-cdn.net/" + h.pictureStatus
                             userid = "https://line.me/ti/p/~" + client.profile.userid
                             client.sendImageWithFooter(to, image, userid, image, client.getContact(sender).displayName)
-                        elif cmd == "วีดีโอเรา":
+                        elif cmd == "myvid":
                             userid = "https://line.me/ti/p/" + client.getUserTicket().id
                             h = client.getContact(clientMID)
                             userid = "https://line.me/ti/p/~" + client.profile.userid
                             if h.videoProfile == None:
                             	return client.sendFooter(to, " Video\nNone", userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                             client.sendVideoWithFooter(msg.to,"http://dl.profile.line-cdn.net/" + h.pictureStatus + "/vp", str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
-                        elif cmd == "ปกเรา":
+                        elif cmd == "mycover":
                             h = client.getContact(clientMID)
                             cu = client.getProfileCoverURL(clientMID)
                             image = str(cu)
