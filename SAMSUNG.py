@@ -499,7 +499,7 @@ def lineBot(op):
                     spkg = msgSticker["STKPKGID"]
                     sver = msgSticker["STKVER"]
                     sendSticker(op.param1, sver, spkg, sid)
-                sendMention(op.param1, op.param2, "Bye", "\n{}".format(str(settings['leavePesan'])))
+                sendMention(op.param1, op.param2, "Lah kok kenapa Leave", "\n{}".format(str(settings['leavePesan'])))
 
         if op.type == 17:
             print ("[ 17 ]  NOTIFIED ACCEPT GROUP INVITATION")
@@ -518,7 +518,7 @@ def lineBot(op):
                     if "@!" in msg:
                         msg = msg.split("@!")
                         return sendMention(op.param1, op.param2, msg[0], msg[1])
-                    sendMention(op.param1, op.param2, "Hi", msg)
+                    sendMention(op.param1, op.param2, "Haii kamu", msg)
                 else:
                     sendMention(op.param1, op.param2, "Hi","\n{}".format(str(settings['welcomePesan'])))
                     contact = client.getContact(op.param2)
