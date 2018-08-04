@@ -499,7 +499,7 @@ def lineBot(op):
                     spkg = msgSticker["STKPKGID"]
                     sver = msgSticker["STKVER"]
                     sendSticker(op.param1, sver, spkg, sid)
-                sendMention(op.param1, op.param2, "Lah kok kenapa Leave", "\n{}".format(str(settings['leavePesan'])))
+                sendMention(op.param1, op.param2, "Lah meninggal kan", "\n{}".format(str(settings['leavePesan'])))
 
         if op.type == 17:
             print ("[ 17 ]  NOTIFIED ACCEPT GROUP INVITATION")
