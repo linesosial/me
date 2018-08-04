@@ -212,127 +212,131 @@ def command(text):
 helpmsg ="""
 ╠═════════════════════
 ╠Me
-╠.คท
-╠ไอดีเรา
-╠ติ๊กเรา
-╠อัพชื่อ 「ข้อความที่ต้องการ」
-╠อัพตัส 「ข้อความที่ต้องการ」
-╠อัพรูป
-╠ชื่อเรา
-╠ดิสเรา
-╠ตัสเรา
-╠วีดีโอเรา
-╠ปกเรา
-╠ไอดี「@」
-╠คท「@」
-╠ชื่อ「@」
-╠ตัส「@」
-╠ดิส「@」
-╠วีดีโอ「@」
-╠ปก「@」
-╠ดึงหมด「@」
-╠ดึงหมด「แชท สต」
-╠ไอดีไลน์「id ไลน์」
-╠ขอรูป「ข้อความที่ต้องการ」
-╠เขียน「ข้อความที่ต้องการ」
-╠คำห้ามพิม「ข้อความที่ต้องการ」
-╠ล้างคำห้ามพิม「ข้อความที่ต้องการ」
-╠เชคคำห้ามพิม
-╠กาตูน「ข้อความที่ต้องการ」
-╠ยูทูป
-╠ประกาศ: 「ข้อความที่ต้องการ」
-╠พูด「ข้อความที่ต้องการ」
-╠พูดทุกห้อง 「ข้อความที่ต้องการ」
-╠ข่าว
-╠ลบแชท
-╠ไปละ 「ออกห้องอัตโนมัติ」
-╠เชครอบหนัง
-╠คนในกลุ่ม
-╠คนสร้างกลุ่ม
-╠ถาม 「ข้อความที่ต้องการ」
-╠สวัสดี「ชื่อ」
-╠Fc「ข้อความที่ต้องการ」
-╠ออน
-╠แทค
-╠มอง
-╠ข้อมูล
-╠เพิ่มเพื่อน「@」
-╠ลบเพื่อน「@」
-╠ล้างเพื่อนทั่งหมด
-╠ยกเลิก「จำนวน」
-╠รูปห้อง
-╠อัพรูปกลุ่ม
-╠บ้าน
-╠ข้อมูลกลุ่ม
-╠คนในกลุ่ม
-╠เพื่อน
-╠บล็อค「@」
-╠บล็อค
-╠เวลา
-╠ดำ「ส่งคทคนที่จะยัดดำลง」
-╠ปลดดำ「ส่งคทคนที่จะล้างดำลง」
-╠คทดำ
-╠ล้างดำ
-╠เชคดำ
-╠เปิดลิ้ง
-╠ปิดลิ้ง
+╠.me /mycon
+╠mymid
+╠mystatus
+╠myprofile
+╠updatename/bio 「text」
+╠updatefoto/video
+╠myname
+╠mypict
+╠mysticker「gift sticker 1」
+╠myvid
+╠mycover
+╠id/idku「@」
+╠sc/scku「@」
+╠dn/nameku/name「@」
+╠statusku/bio「@」
+╠pictku/pict「@」
+╠vidku/vid「@」
+╠coverku/cover「@」
+╠myinfo/info「@」
+╠unbanall「kosong」
+╠idline「idLINE」
+╠gambar「text」
+╠image「text」
+╠clear/unban「pilih pesan」
+╠lurking reset
+╠lurking
+╠anime「text」
+╠yt,top/news
+╠gbcast: 「broadcast group」
+╠ats,favoriteinfo,square「#」
+╠gcastvoice 「text」
+╠crash,friendinfo,member,leave「#」
+╠delete chat
+╠bye 「Ruang kosong」
+╠checkmovie
+╠memlist
+╠gcreator
+╠asking 「text」
+╠hello「nama」
+╠Fc「text」
+╠on 「runtime」
+╠tag,mention/all/desah/jxxxxt
+╠open/closeqr,ginfo「#」
+╠itsme/about
+╠add/delban「@」
+╠unfriend「@」
+╠resetfriend/unfriendall
+╠reject「group」
+╠gpict
+╠updategroup「foto grup」
+╠groupku/mygroup
+╠infogroup/groupinfo
+╠zodiac/ind/eng
+╠friendlist
+╠block「@」/blokir 
+╠blocklist/listblock
+╠today/kalender
+╠baned「by contact」
+╠delban「by contact」
+╠conban
+╠blocklist/bl
+╠banlist
+╠cekban
+╠status
+╠close/curl
+╠open/ourl
 ╠Spam on|num|text
-╠ตั้งชื่อกลุ่ม「ข้อความที่ต้องการ」
-╠รันคลอ「จำนวน」 รันโทร
-╠ว่า「จำนวน @」สแปมแทค
-╠เหงา「จำนวน สต」สแปมแทค
-╠แจก「จำนวน @」
-╠ไวรัส「จำนวน @」รัน คทไวรัส
-╠ปลิว「@」 คำสั่งเตะ
-╠ส่งแขก「@」คำสั่งเตะ
-╠จุก「@」คำสั่งเตะ
-╠ลองดู「@」คำสั่งเตะ
-╠ล้อเล่น「@」คำสั่งเตะ
-╠ไปหำ「@」คำสั่งเตะ
-╠เลืยนแบบ「@」
-╠ล้างเลืยนแบบ「@」
-╠เลืยนแบบ เปิด/ปิด
-╠ยกเลิก 「จำนวน」ยกเลิกข้อความ
+╠gname「nama group」
+╠gcall「nomor」
+╠that「mention @」jumlah
+╠namemiid「jumlah」spam
+╠gift「gift @」
+╠virus「mention @ 
+╠kick「@」target
+╠Nk「@」target
+╠coba「@」target
+╠siap「@」target
+╠tidur「@」target
+╠mimicadd/del「@」
+╠mimiclist
+╠mimic on/off
+╠unsend 「jumlah」
 ╠═════════════════════
-╠คำสั่งเปิดปิดทั้งหมด:
+╠pengaturan:
 ╠═════════════════════
-╠เปิดคท/ปิดคท
-╠เปิดมุดลิ้ง/ปิดมุดลิ้ง
-╠เปิดเข้า/ปิดเข้า
-╠เปิดบล็อค/ปิดบล็อค
-╠เปิดแอด/ปิดแอด
-╠เปิดออกแชท/ปิดออกแชท
-╠เปิดอ่าน/ปิดอ่าน
-╠เปิดแทค/ปิดแทค
-╠เปิดแทคแชท/ปิดแทคแชท
-╠เปิดคนเข้า/ปิดคนเข้า
-╠เปิดคนออก/ปิดคนออก
-╠เปิดแทคเตะ/ปิดแทคเตะ
-╠ติ๊กเปิด/ติ๊กปิด
-╠เปิดเตะคนลงติ๊ก/ปิดเตะคนลงติ๊ก
-╠เปิดแอบ/ปิดแอบ
-╠เปิดแอบอ่าน/ปิดแอบอ่าน
+╠checkcontact on/off
+╠detailuser on/off
+╠autjointic on/off
+╠autojoin on/off
+╠autoblock on/off
+╠autoadd on/off
+╠autoleave on/off
+╠autoread on/off
+╠detectmention on/off
+╠privatemention on/off
+╠welcomemessage on/off
+╠leavemessage on/off
+╠notag on/off
+╠check「sticker」 on/off
+╠kickoff up/down nosticker:0/1
+╠cek sider:on/off
+╠cyduk on/off
+╠lurking on/off
+╠secret on/off
 ╠═════════════════════
-╠คำสั่งค่าทั้งหมด :
+╠settings account:
 ╠═════════════════════
-╠ตั้งอ่าน1「ข้อความที่ต้องการ」
-╠ตั้งอ่าน2「ข้อความที่ต้องการ」
-╠ตั้งติ๊กคนแอบ
-╠ลบติ๊กคนแอบ
-╠ตั้งคนแอบ:「ข้อความที่ต้องการ」
-╠ตั้งติ๊กคนแทค
-╠ลบติ๊กคนแทค
-╠ตั้งแทค:「ข้อความที่ต้องการ」
-╠ตั้งแทคแชท:「ข้อความที่ต้องการ」
-╠ตั้งติ๊กคนแอด
-╠ลบติ๊กคนแอด
-╠ตั้งคนแอด:「ข้อความที่ต้องการ」
-╠ตั้งติ๊กคนออก
-╠ลบติ๊กคนออก
-╠ตั้งคนออก:「ข้อความที่ต้องการ」
-╠ตั้งติ๊กคนเข้า
-╠ลบติ๊กคนเข้า
-╠ตั้งคนเข้า:「ข้อความที่ต้องการ」
+╠Read1「text」
+╠Read2「text」
+╠addreadsticker
+╠delreadsticker
+╠setread:「responmessage reader」
+╠addresponsticker
+╠delresponsticker
+╠setrespon:「responmessage」
+╠setpm:「text」
+╠addautosticker
+╠delautosticker
+╠setadd:「responmessage add」
+╠addleavesticker
+╠delleavesticker
+╠setleave:「responmessage out mem」
+╠addwelcomesticker
+╠delwelcomesticker
+╠setwelcome:「responmessage in mem」
 ╠═════════════════════ 
 """
 helpmusic ="""「 Music 」
