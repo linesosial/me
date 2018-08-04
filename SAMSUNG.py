@@ -211,8 +211,8 @@ def command(text):
 #==============================================================================================================
 helpmsg ="""
 ╔▬▬▬▬▬▬▬▬▬▬▬▬▬▬╗
-╠Me
-╠.me /mycon
+╠Me/.me
+╠mycon
 ╠mymid
 ╠mystatus
 ╠myprofile
@@ -333,10 +333,10 @@ helpmsg ="""
 ╠setadd:「responmessage add」
 ╠addleavesticker
 ╠delleavesticker
-╠setleave:「responmessage out mem」
+╠setleave:「responmem leave」
 ╠addwelcomesticker
 ╠delwelcomesticker
-╠setwelcome:「responmessage in mem」
+╠setwelcome:「responmem join」
 ╚▬▬▬▬▬▬▬▬▬▬▬▬▬▬╝
 """
 helpmusic ="""「 Music 」
