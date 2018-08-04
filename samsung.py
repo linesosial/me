@@ -2901,7 +2901,7 @@ def lineBot(op):
                             except Exception as error:
                                 client.sendMessage(to, "「 Result Error 」\n" + str(error))                              
 #==============================================================================================================
-                        elif cmd == "เปิดจับคนอ่าน":
+                        elif cmd == "lurking on":
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -2941,8 +2941,8 @@ def lineBot(op):
                                     read['ROM'][msg.to] = {}
                                     with open('sider.json', 'w') as fp:
                                         json.dump(read, fp, sort_keys=True, indent=4)
-                                        client.sendMessage(msg.to, "ตรวจจับคนอ่าน:\n" + readTime)
-                        elif cmd == "ปิดจับคนอ่าน":
+                                        client.sendMessage(msg.to, "Turn on the reader detector::\n" + readTime)
+                        elif cmd == "lurking off":
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -2964,8 +2964,8 @@ def lineBot(op):
                                             del read['readTime'][msg.to]
                                     except:
                                           pass
-                                    client.sendMessage(msg.to, "ปิดตรวจจับคนอ่าน:\n" + readTime)
-                        elif cmd == 'ล้างจับคนอ่าน':
+                                    client.sendMessage(msg.to, "Turn off the reader detector::\n" + readTime)
+                        elif cmd == 'lurking reset':
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.datetime.now()
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -2986,10 +2986,10 @@ def lineBot(op):
                                         read["ROM"][msg.to] = {}
                                     except:
                                         pass
-                                    client.sendMessage(msg.to, "ล้างตรวจจับคนอ่าน:\n" + readTime)
+                                    client.sendMessage(msg.to, "Clear the detector reads.:\n" + readTime)
                                 else:
                                     client.sendMessage(msg.to, "Lurking belum diaktifkan ngapain di reset?")
-                        elif cmd == 'เชคคนอ่าน':
+                        elif cmd == 'lurking':
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.datetime.now()
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -3013,7 +3013,7 @@ def lineBot(op):
                                         zx = ""
                                         zxc = ""
                                         zx2 = []
-                                        xpesan = '「 คนอ่าน 」\n'
+                                        xpesan = '「 readers 」\n'
                                     for x in range(len(cmem)):
                                         xname = str(cmem[x].displayName)
                                         pesan = ''
@@ -3030,21 +3030,21 @@ def lineBot(op):
                                         print (error)
                                     pass
                                 else:
-                                    client.sendMessage(receiver,"เริ่มจับคนอ่านใหม่")
+                                    client.sendMessage(receiver,"lurking on dulu bos")
 #==============================================================================================================
-                        elif cmd == "ติกเรา" or cmd == " gift sticker 1":
+                        elif cmd == "mysticker" or cmd == " gift sticker 1":
                             a = int("1")
                             b = int("1000")
                             c = str("EN")
                             d = client.getActivePurchases(a, b, c, c)
-                            ret_ = "「 สติกเกอร์ของเรา 」"
+                            ret_ = "「 sticker saya 」"
                             no =1
                             jmlh = []
                             for x in d.productList:
                                 ret_ += "\n {}. {}".format(str(no), str(x.title))
                                 no += 1
                                 jmlh.append(x.title)
-                            ret_ += "\n「 จำนวน {} ตัว 」".format(str(len(jmlh)))
+                            ret_ += "\n\n「 total {} tikel 」".format(str(len(jmlh)))
                             client.sendMessage(to, str(ret_),contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'MY STICKERS', 'AGENT_LINK': 'http://line.me/ti/p/~yukie2k18'})
 
                         elif cmd == "announclear" or cmd == " gift sticker 1":
@@ -3060,7 +3060,7 @@ def lineBot(op):
                             client.sendGift(msg.to,'2351','sticker')
                         elif cmd == "gift" or cmd == " gift":
                                 client.sendGift(msg.to,'1002077','sticker')
-                        elif cmd == "เปิดแอบอ่าน" or cmd == "cek sider:on":
+                        elif cmd == "cyduk on" or cmd == "cek sider:on":
                             try:
                                 del sider['point'][receiver]
                                 del sider['sidermem'][receiver]
@@ -3070,164 +3070,164 @@ def lineBot(op):
                             sider['point'][receiver] = msg.id
                             sider['sidermem'][receiver] = ""
                             sider['cyduk'][receiver]=True
-                            client.sendMessage(receiver, "เปิดเชคคนแอบอ่านแล้ว")
-                        elif cmd == "ปิดแอบอ่าน" or cmd == "cek sider:off":
+                            client.sendMessage(receiver, "ehemmmmmm....")
+                        elif cmd == "cyduk off" or cmd == "cek sider:off":
                             if msg.to in sider['point']:
                                 sider['cyduk'][receiver]=False
                                 client.sendMessage(receiver, sider['sidermem'][msg.to])
                             else:
-                                client.sendMessage(receiver, "ปิดเชคคนแอบอ่านแล้ว")
+                                client.sendMessage(receiver, "wkwkwk....")
 #==============================================================================================================
-                        elif cmd == "เชคค่า":
-                            md = "╔══[ การตั้งค่าทั้งหมด ]\n"
-                            if settings["autoRead"] == True: md+="╠ อ่านอัตโนมัติ 「เปิด」\n"
-                            else: md+="╠ อ่านอัตโนมัติ 「ปิด」\n"
-                            if settings["mimic"]["status"] == True: md+="╠ เลืยนแบบ 「เปิด」\n"
-                            else: md+="╠ เลืยนแบบ「ปิด」\n"
-                            if settings["autoAdd"] == True: md+="╠ รับเพื่อนอัตโนมัติ「เปิด」\n"
-                            else: md+="╠ รับเพื่อนอัตโนมัติ「ปิด」\n"
-                            if settings["autoBlock"] == True: md+="╠ ออโต้บล็อค「เปิด」\n"
-                            else: md+="╠ ออโต้บล็อค「ปิด」\n"
-                            if settings["autoLeave"] == True: md+="╠ ออกแชทรวม「เปิด」\n"
-                            else: md+="╠ ออกแชทรวม「ปิด」\n"
-                            if settings["autoJoin"] == True: md+="╠ เข้ากลุ่มอัตโนมัติ 「เปิด」\n"
-                            else: md+="╠ เข้ากลุ่มอัตโนมัติ「ปิด」\n"
-                            if settings["autoJoinTicket"] == True: md+="╠ มุดลิ้งอัตโนมัติ「เปิด」\n"
-                            else: md+="╠ มุดลิ้งอัตโนมัติ「ปิด」\n"
-                            if settings["checkContact"] == True: md+="╠ อ่านคท「เปิด」\n"
-                            else: md+="╠ อ่านคท「ปิด」\n"
-                            if settings["unsendMessage"] == True: md+="╠ Resendchat「เปิด」\n"
-                            else: md+="╠ Resendchat「ปิด」\n"
-                            if settings["detectMention"] == True: md+="╠ ตอบแทค「เปิด」\n"
-                            else: md+="╠ ตอบแทค「ปิด」\n"
-                            if settings["detectMentionPM"] == True: md+="╠ ตอบแทค ส.ต「เปิด」\n"
-                            else: md+="╠ ตอบแทค ส.ต「ปิด」\n"
-                            if settings["welcomeMessage"] == True: md+="╠ ข้อความต้อนรับ「เปิด」\n"
-                            else: md+="╠ ข้อความต้อนรับ「ปิด」\n"
-                            if settings["leaveMessage"] == True: md+="╠ ข้อความคนออก 「เปิด」\n"
-                            else: md+="╠ ข้อความคนออก「ปิด」\n"
-                            if settings["notag"] == True: md+="╠ แทคเตะ「เปิด」\n"
-                            else: md+="╠ แทคเตะ「ปิด」\n"
-                            if settings["autoReply"] == True: md+="╠ Sleepmode「เปิด」\n"
-                            else: md+="╠ Sleepmode「ปิด」\n"
-                            if settings["sticker"] == True: md+="╠ เตะคนลงติ๊ก「เปิด」\n"
-                            else: md+="╠ เตะคนลงติ๊ก「ปิด」"
-                            if settings["checkSticker"] == True: md+="╠ เช็คติ๊ก「เปิด」\n"
-                            else: md+="╠ เช็คติ๊ก「ปิด」"
+                        elif cmd == "status":
+                            md = "╔══[ settings ]\n"
+                            if settings["autoRead"] == True: md+="╠🔔 AutoRead 「on」\n"
+                            else: md+="╠❌ AutoRead 「off」\n"
+                            if settings["mimic"]["status"] == True: md+="╠🔔  Mimic 「on」\n"
+                            else: md+="╠❌  Mimic「off」\n"
+                            if settings["autoAdd"] == True: md+="╠🔔 AutoAdd「on」\n"
+                            else: md+="╠❌ AutoAdd「off」\n"
+                            if settings["autoBlock"] == True: md+="╠🔔 AutoBlock「on」\n"
+                            else: md+="╠❌ AutoBlock「on」\n"
+                            if settings["autoLeave"] == True: md+="╠🔔 AutoLeave「on」\n"
+                            else: md+="╠❌ AutoLeave「ofg」\n"
+                            if settings["autoJoin"] == True: md+="╠🔔 AutoJoin 「on」\n"
+                            else: md+="╠❌ AutoJoin「off」\n"
+                            if settings["autoJoinTicket"] == True: md+="╠🔔 AutoJoinbyTicket「on」\n"
+                            else: md+="╠❌ AutoJoinbyTicket「off」\n"
+                            if settings["checkContact"] == True: md+="╠🔔 CheckContact「on」\n"
+                            else: md+="╠❌ CheckContact「off」\n"
+                            if settings["unsendMessage"] == True: md+="╠🔔 Resendchat「on」\n"
+                            else: md+="╠❌ Resendchat「off」\n"
+                            if settings["detectMention"] == True: md+="╠🔔 DetectMention「on」\n"
+                            else: md+="╠❌ DetectMention「off」\n"
+                            if settings["detectMentionPM"] == True: md+="╠🔔 PmMention「on」\n"
+                            else: md+="╠❌ PmMention「off」\n"
+                            if settings["welcomeMessage"] == True: md+="╠🔔 WelcomeMessage「on」\n"
+                            else: md+="╠❌ WelcomeMessage「off」\n"
+                            if settings["leaveMessage"] == True: md+="╠🔔 LeaveMessage「on」\n"
+                            else: md+="╠❌ LeaveMessage「off」\n"
+                            if settings["notag"] == True: md+="╠🔔 NoTag「on」\n"
+                            else: md+="╠❌ NoTag「off」\n"
+                            if settings["autoReply"] == True: md+="╠🔔 SleepMode「on」\n"
+                            else: md+="╠❌ SleepMode「off」\n"
+                            if settings["sticker"] == True: md+="╠🔔 Sticker「on」\n"
+                            else: md+="╠❌ Sticker「off」"
+                            if settings["checkSticker"] == True: md+="╠🔔 CekSticker「on」\n"
+                            else: md+="╠❌ CheckSticker「off」"
                             #md = "\n╚══[ ทั้งหมด ]"
                             client.sendMessage(to,md+"")
                             
 #====================
-                        elif cmd == "เปิดแอด":
+                        elif cmd == "autoadd on":
                             settings["autoAdd"] = True
-                            client.sendMessage(to, "เปิดรับเพื่อนอัตโนมัติแล้ว")
-                        elif cmd == "ปิดแอด":
+                            client.sendMessage(to, "autoadd telah diaktifkan")
+                        elif cmd == "autoadd off":
                             settings["autoAdd"] = False
-                            client.sendMessage(to, "ปิดรับเพื่อนอัตโนมัติแล้ว")
+                            client.sendMessage(to, "autoadd telah dinonaktifkan")
 #====================
-                        elif cmd == "เปิดมุดลิ้ง":
+                        elif cmd == "autjointic on":
                             settings["autoJoinTicket"] = True
-                            client.sendMessage(to, "เปิดมุดลิ้งอัตโนมัติ")
-                        elif cmd == "ปิดมุดลิ้ง":
+                            client.sendMessage(to, "automatis join by link kode qr diaktifkan")
+                        elif cmd == "autjointic off":
                             settings["autoJoinTicket"] = False
-                            client.sendMessage(to, "ปิดมุดลิ้งอัตโนมัติ")
+                            client.sendMessage(to, "automatis join by link kode qr dinonaktifkan")
 #====================
 #====================
-                        elif cmd == "detailuser on" or cmd == "เปิดคท":
+                        elif cmd == "detailuser on" or cmd == "checkcontact on":
                             settings["checkContact"] = True
-                            client.sendMessage(to, "เปิดการอ่านคทแล้ว")
-                        elif cmd == "detailuser off" or cmd == "ปิดคท":
+                            client.sendMessage(to, "check detail user by contact diaktifkan")
+                        elif cmd == "detailuser off" or cmd == "checkcontact off":
                             settings["checkContact"] = False
-                            client.sendMessage(to, "ปิดการอ่านคทแล้ว")
+                            client.sendMessage(to, "check detail user by contact diaktifkan")
 #====================
-                        elif cmd == "respongroupcall on":
+                        elif cmd == "respongcall on":
                             settings["responGc"] = True
                             client.sendMessage(to, "Success activated Respon GroupCall")
-                        elif cmd == "respongroupcall off":
+                        elif cmd == "respongcall off":
                             settings["responGc"] = False
                             client.sendMessage(to, "Success deactived Respon GroupCall")
 #====================
-                        elif cmd == "เปิดเข้า":
+                        elif cmd == "autojoin on":
                             settings["autoJoin"] = True
-                            client.sendMessage(to, "เปิดเข้ากลุ่มอัตโนมัติ")
-                        elif cmd == "ปิดเข้า":
+                            client.sendMessage(to, "automatis join aktif")
+                        elif cmd == "autojoin off":
                             settings["autoJoin"] = False
-                            client.sendMessage(to, "ปิดเข้ากลุ่มอัตโนมัติ")
+                            client.sendMessage(to, "automatis join nonaktif")
 #====================
-                        elif cmd == "เปิดออกแชท":
+                        elif cmd == "autoleave on":
                             settings["autoLeave"] = True
-                            client.sendMessage(to, "เปิดออกแชทรวมแล้ว")
-                        elif cmd == "ปิดออกแชท":
+                            client.sendMessage(to, "leave from group mode automatis")
+                        elif cmd == "autoleave off":
                             settings["autoLeave"] = False
-                            client.sendMessage(to, "ปิดออกแชทรวมแล้ว")
+                            client.sendMessage(to, "leave from group mode manual")
 #====================
-                        elif cmd == "เปิดอ่าน":
+                        elif cmd == "autoread on":
                             settings["autoRead"] = True
-                            client.sendMessage(to, "เปิดการอ่านอัตโนมัติแล้ว")
-                        elif cmd == "ปิดอ่าน":
+                            client.sendMessage(to, "mode aitomatis baca pesan diaktifkan")
+                        elif cmd == "autoread off":
                             settings["autoRead"] = False
-                            client.sendMessage(to, "ปิดการอ่านอัตโนมัติแล้ว")
-                        elif cmd == "ติ๊กเปิด" or cmd == " sticker on":
+                            client.sendMessage(to, "mode aitomatis baca pesan dinonaktifkan")
+                        elif cmd == "checksticker on" or cmd == " sticker on":
                             settings["checkSticker"] = True
-                            client.sendMessage(to, "เปิดการเช็คโค้ชสติกเกอรแล้ว")
-                        elif cmd == "ติ๊กปิด":
+                            client.sendMessage(to, "check detail sticker line diaktifkan")
+                        elif cmd == "checksticker ofg":
                             settings["checkSticker"] = False
-                            client.sendMessage(to, "ปิดการเช็คโค้ชสติกเกอรแล้ว")
+                            client.sendMessage(to, "check detail sticker line dinonaktifkan")
                         elif cmd == "resendchat on":
                             settings["unsendMessage"] = True
                             client.sendMessage(to, "Resend message has been enabled")
                         elif cmd == "resendchat off":
                             settings["unsendMessage"] = False
                             client.sendMessage(to, "Resend message has been disabled")
-                        elif cmd == "เปิดบล็อค":
+                        elif cmd == "autoblock on":
                             settings["autoBlock"] = True
-                            client.sendMessage(to, "เปิดออโต้บล็อคสำเร็จล้ว")
-                        elif cmd == "ปิดบล็อค":
+                            client.sendMessage(to, "automatis block contact diaktifkan")
+                        elif cmd == "autoblock off":
                             settings["autoBlock"] = False
-                            client.sendMessage(to, "ปิดออโต้บล็อคสำเร็จล้ว")
-                        elif cmd == "เปิดแทคเตะ":
+                            client.sendMessage(to, "automatis block contact diaktifkan")
+                        elif cmd == "notag on":
                             settings["notag"] = True
-                            client.sendMessage(to, "ใครแทคมีจุก555")
-                        elif cmd == "ปิดแทคเตะ":
+                            client.sendMessage(to, "ini diaktifkan")
+                        elif cmd == "notag off":
                             settings["notag"] = False
-                            client.sendMessage(to, "ปิดแทคเตะแล้ว")
-                        elif cmd == "เปิดคนออก":
+                            client.sendMessage(to, "ini dinonaktifkan")
+                        elif cmd == "leavemessage on":
                             settings["leaveMessage"] = True
-                            client.sendMessage(to, "เปิดข้อความคนออกแล้ว")
-                        elif cmd == "ปิดคนออก":
+                            client.sendMessage(to, "respon message diaktifkan")
+                        elif cmd == "leavemessage off":
                             settings["leaveMessage"] = False
-                            client.sendMessage(to, "ปิดข้อความคนออกแล้ว")
-                        elif cmd == "เปิดคนเข้า":
+                            client.sendMessage(to, "respon message dinonaktifkan")
+                        elif cmd == "welcomemessage on":
                             settings["welcomeMessage"] = True
-                            client.sendMessage(to, "เปิดข้อความคนเข้าแล้ว")
-                        elif cmd == "ปิดคนเข้า":
+                            client.sendMessage(to, "respon message diaktifkan")
+                        elif cmd == "welcomemessage off":
                             settings["welcomeMessage"] = False
-                            client.sendMessage(to, "ปิดข้อความคนเข้าแล้ว")
+                            client.sendMessage(to, "respon message dinonaktifkan")
                         elif cmd == "sleepmode on":
                             settings["autoReply"] = True
                             client.sendMessage(to, "Success activated Sleep Mode")
                         elif cmd == "sleepmode off":
                             settings["autoReply"] = False
                             client.sendMessage(to, "Success deactived Sleep Mode")
-                        elif cmd == "เปิดแอบ":
+                        elif cmd == "secret on":
                             settings["getReader"][receiver] = []
-                            client.sendMessage(to, "เปิดการตรวจจับคนแอบอ่าน")
+                            client.sendMessage(to, "open secret read to detect on")
                         elif cmd == "autocancel on":
                             settings["botcancel"] = True
                             client.sendMessage(to, "AutoRead has been enabled")
                         elif cmd == "autocancel off":
                             settings["botcancel"] = False
                             client.sendMessage(to, "AutoRead has been disabled")
-                        elif cmd == "ปิดแอบ":
+                        elif cmd == "secret off":
                             if receiver in settings["getReader"]:
                                 del settings["getReader"][receiver]
-                                client.sendMessage(to, "เปิดการตรวจจับคนแอบอ่าน")
-                        elif cmd == "เปิดเตะคนลงติ๊ก" or cmd == "/nosticker:0":
+                                client.sendMessage(to, "close secret read to detect on")
+                        elif cmd == "kickoff up" or cmd == "/nosticker:0":
                                 settings["sticker"] = True
-                                client.sendMessage(to,"เปิดสติกเกอรแล้ว")
-                        elif cmd == "ปิดเตะคนลงติ๊ก" or cmd == "/nosticker:1":
+                                client.sendMessage(to,"open up stickernya diaktifkan")
+                        elif cmd == "kickoff down" or cmd == "/nosticker:1":
                                 settings["sticker"] = False
-                                client.sendMessage(to,"ปิดสติกเกอรแล้ว")
+                                client.sendMessage(to,"open down sticker dinonaktifkan")
                         elif cmd == "sleepmode":
                             if settings["replyPesan"] is not None:
                                 client.sendMessage(to,"Your Sleepmode is : " + str(settings["replyPesan"]))
@@ -3264,18 +3264,18 @@ def lineBot(op):
                                     sendSticker(to, sver, spkg, sid)
                             else:
                                 client.sendMessage(to,"My LeaveMessage : No messages are set")
-                        elif cmd == "ตั้งติ๊กคนออก":
+                        elif cmd == "addleavesticker":
                             settings["messageSticker"]["addStatus"] = True
                             settings["messageSticker"]["addName"] = "leaveSticker"
-                            client.sendMessage(to, "ส่งสติกเกอรที่จะตั้งลงมา")
-                        elif cmd == "ลบติ๊กคนออก":
+                            client.sendMessage(to, "Send the sticker to set it down")
+                        elif cmd == "delleavesticker":
                             settings["messageSticker"]["listSticker"]["leaveSticker"] = None
-                            client.sendMessage(to, "ลบสติกเกอรคนเข้าแล้ว")
-                        elif cmd.startswith("ตั้งคนออก: "):
-                            text_ = cmd.replace("ตั้งคนออก:", "")
+                            client.sendMessage(to, "Has been Remove the sticker leave")
+                        elif cmd.startswith("setleave: "):
+                            text_ = cmd.replace("setleave:", "")
                             try:
                                 settings["leavePesan"] = text_
-                                client.sendMessage(to,"ข้อความคนออกห้องของคุณ : " + text_)
+                                client.sendMessage(to,"Text leavemessage your room: : " + text_)
                             except:
                                 client.sendMessage(to,"LeaveMessage\nFailed to replace message")
                         elif cmd == "welcomemessage":
@@ -3289,21 +3289,21 @@ def lineBot(op):
                                     sendSticker(to, sver, spkg, sid)
                             else:
                                 client.sendMessage(to,"My Set WelcomeMessage : No messages are set")
-                        elif cmd == "ตั้งติ๊กคนเข้า":
+                        elif cmd == "addwelcomesticker":
                             settings["messageSticker"]["addStatus"] = True
                             settings["messageSticker"]["addName"] = "welcomeSticker"
-                            client.sendMessage(to, "ส่งสติกเกอรที่จะตั้งลงมา")
-                        elif cmd == "ลบติ๊กคนเข้า":
+                            client.sendMessage(to, "Send the sticker to set it down")
+                        elif cmd == "delwelcomesticker":
                             settings["messageSticker"]["listSticker"]["welcomeSticker"] = None
-                            client.sendMessage(to, "ลบสติกเกอรคนเข้าแล้ว")
-                        elif cmd.startswith("ตั้งคนเข้า: "):
-                            text_ = cmd.replace("ตั้งคนเข้า:", "")
+                            client.sendMessage(to, "Remove the welcome sticker and then")
+                        elif cmd.startswith("setwelcome: "):
+                            text_ = cmd.replace("setwelcome:", "")
                             try:
                                 settings["welcomePesan"] = text_
-                                client.sendMessage(to,"ข้อความตอนเราของคุณ : " + text_)
+                                client.sendMessage(to,"my e-mail message : " + text_)
                             except:
                                 client.sendMessage(to,"WelcomeMessage\nFailed to replace message")
-                        elif cmd == "แทค":
+                        elif cmd == "tag":
                             if msg.toType == 0:
                                 sendMention(to, to)
                             elif msg.toType == 2:
@@ -3369,18 +3369,18 @@ def lineBot(op):
                                     sendSticker(to, sver, spkg, sid)
                             else:
                                 client.sendMessage(to,"My Set AutoAdd : No messages are set")
-                        elif cmd == "ตั้งติ๊กคนแอด":
+                        elif cmd == "addautosticker":
                             settings["messageSticker"]["addStatus"] = True
                             settings["messageSticker"]["addName"] = "addSticker"
-                            client.sendMessage(to, "ส่งสติกเกอรที่จะใช่ลงมา")
-                        elif cmd == "ลบติ๊กคนแอด":
+                            client.sendMessage(to, "Send the sticker down")
+                        elif cmd == "deladdautosticker":
                             settings["messageSticker"]["listSticker"]["addSticker"] = None
-                            client.sendMessage(to, "ลบสติกเกอรคนแทคแล้ว")
-                        elif cmd.startswith("ตั้งคนแอด: "):
-                            text_ = cmd.replace("ตั้งคนแอด:", "")
+                            client.sendMessage(to, "Remove has been sticker automatis add")
+                        elif cmd.startswith("setadd: "):
+                            text_ = cmd.replace("setadf:", "")
                             try:
                                 settings["addPesan"] = text_
-                                client.sendMessage(to,"คำตอบกลับคนแอดของคุณ : " + text_)
+                                client.sendMessage(to,"AutoReply to addme : " + text_)
                             except:
                                 client.sendMessage(to,"AutoAdd\nFailed to replace message")
                         elif cmd == "autorespon":
@@ -3394,51 +3394,51 @@ def lineBot(op):
                                     sendSticker(to, sver, spkg, sid)
                             else:
                                 client.sendMessage(to,"Your Autorespon is : No messages are set")
-                        elif cmd == "ตั้งติ๊กคนแทค":
+                        elif cmd == "responsticker":
                             settings["messageSticker"]["addStatus"] = True
                             settings["messageSticker"]["addName"] = "responSticker"
-                            client.sendMessage(to, "ส่งสติกเกอรที่จะใช่ลงมา")
-                        elif cmd == "ลบติ๊กคนแทค":
+                            client.sendMessage(to, "silahkan kirim stickernya...")
+                        elif cmd == "delresponsticker":
                             settings["messageSticker"]["listSticker"]["responSticker"] = None
-                            client.sendMessage(to, "ลบสติกเกอรคนแทคแล้ว")
-                        elif cmd.startswith("ตั้งแทค: "):
-                            text_ = cmd.replace("ตั้งแทค:", "")
+                            client.sendMessage(to, "has been Remove the sticker respon")
+                        elif cmd.startswith("setrespon: "):
+                            text_ = cmd.replace("setrespon:", "")
                             try:
                                 settings["mentionPesan"] = text_
-                                client.sendMessage(to,"คำแทค คือ : " + text_)
+                                client.sendMessage(to,"tagrespon message : " + text_)
                             except:
-                                client.sendMessage(to,"คำแทค คือ")
-                        elif cmd == "ตั้งติ๊กคนแอบ":
+                                client.sendMessage(to,"please retagrespon message")
+                        elif cmd == "addreadsticker":
                             settings["messageSticker"]["addStatus"] = True
                             settings["messageSticker"]["addName"] = "readerSticker"
-                            client.sendMessage(to, "ส่งสติ๊กเกอรที่จะใช่ลงมา")
-                        elif cmd == "ลบติ๊กคนแอบ":
+                            client.sendMessage(to, "Send sticker that will come down.")
+                        elif cmd == "delreadsticker":
                             settings["messageSticker"]["listSticker"]["readerSticker"] = None
-                            client.sendMessage(to, "ลบสติ๊กเกอรคนแอบอ่านแล้ว")
-                        elif cmd.startswith("ตั้งคนแอบ: "):
-                            text_ = cmd.replace("ตั้งคนแอบ:", "")
+                            client.sendMessage(to, "Saya telah membaca rahasianya")
+                        elif cmd.startswith("setread: "):
+                            text_ = cmd.replace("setread:", "")
                             try:
                                 settings["readerPesan"] = text_
-                                client.sendMessage(to,"ตั้งข้อความคนแอบอ่านแล้ว : " + text_)
+                                client.sendMessage(to,"secretreader as : " + text_)
                             except:
-                                client.sendMessage(to,"กำลังตั้ง\nตั้งสติ๊กเกอรคนแอบเรียบร้อย")
+                                client.sendMessage(to,"pengaturan\ngetreader")
 #==============================================================================================================
-                        elif "เลืยนแบบ " in msg.text.lower():
-                            mic = msg.text.lower().replace("เลืยนแบบ ","")
-                            if mic == "เปิด":
+                        elif "mimic " in msg.text.lower():
+                            mic = msg.text.lower().replace("mimic ","")
+                            if mic == "on":
                                 if settings["mimic"]["status"] == False:
                                     settings["mimic"]["status"] = True
-                                    client.sendMessage(msg.to,"เปิดการเลียนแบบแล้ว")
+                                    client.sendMessage(msg.to,"copy paste turn on")
                                 else:
-                                    client.sendMessage(msg.to,"เปิดการเลียนแบบแล้ว")
-                            elif mic == "ปิด":
+                                    client.sendMessage(msg.to,"copy paste turn on")
+                            elif mic == "off":
                                 if settings["mimic"]["status"] == True:
                                     settings["mimic"]["status"] = False
-                                    client.sendMessage(msg.to,"ปิดการเลียนแบบแล้ว")
+                                    client.sendMessage(msg.to,"copy paste turn off")
                                 else:
-                                    client.sendMessage(msg.to,"ปิดการเลียนแบบแล้ว")
+                                    client.sendMessage(msg.to,"copy paste turn off")
 #==============================================================================#
-                        elif msg.text.lower().startswith("เลียนแบบ "):
+                        elif msg.text.lower().startswith("mimicadd "):
                             targets = []
                             key = eval(msg.contentMetadata["MENTION"])
                             key["MENTIONEES"][0]["M"]
@@ -3447,12 +3447,12 @@ def lineBot(op):
                             for target in targets:
                                 try:
                                     settings["mimic"]["target"][target] = True
-                                    client.sendMessage(msg.to,"ตั้งคนที่เราจะเลียนแบบแล้ว")
+                                    client.sendMessage(msg.to,"copast mimic user target")
                                     break
                                 except:
-                                    client.sendMessage(msg.to,"ตั้งคนที่เราจะเลียนแบบแล้ว")
+                                    client.sendMessage(msg.to,"user copast target berhasil")
                                     break
-                        elif msg.text.lower().startswith("ล้างเลียนแบบ "):
+                        elif msg.text.lower().startswith("mimicdel "):
                             targets = []
                             key = eval(msg.contentMetadata["MENTION"])
                             key["MENTIONEES"][0]["M"]
@@ -3461,14 +3461,14 @@ def lineBot(op):
                             for target in targets:
                                 try:
                                     del settings["mimic"]["target"][target]
-                                    client.sendMessage(msg.to,"ล้างคนที่เลียนแบบแล้ว")
+                                    client.sendMessage(msg.to,"berhasil dihapus dari target")
                                     break
                                 except:
-                                    client.sendMessage(msg.to,"ล้างคนที่เลียนแบบแล้ว")
+                                    client.sendMessage(msg.to,"berhasil dihapus dari target")
                                     break
-                        elif text.lower() == 'เชคเลียนแบบ':
+                        elif text.lower() == 'mimiclist':
                             if settings["mimic"]["target"] == {}:
-                                client.sendMessage(msg.to,"Target in Mimic List None♪")
+                                client.sendMessage(msg.to,"Target in Mimic List None")
                             else:
                                 num = 1
                                 mc = "「 MimicList 」"
@@ -3477,7 +3477,7 @@ def lineBot(op):
                                 mc += "\n「 Finish 」"
                                 client.sendMessage(msg.to,mc)                     
                                 
-                        elif cmd.startswith("ไปหำ "):
+                        elif cmd.startswith("tidur "):
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -3493,7 +3493,7 @@ def lineBot(op):
                                         client.cancelGroupInvitation(to, [ls])
                                     except:
                                        client.sendMessage(to, "Limited !")
-                        elif cmd.startswith("ลองดู "):
+                        elif cmd.startswith("coba "):
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -3511,7 +3511,7 @@ def lineBot(op):
                                         client.inviteIntoGroup(to, [ls])
                                     except:
                                        client.sendMessage(to, "Limited !")
-                        elif cmd.startswith("ล้อเล่น "):
+                        elif cmd.startswith("siap "):
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -3528,27 +3528,27 @@ def lineBot(op):
                                     except:
                                        client.sendMessage(to, "Limited !")
 
-                        elif cmd.startswith("คำห้ามพิม "):
+                        elif cmd.startswith("unban "):
                             wban = cmd.split()[1:]
                             wban = " ".join(wban)
                             wbanlist.append(wban)
-                            client.sendMessage(to,"%s พิมคำนี้อาจมีปลิวนะ."%wban)
-                        elif cmd.startswith("ล้างคำห้ามพิม "):
+                            client.sendMessage(to,"%s ini blown."%wban)
+                        elif cmd.startswith("clearban "):
                             wunban = cmd.split()[1:]
                             wunban = " ".join(wunban)
                             if wunban in wbanlist:
                                 wbanlist.remove(wunban)
-                                client.sendMessage(to,"%s ล้างออกจากคำสั่งห้ามพิมแล้ว."%wunban)
+                                client.sendMessage(to,"%s tidak ada blacklist."%wunban)
                             else:
                                 client.sendMessage(to,"%s is not blacklisted."%wunban)
-                        elif cmd == 'เชคคำห้ามพิม':
-                            tst = "คำห้ามพิม:\n"
+                        elif cmd == 'unbanall':
+                            tst = "myban:\n"
                             if len(wbanlist) > 0:
                                 for word in wbanlist:
                                     tst += "- %s"%word
                                 client.sendMessage(msg.to,tst)
                             else:
-                                client.sendMessage(msg.to,"คำที่ห้ามพิมทั้งหมด")
+                                client.sendMessage(msg.to,"semua diijinkan")
 #==============================================================================================================
                         elif cmd.startswith("checkdate "):
                             tanggal = text.replace("checkdate ","")
@@ -3621,7 +3621,7 @@ def lineBot(op):
                                                 client.sendImageWithURL(msg.to, str(data["result"]["img"]))
                                                 client.sendMessage(msg.to, str(ret_))
                                                 client.sendAudioWithURL(msg.to, str(data["result"]["mp3"][0]))
-                        elif cmd.startswith("เขียน "):
+                        elif cmd.startswith("image "):
                                 sep = msg.text.split(" ")
                                 textnya = msg.text.replace(sep[0] + " ","")
                                 path = "http://chart.apis.google.com/chart?chs=480x80&cht=p3&chtt=" + textnya + "&chts=FFFFFF,70&chf=bg,s,000000"
@@ -3652,7 +3652,7 @@ def lineBot(op):
                             except Exception as e:
                                 client.sendMessage(to, str(e))
 #==============================================================================================================
-                        elif cmd.startswith("เพิ่มดำ "):
+                        elif cmd.startswith("addban "):
                             sep = text.split(" ")
                             text = text.replace(sep[0] + " ","")
                             if msg.toType == 2:
@@ -3675,7 +3675,7 @@ def lineBot(op):
                                                 print("[Command] Bannad")
                                             except:
                                                 pass
-                        elif cmd.startswith("ลบดำ "):
+                        elif cmd.startswith("delban "):
                             sep = text.split(" ")
                             text = text.replace(sep[0] + " ","")
                             if msg.toType == 2:
@@ -3697,23 +3697,23 @@ def lineBot(op):
                                                 print("[Command] Bannad")
                                             except:
                                                 pass
-                        elif cmd == "ดำ":
+                        elif cmd == "baned":
                             settings["wblacklist"] = True
-                            client.sendMessage(to,"ส่ง คท คทที่คุณจะยัดดำลงมา")
-                        elif cmd == "ปลดดำ":
+                            client.sendMessage(to,"Send contact you will be blacklist")
+                        elif cmd == "delban":
                             settings["dblacklist"] = True
-                            client.sendMessage(to,"ส่ง คท คทที่คุณล้างดำลงมา")
-                        elif cmd == "คทดำ" or cmd == "mute contact":
+                            client.sendMessage(to,"Send contact you will be whitelist")
+                        elif cmd == "conban" or cmd == "mute contact":
                             if msg._from in clientMID:
                                 if settings["blacklist"] == []:
                                     client.sendMessage(to, "Nothing boss")
                                 else:
                                     for bl in settings["blacklist"]:
                                         client.sendMessage(to, text=None, contentMetadata={'mid': bl}, contentType=13)
-                        elif cmd == "ล้างดำ":
+                        elif cmd == "cekban":
                             settings["blacklist"] = {}
-                            client.sendMessage(to,"「ล้างคนติดดำหมดเรียบร้อย」")
-                        elif cmd.startswith("ลบเพื่อน "):
+                            client.sendMessage(to,"「bersih daftar blacklist」")
+                        elif cmd.startswith("unfriend "):
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -3724,7 +3724,7 @@ def lineBot(op):
                                         lists.append(mention["M"])
                                 for ls in lists:
                                     client.deleteContact(ls)
-                                client.sendMessage(to, "ลบออกจากการเป็นเพื่อนแล้ว")
+                                client.sendMessage,(to,"has been Remove from friend")
                         elif cmd == "motivation":
                              try:                                                                           
                                  r = requests.get("https://ari-api.herokuapp.com/images?q=quotes")
@@ -3739,7 +3739,7 @@ def lineBot(op):
                                      log.info("Image #%s from #%s." %(str(a),str(b)))
                              except Exception as error:
                                   log.info(error)
-                        elif cmd == "conban":
+                        elif cmd == "checkblock":
                             if msg._from in clientMID:
                                 blockedlist = client.getBlockedContactIds()
                                 if blockedlist == []:
@@ -3748,7 +3748,7 @@ def lineBot(op):
                                     for kontak in blockedlist:
                                         client.sendMessage(to, text=None, contentMetadata={'mid': kontak}, contentType=13)
 #==============================================================================================================
-                        elif cmd == "มอง" or cmd == "tagall" or cmd == "desah" or cmd == "jembot":
+                        elif cmd == "mention" or cmd == "tagall" or cmd == "desah" or cmd == "jembot":
                             group = client.getGroup(msg.to)
                             nama = [contact.mid for contact in group.members]
                             k = len(nama)//100
@@ -3763,9 +3763,9 @@ def lineBot(op):
                                 client.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
 #==============================================================================================================
 #==============================================================================================================
-                        elif cmd.startswith("ขอรูป "):
+                        elif cmd.startswith("gambar "):
                             try:
-                                search = cmd.replace("ขอรูป ","")
+                                search = cmd.replace("gambar ","")
                                 r = requests.get("https://xeonwz.herokuapp.com/images/google.api?q={}".format(search))
                                 data = r.text
                                 data = json.loads(data)
@@ -3865,9 +3865,9 @@ def lineBot(op):
                                 client.sendMessage(to, str(ret_))
                             except Exception as error:
                                 client.sendMessage(to, str(error))
-                        elif cmd.startswith("ยูทูป "):
+                        elif cmd.startswith("yt "):
                             try:
-                                search = cmd.replace("ยูทูป ","").strip()
+                                search = cmd.replace("yt ","").strip()
                                 query = urllib.parse.quote(search)
                                 url = "https://youtube.com/results?search_query=" + query
                                 response = urllib.request.urlopen(url)
@@ -3913,13 +3913,13 @@ def lineBot(op):
                             path = random.randint(0,50)
                             time.sleep(10)
                             sendMention(to, sender, "「 Guess 」\n•", "\nLucky number : " + str(path))
-                        elif cmd == "ล้างเพื่อนทั่งหมด" or cmd == " unfriendall":
+                        elif cmd == "resetfriend" or cmd == " unfriendall":
                             try:
                                 friend = client.getContacts(client.getAllContactIds())
-                                client.sendMessage(to,"คุณได้ล้างเพื่อนทั่งหมด {} คน".format(len(friend)))
+                                client.sendMessage(to,"Anda sudah membersihkan semua teman Anda {} kontak".format(len(friend)))
                                 for unfriend in friend:
                                     client.deleteContact(unfriend.mid)
-                                client.sendMessage(to,"คุณได้ล้างเพื่อนทั่งหมด {} คน".format(len(friend)))
+                                client.sendMessage(to,"Anda sudah membersihkan semua teman Anda {} kontak".format(len(friend)))
                             except Exception as error:
                                 client.sendMessage(to, "「 Result Error 」\n" + str(error))
                         elif cmd == "clearallinvites" or cmd == "rejectall":
@@ -3970,7 +3970,7 @@ def lineBot(op):
                         elif cmd == "tespeed" or cmd == "sp":
                             try:
                                 start = time.time()
-                                client.sendMessage(to, "กำลังทดสอบ...")
+                                client.sendMessage(to, "please waiting...")
                                 elapsed_time = time.time() - start
                                 client.sendMessage(to,"Time:\n%s"%str(round(elapsed_time,3)))
                             except Exception as error:
@@ -4111,7 +4111,7 @@ def lineBot(op):
                                 client.sendMessage(to,"Member in Group : \n"+ str(G.name) + "\n\n" + ret_ + "\n\nTotal : %i Members" % len(G.members))
                             except: 
                                 pass
-                        elif cmd == "ข้อมูลกลุ่ม" or cmd == "ข้อมูลกลุ่ม":
+                        elif cmd == "infogroup" or cmd == "groupinfo":
                             group = client.getGroup(to)
                             path = "http://dl.profile.line-cdn.net/" + group.pictureStatus
                             try:
@@ -4130,15 +4130,15 @@ def lineBot(op):
                                 gTicket = "https://line.me/R/ti/g/{}".format(str(client.reissueGroupTicket(group.id)))
                             timeCreated = []
                             timeCreated.append(time.strftime("%d-%m-%Y [ %H:%M:%S ]", time.localtime(int(group.createdTime) / 1000)))
-                            ret_ = "「 ข้อมูลกลุ่ม 」\n"
-                            ret_ += "\nชิ่อกลุ่ม : {}".format(group.name)
-                            ret_ += "\nไอดีกลุ่ม : {}".format(group.id)
-                            ret_ += "\nชื่ิอคนสร้าง : {}".format(gCreator)
-                            ret_ += "\nสร้างเมื่อ : {}".format(str(timeCreated))
-                            ret_ += "\nสมาชิกในกลุ่ม : {}".format(str(len(group.members)))
-                            ret_ += "\nค้างเชิญ : {}".format(gPending)
-                            ret_ += "\nกลุ่ม  : {}".format(gQr)
-                            ret_ += "\nลิ้งกลุ่ม : {}".format(gTicket)
+                            ret_ = "「 Informasi grup 」\n"
+                            ret_ += "\nNama Group : {}".format(group.name)
+                            ret_ += "\nId Group : {}".format(group.id)
+                            ret_ += "\nPembuat : {}".format(gCreator)
+                            ret_ += "\nDibuat : {}".format(str(timeCreated))
+                            ret_ += "\nJumlah : {}".format(str(len(group.members)))
+                            ret_ += "\nPending : {}".format(gPending)
+                            ret_ += "\nQr Kode  : {}".format(gQr)
+                            ret_ += "\nLink : {}".format(gTicket)
                             client.sendImageWithURL(to, path)
                             client.sendMessage(to, str(ret_))
                             client.sendContact(to, group.creator.mid)
@@ -4161,21 +4161,21 @@ def lineBot(op):
                                     pass
                             except Exception as error:
                                 client.sendMessage(to, "「 Result Error 」\n" + str(error))
-                        elif cmd == "บ้าน" or cmd == "บ้าน":
+                        elif cmd == "groupku" or cmd == "mygroup":
                             groups = client.getGroupIdsJoined()
-                            ret_ = "「 กลุ่มทั้งหมด 」"
+                            ret_ = "「 Semua grup 」"
                             no = 1
                             for gid in groups:
                                 group = client.getGroup(gid)
                                 ret_ += "\n{}. {} | {}".format(str(no), str(group.name), str(len(group.members)))
                                 no = (no+1)
-                            ret_ += "\n「 ทั้งหมด : {} กลุ่ม 」".format(str(len(groups)))
+                            ret_ += "\n「 keseluruhan : {} group 」".format(str(len(groups)))
                             ret_ += "\nUsage : Ginfo# number"
                             client.sendMessage(to, str(ret_))
-                        elif cmd.startswith("สวัสดี "):
+                        elif cmd.startswith("hello "):
                             try:
                                 if msg.toType == 2:
-                                    name = cmd.replace("สวัสดี ","")
+                                    name = cmd.replace("hello ","")
                                     groups = client.getGroup(msg.to)
                                     targets = []
                                     for group in groups.members:
@@ -4186,11 +4186,11 @@ def lineBot(op):
                                     else:
                                         for target in targets:
                                             try:
-                                                a = "「 Whois 」\n"
-                                                a += "\nชื่อ : " + client.getContact(target).displayName
+                                                a = "「 Identitas 」\n"
+                                                a += "\nDisplay nama : " + client.getContact(target).displayName
                                                 a += "\nMention : @!    "
-                                                a += "\nตัส : " + client.getContact(target).statusMessage
-                                                a += "\nไอดี : " + target
+                                                a += "\nBio Status : " + client.getContact(target).statusMessage
+                                                a += "\nMid : " + target
                                                 khieMention(to, str(a),[target])
                                                 client.sendContact(to, target)
                                             except:
@@ -4198,25 +4198,25 @@ def lineBot(op):
                             except Exception as error:
                                 client.sendMessage(to, str(error))
                             
-                        elif cmd == "ข้อมูล" or cmd == "about":
+                        elif cmd == "itsme" or cmd == "about":
                             try:
                                 arr = []
-                                owner = "ue4341206714a63166f6540501005a5d9"
-                                khietag = "ue4341206714a63166f6540501005a5d9"                        
+                                owner = "u31d8aba9dff04c75242f2a2097b8adae"
+                                khietag = "u9f478c580a9c4e1de5e407e9b10c2da1"                        
              #                   creator = client.getContact(owner)
                                 contact = client.getContact(clientMID)
                                 grouplist = client.getGroupIdsJoined()
                                 contactlist = client.getAllContactIds()
                                 favoritelist = client.getFavoriteMids()
                                 blockedlist = client.getBlockedContactIds()
-                                ret_ = "「ข้อมูล」\n"
-                                ret_ += "\n👑 ชื่อเรา ➣ {}".format(contact.displayName)
-                                ret_ += "\n👑 กลุ่มที่อยู่ ➣ {}".format(str(len(grouplist)))
-                                ret_ += "\n👑 เพื่อน ➣ {}".format(str(len(contactlist)))
+                                ret_ = "「type SELFBOT」\n"
+                                ret_ += "\n👑 NAMA ➣ {}".format(contact.displayName)
+                                ret_ += "\n👑 GROUP ➣ {}".format(str(len(grouplist)))
+                                ret_ += "\n👑 TEMAN ➣ {}".format(str(len(contactlist)))
                                 ret_ += "\n👑 Favorites ➣ {}".format(str(len(favoritelist)))
-                                ret_ += "\n👑 บล็อค ➣ {}".format(str(len(blockedlist)))
+                                ret_ += "\n👑 BLOCKED ➣ {}".format(str(len(blockedlist)))
                                 ret_ += "\n👑 Bot Version ➣ V.03"
-                                ret_ += "\n👑 คนสร้าง ➣ @!              " #.format(creator.displayName)
+                                ret_ += "\n👑 CREATOR ➣ @!              " #.format(creator.displayName)
    #                             client.sendMessage(to, str(ret_))
                                 khieMention(to, str(ret_),[khietag])
                             except Exception as error:
@@ -4286,11 +4286,11 @@ def lineBot(op):
                                 client.sendMessage(to, "Remote Ats Succes\n\nIn Group : " + G.name)
                             except Exception as error:
                                 client.sendMessage(to, str(error))
-                        elif cmd.startswith("เพื่อน"):
+                        elif cmd.startswith("friendlist"):
                             contactlist = client.getAllContactIds()
                             kontak = client.getContacts(contactlist)
                             num=1
-                            msgs="「 รายชื่อเพื่อน 」\n"
+                            msgs="「 Daftar Teman 」\n"
                             for ids in kontak:
                                 msgs+="\n%i. %s" % (num, ids.displayName)
                                 num=(num+1)
@@ -4354,10 +4354,10 @@ def lineBot(op):
                                 no += 1
                                 ret_ += "\n" + str(no) + ". " + "{}".format(str(hmm))
                             client.sendMessage(msg.to, str(ret_))
-                        elif cmd.startswith("บล็อคไอดี "):
-                            user = cmd.replace("บล็อคไอดี ","")
+                        elif cmd.startswith("blokir "):
+                            user = cmd.replace("blokir ","")
                             client.blockContact(user)
-                            client.sendMessage(to, "ทำการบล็อคไอดีนั้นแล้ว")
+                            client.sendMessage(to, "blokir bokir biar mikir")
                                 
                         elif cmd.startswith("prankcall "):
                             sep = msg.text.split(" ")
@@ -4370,13 +4370,13 @@ def lineBot(op):
                             ret_ += "\nTarget "+str(data["result"])
                             client.sendMessage(msg.to, str(ret_))
 
-                        elif cmd.startswith("ไอดีไลน์ "):
-                            id = cmd.replace("ไอดีไลน์ ","")
+                        elif cmd.startswith("idline "):
+                            id = cmd.replace("idline ","")
                             conn = client.findContactsByUserid(id)
                             if True:                                      
                                 client.sendMessage(to,"http://line.me/ti/p/~" + id)
                                 client.sendContact(to,conn.mid)
-                        elif cmd.startswith("พูดทุกห้อง "):
+                        elif cmd.startswith("gcastvoice "):
                                 bctxt = cmd.replace("gcastvoice ", "")
                                 bc = ("Broadcast voice by khie")
                                 cb = (bctxt + bc)
@@ -4446,11 +4446,11 @@ def lineBot(op):
                             user = cmd.replace("unblockmid ","")
                             client.unblockContact(user)
                             client.sendMessage(to, "Success Unblock Contact.")    
-                        elif cmd == "บล็อค" or cmd == " blocklist":
+                        elif cmd == "listblock" or cmd == " blocklist":
                             blockedlist = client.getBlockedContactIds()
                             kontak = client.getContacts(blockedlist)
                             num=1
-                            msgs="「 รายชื่อคนที่เราบล็อค 」\n"
+                            msgs="「 Daftar Bokir 」\n"
                             for ids in kontak:
                                msgs+="\n%i. %s" % (num, ids.displayName)
                                num=(num+1)
@@ -4469,8 +4469,8 @@ def lineBot(op):
                             ret_ += "\n\nUsage : Reject #number"
                             client.sendMessage(to, str(ret_))
                             
-                        elif cmd.startswith("ลบรัน"):
-                            number = cmd.replace("ลบรัน","")
+                        elif cmd.startswith("reject"):
+                            number = cmd.replace("reject","")
                             groups = client.getGroupIdsInvited()
                             try:
                                 group = groups[int(number)-1]
@@ -4530,8 +4530,8 @@ def lineBot(op):
                                 logError(error)
                                 var= traceback.print_tb(error.__traceback__)
                                 client.sendMessage(to,str(var))
-                        elif cmd.startswith("ยกเลิก "):
-                            args = cmd.replace("ยกเลิก ","")
+                        elif cmd.startswith("unsend "):
+                            args = cmd.replace("unsend ","")
                             mes = 0
                             try:
                                 mes = int(args[1])
@@ -4553,7 +4553,7 @@ def lineBot(op):
                                 thread1 = threading.Thread(target=unsMes, args=(i,))
                                 thread1.start()
                                 thread1.join()
-                            client.sendMessage(to, ' 「 กำลังยกเลิกข้อความ 」\nยกเลิกข้อความทั้งหมด {} ข้อความ'.format(len(MId)))
+                            client.sendMessage(to, ' 「 UnsendMessage 」\nUnsubscribe {} message'.format(len(MId)))
                         elif cmd.startswith("fc "):
                             sep = msg.text.split(" ")
                             anu = msg.text.replace(sep[0] + " "," ")                
@@ -4578,7 +4578,7 @@ def lineBot(op):
    #                              get_contact = client.getContact(clientMid)
                                 get_contact_time = time.time() - get_contact_time_start
                    #              client.sendMessage("u3b07c57b6239e5216aa4c7a02687c86d", '.')
-                                client.sendMessage(to, "Time:\n%.6f" % (get_group_time/3))
+                                client.sendMessage(to, "TimeSpeed:%.6f" % (get_group_time/3))
 
                         elif cmd.startswith("zodiaceng "):
                             string = cmd.replace("zodiaceng ","")   
@@ -4691,7 +4691,7 @@ def lineBot(op):
                                     client.sendMessage(to, str(ret_))
                                 except:
                                     client.sendMessage(to, "Porn Not Found !")
-                        elif cmd == "ข่าว":
+                        elif cmd == "top":
                              try:
                                  api_key = "a53cb61cee4d4c518b69473893dba73b"
                                  r = _session.get("https://newsapi.org/v2/top-headlines?country=id&apiKey={}".format(str(api_key)))
@@ -4721,7 +4721,7 @@ def lineBot(op):
                                  client.sendMessage(to, str(ret_))
                              except:
                                  client.sendMessage(to, "Top news Not Found !")
-                        elif cmd.startswith("ถาม "):
+                        elif cmd.startswith("asking "):
                             kata = cmd.replace("asking", "")
                             sch = kata.replace(" ","+")
                             with _session as web:
@@ -4733,8 +4733,8 @@ def lineBot(op):
                                 ret_ = "「Ask」"
                                 ret_ += "\n\nLink : {}".format(str(url))
                                 client.sendMessage(to, str(ret_))
-                        elif cmd.startswith("กาตูน "):
-                            judul = cmd.replace("กาตูน", "")
+                        elif cmd.startswith("anime "):
+                            judul = cmd.replace("anime", "")
                             with _session as web:
                                 try:
                                     r = web.get("https://kitsu.io/api/edge/anime?filter[text]={}".format(str(judul)))
@@ -5180,7 +5180,7 @@ def lineBot(op):
                     msg = settings["readerPesan"].split("@!")
                     sendMention(op.param1, op.param2, msg[0], msg[1])
                 else:
-                    sendMention(op.param1, op.param2, "จ๊ะเอ๋", settings["readerPesan"])
+                    sendMention(op.param1, op.param2, "cekrek", settings["readerPesan"])
                 settings["getReader"][op.param1].append(op.param2)   
 #==============================================================================================================
         if op.type == 17:
@@ -5216,7 +5216,7 @@ def cium(to, nama):
     strt = int(0)
     akh = int(0)
     nm = nama
-    myid = "uaca55463c423c3632012598148691da7"
+    myid = "ce61eb544e5e36cd48aa8020c11aa96f8"
     if myid in nm:    
       nm.remove(myid)
     #print nm
@@ -5310,7 +5310,7 @@ def mentionMembers(to, mid):
         jml = len(mids)
         arrData = ""
         if mid[0] == mids[0]:
-            textx = "สมาชิก {} คน\n\n".format(str(jml))
+            textx = "semua {} members\n\n".format(str(jml))
         else:
             textx = ""
         arr = []
