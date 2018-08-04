@@ -3117,8 +3117,8 @@ def lineBot(op):
                             else: md+="╠❌ SleepMode「off」\n"
                             if settings["sticker"] == True: md+="╠🔔 Sticker「on」\n"
                             else: md+="╠❌ Sticker「off」\n"
-                            if settings["checkSticker"] == True: md+="╠🔔 CekSticker「on」\n▬▬▬▬▬▬▬▬▬▬▬▬╝"
-                            else: md+="╠❌ CheckSticker「off」\n▬▬▬▬▬▬▬▬▬▬▬▬╝"
+                            if settings["checkSticker"] == True: md+="╠🔔 CekSticker「on」\n╚▬▬▬▬▬▬▬▬▬▬▬▬╝"
+                            else: md+="╠❌ CheckSticker「off」\n╚▬▬▬▬▬▬▬▬▬▬▬▬╝"
                             #md = "\n╚══[ ทั้งหมด ]"
                             client.sendMessage(to,md+"")
                             
