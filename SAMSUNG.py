@@ -3116,7 +3116,7 @@ def lineBot(op):
                             if settings["autoReply"] == True: md+="╠🔔 SleepMode「on」\n"
                             else: md+="╠❌ SleepMode「off」\n"
                             if settings["sticker"] == True: md+="╠🔔 Sticker「on」\n"
-                            else: md+="╠❌ Sticker「off」"
+                            else: md+="╠❌ Sticker「off」\n"
                             if settings["checkSticker"] == True: md+="╠🔔 CekSticker「on」\n"
                             else: md+="╠❌ CheckSticker「off」"
                             #md = "\n╚══[ ทั้งหมด ]"
