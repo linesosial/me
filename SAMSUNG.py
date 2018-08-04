@@ -194,7 +194,7 @@ def speedtest(วินาที):
     ชั่วโมง, นาที = divmod(นาที,60)
     วัน, ชั่วโมง = divmod(ชั่วโมง,24)
     อาทิตย์, วัน = divmod(วัน,7)
-    if  == 0:
+    if วัน == 0:
         return '%02d' % (วินาที)
     elif วัน > 0 and อาทิตย์ == 0:
         return '%02d' %(วินาที)
@@ -210,7 +210,7 @@ def command(text):
     return cmd
 #==============================================================================================================
 helpmsg ="""
-╔▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╗
+╔▬▬▬▬▬▬▬▬▬▬▬▬▬▬╗
 ╠Me
 ╠.me /mycon
 ╠mymid
@@ -294,9 +294,9 @@ helpmsg ="""
 ╠mimiclist
 ╠mimic on/off
 ╠unsend 「jumlah」
-╚▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╝
+╚▬▬▬▬▬▬▬▬▬▬▬▬▬▬╝
 ╠pengaturan:
-╔▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╗
+╔▬▬▬▬▬▬▬▬▬▬▬▬▬▬╗
 ╠checkcontact on/off
 ╠detailuser on/off
 ╠autjointic on/off
@@ -316,9 +316,9 @@ helpmsg ="""
 ╠cyduk on/off
 ╠lurking on/off
 ╠secret on/off
-╚▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╝
+╚▬▬▬▬▬▬▬▬▬▬▬▬▬▬╝
 ╠settings account:
-╔▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╗
+╔▬▬▬▬▬▬▬▬▬▬▬▬▬▬╗
 ╠Read1「text」
 ╠Read2「text」
 ╠addreadsticker
@@ -337,7 +337,7 @@ helpmsg ="""
 ╠addwelcomesticker
 ╠delwelcomesticker
 ╠setwelcome:「responmessage in mem」
-╚▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬╝
+╚▬▬▬▬▬▬▬▬▬▬▬▬▬▬╝
 """
 helpmusic ="""「 Music 」
 
