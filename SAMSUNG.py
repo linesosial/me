@@ -3084,11 +3084,11 @@ def lineBot(op):
                                 client.sendMessage(receiver, "wkwkwk....")
 #==============================================================================================================
                         elif cmd == "status":
-                            md = "╔══[ settings ]\n"
+                            md = "╔▬▬▬▬ ꜱᴇᴛᴛɪɴɢꜱ ▬▬▬▬╗\n"
                             if settings["autoRead"] == True: md+="╠🔔 AutoRead 「on」\n"
                             else: md+="╠❌ AutoRead 「off」\n"
-                            if settings["mimic"]["status"] == True: md+="╠🔔  Mimic 「on」\n"
-                            else: md+="╠❌  Mimic「off」\n"
+                            if settings["mimic"]["status"] == True: md+="╠🔔 Mimic 「on」\n"
+                            else: md+="╠❌ Mimic「off」\n"
                             if settings["autoAdd"] == True: md+="╠🔔 AutoAdd「on」\n"
                             else: md+="╠❌ AutoAdd「off」\n"
                             if settings["autoBlock"] == True: md+="╠🔔 AutoBlock「on」\n"
@@ -3117,8 +3117,8 @@ def lineBot(op):
                             else: md+="╠❌ SleepMode「off」\n"
                             if settings["sticker"] == True: md+="╠🔔 Sticker「on」\n"
                             else: md+="╠❌ Sticker「off」\n"
-                            if settings["checkSticker"] == True: md+="╠🔔 CekSticker「on」\n"
-                            else: md+="╠❌ CheckSticker「off」"
+                            if settings["checkSticker"] == True: md+="╠🔔 CekSticker「on」\n▬▬▬▬▬▬▬▬▬▬▬▬╝"
+                            else: md+="╠❌ CheckSticker「off」\n▬▬▬▬▬▬▬▬▬▬▬▬╝"
                             #md = "\n╚══[ ทั้งหมด ]"
                             client.sendMessage(to,md+"")
                             
