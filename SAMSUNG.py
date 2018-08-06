@@ -118,7 +118,7 @@ def delExpire():
                     temp_flood[tmp]["expire"] = False
                     temp_flood[tmp]["time"] = time.time()
                     try:
-                        userid = "https://line.me/ti/p/~" + client.profile.userid
+                        userid = "https://line.me/ti/p/~mase-pesek" + client.profile.userid
                         client.sendFooter(tmp, "Spam is over , Now Bots Actived !", str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(clientMID).pictureStatus, client.getContact(clientMID).displayName)
                     except Exception as error:
                         logError(error)
@@ -653,7 +653,8 @@ def lineBot(op):
 #==============================================================================================================
                 elif text.lower() == "help" or text.lower() == ".":
                     helpmessagee = helpmsg
-                    client.sendMessage(to, str(helpmessagee))
+                    userid = "https://line.me/ti/p/~" + client.profile.userid
+                    client.sendFooter(to, ","str(helpmessagee)), str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                 elif text.lower() == "self" or text.lower() == ".":
                     helpselfbot = helpself
                     client.sendMessage(to, str(helpselfbot))
@@ -2104,10 +2105,10 @@ def lineBot(op):
                             speed = time.time() - start
                             ping = speed * 1000
                             client.sendMessage(to, "The result is {} ms".format(str(speedtest(ping))))
-                        elif cmd == "newticket":
+                        elif cmd == "idku":
                             client.reissueUserTicket()
                             userid = "https://line.me/ti/p/~" + client.profile.userid
-                            client.sendFooter(to, "「New Ticket」\n"+str(userid), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
+                            client.sendFooter(to, "id\n"+str(userid), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                         elif cmd == "ticket":
                             userid = "https://line.me/ti/p/~" + client.profile.userid
                             client.sendFooter(to, "「Ticket」\n"+str(userid), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
