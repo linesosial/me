@@ -2021,7 +2021,7 @@ def lineBot(op):
                                         msg_ = settings["mentionPesan"].split("@!")
                                         return sendMention(to, sender, "Auto Reply\n" + msg_[0], msg_[1])
                                    # userid = "https://line.me/ti/p/~" + client.profile.userid				
-                                    sendMention(receiver, sender, "aih" ,"\n{}".format(str(settings['mentionPesan'])))
+                                    sendMention(receiver, sender, "aih" ,"\n{}".format(str(settings['mentionPesan'])), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'DETECTMENTION', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                                 break
                 if 'MENTION' in msg.contentMetadata.keys() != None:
                     if settings["notag"] == True:
