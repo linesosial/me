@@ -1,1 +1,8 @@
-{}
+{
+    "Images":{},
+    "Img":{},
+    "Addimage":{
+            "name": "",
+            "status":false
+            }
+}  
