@@ -2175,7 +2175,7 @@ def lineBot(op):
                             userid = "https://line.me/ti/p/~" + client.profile.userid
                             client.sendImageWithFooter(to, image, userid, image, client.getContact(sender).displayName)
                             client.sendImageWithFooter(to, path, userid, path, client.getContact(sender).displayName)
-                            client.sendFooter(to, "\n"+str(sender)+"\n"+str(contact.displayName)+"\n"+str(contact.statusMessage), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
+                            client.sendFooter(to, "\n"+str(image)"\n"+str(sender)+"\n"+str(contact.displayName)+"\n"+str(contact.statusMessage), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                         elif cmd == "myname":
                             h = client.getContact(clientMID)
                             userid = "https://line.me/ti/p/~" + client.profile.userid
