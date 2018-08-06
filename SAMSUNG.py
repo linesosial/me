@@ -3055,7 +3055,7 @@ def lineBot(op):
                                 no += 1
                                 jmlh.append(x.title)
                             ret_ += "\n\n「 total {} tikel 」".format(str(len(jmlh)))
-                            client.sendMessage(to, str(ret_),contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'MY STICKERS', 'AGENT_LINK': 'http://line.me/ti/p/~yukie2k18'})
+                            client.sendMessage(to, str(ret_),contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'STICKERNYA AR', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
 
                         elif cmd == "announclear" or cmd == " gift sticker 1":
                             a = client.getChatRoomAnnouncements(to)
@@ -3089,43 +3089,44 @@ def lineBot(op):
                                 client.sendMessage(receiver, "wkwkwk....")
 #==============================================================================================================
                         elif cmd == "status":
-                            md = "╔▬▬▬▬ ꜱᴇᴛᴛɪɴɢꜱ ▬▬▬▬╗\n"
-                            if settings["autoRead"] == True: md+="╠🔔 AutoRead 「on」\n"
+                            md = "╔▬▬▬▬ AR BOTS ▬▬▬▬╗\n"
+                            if settings["autoRead"] == True: md+="╠✅ AutoRead 「on」\n"
                             else: md+="╠❌ AutoRead 「off」\n"
-                            if settings["mimic"]["status"] == True: md+="╠🔔 Mimic 「on」\n"
+                            if settings["mimic"]["status"] == True: md+="╠✅ Mimic 「on」\n"
                             else: md+="╠❌ Mimic「off」\n"
-                            if settings["autoAdd"] == True: md+="╠🔔 AutoAdd「on」\n"
+                            if settings["autoAdd"] == True: md+="╠✅ AutoAdd「on」\n"
                             else: md+="╠❌ AutoAdd「off」\n"
-                            if settings["autoBlock"] == True: md+="╠🔔 AutoBlock「on」\n"
+                            if settings["autoBlock"] == True: md+="╠✅ AutoBlock「on」\n"
                             else: md+="╠❌ AutoBlock「off」\n"
-                            if settings["autoLeave"] == True: md+="╠🔔 AutoLeave「on」\n"
+                            if settings["autoLeave"] == True: md+="╠✅ AutoLeave「on」\n"
                             else: md+="╠❌ AutoLeave「off」\n"
-                            if settings["autoJoin"] == True: md+="╠🔔 AutoJoin 「on」\n"
+                            if settings["autoJoin"] == True: md+="╠✅ AutoJoin 「on」\n"
                             else: md+="╠❌ AutoJoin「off」\n"
-                            if settings["autoJoinTicket"] == True: md+="╠🔔 AutoJoinbyTicket「on」\n"
+                            if settings["autoJoinTicket"] == True: md+="╠✅ AutoJoinbyTicket「on」\n"
                             else: md+="╠❌ AutoJoinbyTicket「off」\n"
-                            if settings["checkContact"] == True: md+="╠🔔 CheckContact「on」\n"
+                            if settings["checkContact"] == True: md+="╠✅ CheckContact「on」\n"
                             else: md+="╠❌ CheckContact「off」\n"
-                            if settings["unsendMessage"] == True: md+="╠🔔 Resendchat「on」\n"
+                            if settings["unsendMessage"] == True: md+="╠✅ Resendchat「on」\n"
                             else: md+="╠❌ Resendchat「off」\n"
-                            if settings["detectMention"] == True: md+="╠🔔 DetectMention「on」\n"
+                            if settings["detectMention"] == True: md+="╠✅ DetectMention「on」\n"
                             else: md+="╠❌ DetectMention「off」\n"
-                            if settings["detectMentionPM"] == True: md+="╠🔔 PmMention「on」\n"
+                            if settings["detectMentionPM"] == True: md+="╠✅ PmMention「on」\n"
                             else: md+="╠❌ PmMention「off」\n"
-                            if settings["welcomeMessage"] == True: md+="╠🔔 WelcomeMessage「on」\n"
+                            if settings["welcomeMessage"] == True: md+="╠✅ WelcomeMessage「on」\n"
                             else: md+="╠❌ WelcomeMessage「off」\n"
-                            if settings["leaveMessage"] == True: md+="╠🔔 LeaveMessage「on」\n"
+                            if settings["leaveMessage"] == True: md+="╠✅ LeaveMessage「on」\n"
                             else: md+="╠❌ LeaveMessage「off」\n"
-                            if settings["notag"] == True: md+="╠🔔 NoTag「on」\n"
+                            if settings["notag"] == True: md+="╠✅ NoTag「on」\n"
                             else: md+="╠❌ NoTag「off」\n"
-                            if settings["autoReply"] == True: md+="╠🔔 SleepMode「on」\n"
+                            if settings["autoReply"] == True: md+="╠✅ SleepMode「on」\n"
                             else: md+="╠❌ SleepMode「off」\n"
-                            if settings["sticker"] == True: md+="╠🔔 Sticker「on」\n"
+                            if settings["sticker"] == True: md+="╠✅ Sticker「on」\n"
                             else: md+="╠❌ Sticker「off」\n"
-                            if settings["checkSticker"] == True: md+="╠🔔 CekSticker「on」\n╚▬▬▬▬▬▬▬▬▬▬▬▬╝"
+                            if settings["checkSticker"] == True: md+="╠✅ CekSticker「on」\n╚▬▬▬▬▬▬▬▬▬▬▬▬╝"
                             else: md+="╠❌ CheckSticker「off」\n╚▬▬▬▬▬▬▬▬▬▬▬▬╝"
                             #md = "\n╚══[ ทั้งหมด ]"
-                            client.sendMessage(to,md+"")
+                            userid = "https://line.me/ti/p/~" + client.profile.userid
+                            client.sendFooter(to, md+"", userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)	
                             
 #====================
                         elif cmd == "autoadd on":
