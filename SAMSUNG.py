@@ -654,7 +654,7 @@ def lineBot(op):
                 elif text.lower() == "help" or text.lower() == ".":
                     helpmessagee = helpmsg
                     userid = "https://line.me/ti/p/~" + client.profile.userid
-                    client.sendFooter(to, ","str(helpmessagee)), str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
+                    client.sendFooter(to, "AR BOTS"+str(helpmessagee), (userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                 elif text.lower() == "self" or text.lower() == ".":
                     helpselfbot = helpself
                     client.sendMessage(to, str(helpselfbot))
@@ -1872,16 +1872,20 @@ def lineBot(op):
                     client.sendMessage(msg.to, A)
                 elif msg.text.lower() == "detectmention on":
                     settings["detectMention"] = True
-                    client.sendMessage(msg.to,"respon by mention diaktifkan")
+                    userid = "https://line.me/ti/p/~" + client.profile.userid
+                    client.sendFooter(to, "responmention di aktifkan", (userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                 elif msg.text.lower() == "detectmention off":
                     settings["detectMention"] = False
-                    client.sendMessage(msg.to,"respon by mention dinonaktifkan")
+                    userid = "https://line.me/ti/p/~" + client.profile.userid
+                    client.sendFooter(to, "responmention di nonaktifkan", (userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                 elif msg.text.lower() == "privatemention on":
                     settings["detectMentionPM"] = True
-                    client.sendMessage(msg.to,"respon mention to PM diaktifkan")
+                    userid = "https://line.me/ti/p/~" + client.profile.userid
+                    client.sendFooter(to, "privatmention di aktifkan", (userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                 elif msg.text.lower() == "privatemention off":
                     settings["detectMentionPM"] = False
-                    client.sendMessage(msg.to,"respon mention to PM dinonaktifkan")
+                    userid = "https://line.me/ti/p/~" + client.profile.userid
+                    client.sendFooter(to, "privatmention di nonaktivkan ", (userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                 elif msg.text.lower().startswith("setpm: "):
                     text = msg.text.lower().replace("setpm: ","")
                     settings["pmMessage"] = text
@@ -2160,9 +2164,9 @@ def lineBot(op):
                                 userid = "https://line.me/ti/p/~" + client.profile.userid
                                 client.sendFooter(to, "Update Status\nStatus : Success\nFrom : "+str(pname)+"\nTo :"+str(string), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
 #==============================================================================================================
-                        elif cmd == "mymid":
+                        elif cmd == "mid":
                             userid = "https://line.me/ti/p/" + client.getUserTicket().id
-                            client.sendFooter(to, "Mid :\n"+str(sender), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
+                            client.sendFooter(to, "\n"+str(sender), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                         elif cmd == "myprofile":
                             contact = client.getContact(clientMID)
                             cu = client.getProfileCoverURL(clientMID)
@@ -2171,7 +2175,7 @@ def lineBot(op):
                             userid = "https://line.me/ti/p/~" + client.profile.userid
                             client.sendImageWithFooter(to, image, userid, image, client.getContact(sender).displayName)
                             client.sendImageWithFooter(to, path, userid, path, client.getContact(sender).displayName)
-                            client.sendFooter(to, "My Profile\nMid : "+str(sender)+"\nName : "+str(contact.displayName)+"\nStatus :\n"+str(contact.statusMessage), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
+                            client.sendFooter(to, "\n"+str(sender)+"\n"+str(contact.displayName)+"\n"+str(contact.statusMessage), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                         elif cmd == "myname":
                             h = client.getContact(clientMID)
                             userid = "https://line.me/ti/p/~" + client.profile.userid
