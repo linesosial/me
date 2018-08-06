@@ -1894,6 +1894,21 @@ def lineBot(op):
                     text = msg.text.lower().replace("setrespongroup: ","")
                     settings["respMessage"] = text
                     client.sendMessage(msg.to, "Success Update Response Group to : {}".format(str(settings["respMessage"])))
+                elif msg.text.lower().startswith("fs "):
+                  #if msg._from in admin:
+                    try:
+                        separate = msg.text.split(" ")
+                        nama = msg.text.replace(separate[0] + " ","")
+                        nmor = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21"]
+                        plih = random.choice(nmor)
+                        nmor2 = ["1","2","3","4","5","6","7"]
+                        plih2 = random.choice(nmor2)
+                        url = ("https://farzain.xyz//api//premium//fansign//fs%20("+plih+").php?text="+nama+"&apikey=al11241519","http://farzain.xyz/api/premium/fansign/cos/cos%20("+plih2+").php?text="+nama+"&apikey=al11241519")
+                        plihurl = random.choice(url)
+                        client.sendImageWithURL(msg.to, plihurl)
+                    except Exception as error:
+                        pass                                    
+                  		
 #==============================================================================================================
         if op.type == 26:
  #            if settings ["mutebot2"] == True:
