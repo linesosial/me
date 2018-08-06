@@ -646,7 +646,7 @@ def lineBot(op):
                 elif msg.text.lower().startswith("say "):
                     sep = text.split(" ")
                     say = text.replace(sep[0] + " ","")
-                    client.sendMessage(to, (say),,contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'RESPON', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                    client.sendMessage(to, (say), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'RESPON', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                     assist.sendMessage(to, (say))
                     kicker.sendMessage(to, (say))
                     kicker2.sendMessage(to, (say))
