@@ -1,5 +1,5 @@
 {
-    "addPesan": "Terima kasih telah menambahkan saya sebagai teman ,sudah ku addback ya",
+    "addPesan": "thanks for add me,\nadd my creator https://line.me/ti/p/~mase-pesek",
     "addSticker": {
         "name": "",
         "status": false
@@ -41,7 +41,7 @@
     "keyCommand": "",
     "leaveMessage": false,
     "leavePesan": "\n╔▬▬▬▬▬▬▬▬▬▬▬▬▬╗\n🙏innalillahi wa inalillahirojiun..🙏\n╚▬▬▬▬▬▬▬▬▬▬▬▬▬╝\n╔▬▬▬▬▬▬▬▬▬▬▬▬▬╗\n selamat jalan teman y sahabatku\n╚▬▬▬▬▬▬▬▬▬▬▬▬▬╝\n╔▬▬▬▬▬▬▬▬▬▬▬▬▬╗\n semoga kau tenang disna ,amiin.\n╚▬▬▬▬▬▬▬▬▬▬▬▬▬╝\n▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬",
-    "mentionPesan": " heh? ada apa kok ngeTag ,jawab.,.",
+    "mentionPesan": " iya kak ada apa",
     "messageSticker": {
         "addName": null,
         "addStatus": false,
@@ -82,11 +82,11 @@
     "notag": false,
     "pcancel": false,
     "pinvite": false,
-    "pmMessage": "yang suka ngetag diroom itu tandanya care sama gua ehmm..",
+    "pmMessage": "ngak usah tag di room,\n klo mo ngajak mojok lgsung call aj",
     "protect": false,
     "qrp": false,
     "readerPesan": " cie ngecheck room ,pelan2 scrollnya..",
-    "replyPesan": "Maaf , Saya sedang tidak aktif ,silahkan tinggalkan pesan anda di NOTE,\nterima kasih.",
+    "replyPesan": "auto respon\nmaaf blom bisa bales",
     "responGc": true,
     "responcall": false,
     "responcallgc": false,
@@ -122,7 +122,7 @@
     "userMentioned": false,
     "wblacklist": false,
     "welcomeMessage": false,
-    "welcomePesan": " \n ▬▬▬▬▬⏩👋😃👈⏪▬▬▬▬▬\n\n ╔▬▬▬▬▬▬▬▬▬▬▬▬▬▬╗\n 􀄃􀇡moon attracted􏿿ꜱᴇʟᴀᴍᴀᴛ ᴅᴀᴛᴀɴɢ ʙᴜᴀᴛ ᴋᴀᴍᴜ􀄃􀇡moon attracted􏿿\n ╚▬▬▬▬▬▬▬▬▬▬▬▬▬▬╝\n ╔▬▬▬▬▬▬▬▬▬▬▬▬▬▬╗\n ˢᵗʸᵖ ˢᵉˡᵃᵐᵃᵗ ᵈᵃᵗᵃⁿᵍ ᵃᵏᵃⁿ ᵈⁱᵃᵏʰⁱʳⁱ ˢᵉˡᵃᵐᵃᵗ ᵗⁱⁿᵍᵍᵃˡ\n ╚▬▬▬▬▬▬▬▬▬▬▬▬▬▬╝\n ╔▬▬▬▬▬▬▬▬▬▬▬▬▬▬╗\n ᵏᵃᵐᵘ ᵇⁱˢᵃ ᵐᵉᵐⁱˡⁱᵏⁱ ᵃᵖᵃᵖᵘⁿ ʸᵍ ᵈⁱⁱⁿᵍⁱⁿᵏᵃⁿ\n ʲⁱᵏᵃ ᵏᵃᵐᵘ ᵐᵃᵐᵖᵘ ᵐᵉⁿᵍʰⁱˡᵃⁿᵍᵏᵃⁿ ᵏᵉʸᵃᵏⁱⁿᵃⁿ\n ╚▬▬▬▬▬▬▬▬▬▬▬▬▬▬╝\n ╔▬▬▬▬▬▬▬▬▬▬▬▬▬▬╗\n ʙᴀʜᴡᴀ ᴛᴀᴋ ᴍᴜɴɢᴋɪɴ ᴍᴇɴᴅᴘᴀᴛᴋᴀɴʏᴀ\n ╚▬▬▬▬▬▬▬▬▬▬▬▬▬▬╝\n ʷᵃʰᵃⁱ ʸᵍ ᵐᵃʰᵃ ᴸᴱᴹᴮᵁᵀ ᵐᵃⁿʲᵃᵏᵃⁿˡᵃʰ ʰᵃᵗⁱᵏᵘ\n ▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬▬",
+    "welcomePesan": "welcome",
     "whitelist": {},
     "wlc": false,
     "wwhitelist": false
