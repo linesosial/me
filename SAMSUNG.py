@@ -16,8 +16,8 @@ from googletrans import Translator
 #==============================================================================================================
 botStart = time.time()
 #==============================================================================================================
-client = LINE ()
-#client = LINE ("EvwoIqJWB3dEg8dtrGOe.mDIRQD+WthuKlYOGL7ITRG.u0Lvk3SRkAmWEVraL0/Biz6U0/6yrTONo8g785sLA5w=")
+#client = LINE ()
+client = LINE ("EvmqMqRx7CFwAMj2Hyx1.aJEW7djVW2QrDd30OA0LKq.BC1AKeW/VKRHe7kDX4ZDxciSQFfPF+mx3CGx9hPZiRY= ")
 #==============================================================================================================
 readOpen = codecs.open("read.json","r","utf-8")
 settingsOpen = codecs.open("temp.json","r","utf-8")
@@ -1985,7 +1985,7 @@ def lineBot(op):
                         if "@!" in settings["replyPesan"]:
                             msg_ = settings["replyPesan"].split("@!")
                             sendMention(to, sender, "Sleep Mode :\n" + msg_[0], msg_[1])
-                        sendMention(to, sender, "Sleep Mode :\nHai", settings["replyPesan"])
+                        sendMention(to, sender, "\n", settings["replyPesan"])
                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                     if settings["detectMentionPM"] == True:
                         names = re.findall(r'@(\w+)', text)
@@ -1993,7 +1993,7 @@ def lineBot(op):
                         mentionees = mention['MENTIONEES']
                         for mention in mentionees:
                             if clientMID in mention["M"]:
-                                sendMention(sender, sender, "「Auto Respon」\n", "\n" + str(settings["pmMessage"]))
+                                sendMention(sender, sender, "\n", "\n" + str(settings["pmMessage"]))
                                 break
                 if msg.contentType == 0: 
                     if 'MENTION' in msg.contentMetadata.keys()!= None:
@@ -2019,7 +2019,7 @@ def lineBot(op):
                                     if "@!" in settings["mentionPesan"]:
                                         msg_ = settings["mentionPesan"].split("@!")
                                         return sendMention(to, sender, "Auto Reply\n" + msg_[0], msg_[1])
-                                    sendMention(receiver, sender, "😎" ,"\n{}".format(str(settings['mentionPesan'])))
+                                    sendMention(receiver, sender, "aih" ,"\n{}".format(str(settings['mentionPesan'])))
                                 break
                 if 'MENTION' in msg.contentMetadata.keys() != None:
                     if settings["notag"] == True:
@@ -2175,7 +2175,7 @@ def lineBot(op):
                             userid = "https://line.me/ti/p/~" + client.profile.userid
                             client.sendImageWithFooter(to, image, userid, image, client.getContact(sender).displayName)
                             client.sendImageWithFooter(to, path, userid, path, client.getContact(sender).displayName)
-                            client.sendFooter(to, "\n"+str(image)"\n"+str(sender)+"\n"+str(contact.displayName)+"\n"+str(contact.statusMessage), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
+                            client.sendFooter(to, "\n"+str(sender)+"\n"+str(contact.displayName)+"\n"+str(contact.statusMessage), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
                         elif cmd == "myname":
                             h = client.getContact(clientMID)
                             userid = "https://line.me/ti/p/~" + client.profile.userid
@@ -2362,7 +2362,7 @@ def lineBot(op):
                             a = cmd.replace("abroadcast", "")
                             cond = a.split("|")
                             if len(cond) == 1:
-                                link = "https://line.me/ti/p/~gg880."
+                                link = "https://line.me/ti/p/~mase-pesek"
                             else:
                                 link = cond[1]
                             group = client.groups
