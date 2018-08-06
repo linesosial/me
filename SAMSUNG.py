@@ -34,9 +34,9 @@ clientSettings = client.getSettings()
 #==============================================================================================================
 clientPoll = OEPoll(client)
 #==============================================================================================================
-admin = "u31d8aba9dff04c75242f2a2097b8adae"
-owner = "u31d8aba9dff04c75242f2a2097b8adae"
-Bots=[mid,"u31d8aba9dff04c75242f2a2097b8adae"]
+admin = "u0237b0ec326fc36a91743df4a1ad2591"
+owner = "u0237b0ec326fc36a91743df4a1ad2591"
+Bots=[mid]
 #==============================================================================================================
 #==============================================================================================================
 contact = client.getProfile()
@@ -83,7 +83,6 @@ settings = json.load(settingsOpen)
 images = json.load(imagesOpen)
 stickers = json.load(stickersOpen)
 msg_dict = {}
-bl = ["u9f478c580a9c4e1de5e407e9b10c2da1"]
 
 try:
     with open("Log_data.json","r",encoding="utf_8_sig") as f:
@@ -442,7 +441,7 @@ def lineBot(op):
             contact = client.getContact(op.param2)
             if settings["autoJoin"] and clientMID in op.param3:
                 client.acceptGroupInvitation(op.param1)
-                sendMention(op.param1, op.param2, "Hello", ", terima kasih sudah invite aku, salken semuanya")
+                sendMention(op.param1, op.param2, ".", ", mksih")
                 
         if op.type == 13:
             print(op.param1)
@@ -742,7 +741,7 @@ def lineBot(op):
                                 client.kickoutFromGroup(msg.to,[target])
                             except:
                                 pass
-                elif "Nk " in msg.text:
+                elif "coba " in msg.text:
                     if msg._from in clientMID:                                                                                                                                       
                         key = eval(msg.contentMetadata["MENTION"])
                         key["MENTIONEES"][0]["M"]                                                                                                                                
@@ -2093,7 +2092,7 @@ def lineBot(op):
                             settings["restartPoint"] = to
                             restartBot()
                         elif cmd == "me" or cmd == "tes":
-                            client.sendMentionFooter(to, '「ini aku」\n', sender, "https://line.me/ti/p/~calon_almarhum99", "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName);client.sendMessage(to, client.getContact(sender).displayName, contentMetadata = {'previewUrl': 'http://dl.profile.line-cdn.net/'+client.getContact(sender).pictureStatus, 'i-installUrl': 'https://line.me/ti/p/~calon_almarhum99', 'type': 'mt', 'subText': "ᴄᴀʟᴏɴ ᴀʟᴍᴀʀʜᴜᴍ™", 'a-installUrl': 'https://line.me/ti/p/~calon_almarhum99', 'a-installUrl': ' https://line.me/ti/p/~calon_almarhum99', 'a-packageName': 'com.spotify.music', 'countryCode': 'ID', 'a-linkUri': 'https://line.me/ti/p/~calon_almarhum99', 'i-linkUri': 'https://line.me/ti/p/~calon_almarhum99', 'id': 'mt000000000a6b79f9', 'text': 'ᴀʜʟɪ ᴋᴜʙᴜʀ™', 'linkUri': 'https://line.me/ti/p/~calon_almarhum99'}, contentType=19)
+                            client.sendMentionFooter(to, '\n', sender, "https://line.me/ti/p/~mase-pesek", "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName);client.sendMessage(to, client.getContact(sender).displayName, contentMetadata = {'previewUrl': 'http://dl.profile.line-cdn.net/'+client.getContact(sender).pictureStatus, 'i-installUrl': 'https://line.me/ti/p/~mase-pesek', 'type': 'mt', 'subText': "ar bots™", 'a-installUrl': 'https://line.me/ti/p/~calon_almarhum99', 'a-installUrl': ' https://line.me/ti/p/~mase-pesek', 'a-packageName': 'com.spotify.music', 'countryCode': 'ID', 'a-linkUri': 'https://line.me/ti/p/~mase-pesek', 'i-linkUri': 'https://line.me/ti/p/~mase-pesek', 'id': 'mt000000000a6b79f9', 'text': 'ar bots™', 'linkUri': 'https://line.me/ti/p/~mase-pesek'}, contentType=19)
                         elif cmd == "aku":
                             userid = "https://line.me/ti/p/~" + client.profile.userid
                             client.sendImageWithFooter(to, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
