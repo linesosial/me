@@ -2019,7 +2019,8 @@ def lineBot(op):
                                     if "@!" in settings["mentionPesan"]:
                                         msg_ = settings["mentionPesan"].split("@!")
                                         return sendMention(to, sender, "Auto Reply\n" + msg_[0], msg_[1])
-                                    sendMention(receiver, sender, "aih" ,"\n{}".format(str(settings['mentionPesan'])))
+                                    userid = "https://line.me/ti/p/~" + client.profile.userid				
+                                    sendMentionFooter(receiver, sender, "aih" ,"\n{}".format(str(settings['mentionPesan'])), userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName))
                                 break
                 if 'MENTION' in msg.contentMetadata.keys() != None:
                     if settings["notag"] == True:
