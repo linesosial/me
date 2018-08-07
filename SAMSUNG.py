@@ -575,9 +575,9 @@ def lineBot(op):
                                 if temp_flood[receiver]["flood"] >= 20:
                                     temp_flood[receiver]["flood"] = 0
                                     temp_flood[receiver]["expire"] = True
-                                    ret_ = "I will be off for 30 seconds, type open to re-enable"
+                                    ret_ = "\n"
                                     userid = "https://line.me/ti/p/~" + client.profile.userid
-                                    client.sendFooter(to, "Flood Detect !\n"+str(ret_), str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(clientMID).pictureStatus, client.getContact(clientMID).displayName)
+                                    client.sendFooter(to, "spam detec!\n"+str(ret_), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'DETECKSI SPAM', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'}))
                             else:
                                  temp_flood[receiver]["flood"] = 0
                             temp_flood[receiver]["time"] = time.time()
