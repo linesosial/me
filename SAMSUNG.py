@@ -4982,7 +4982,47 @@ def lineBot(op):
                     to = receiver
             else:
                 to = receiver
-#========================================================================                    
+#========================================================================
+#UPDATE FOTO
+               if msg.contentType == 1:
+                 if msg._from in admin:
+                    if wait["Addimage"]["status"] == True:
+                        path = cl.downloadObjectMsg(msg.id)
+                        images[wait["Addimage"]["name"]] = str(path)
+                        f = codecs.open("image.json","w","utf-8")
+                        json.dump(images, f, sort_keys=True, indent=4, ensure_ascii=False)
+                        cl.sendMessage(msg.to, "Berhasil menambahkan gambar {}".format(str(wait["Addimage"]["name"])))
+                        wait["Addimage"]["status"] = False                
+                        wait["Addimage"]["name"] = ""
+               if msg.contentType == 2:
+                 if msg._from in admin:
+                    if wait["Addvideo"]["status"] == True:
+                        path = cl.downloadObjectMsg(msg.id)
+                        videos[wait["Addvideo"]["name"]] = str(path)
+                        f = codecs.open("video.json","w","utf-8")
+                        json.dump(videos, f, sort_keys=True, indent=4, ensure_ascii=False)
+                        cl.sendMessage(msg.to, "Berhasil menambahkan video {}".format(str(wait["Addvideo"]["name"])))
+                        wait["Addvideo"]["status"] = False                
+                        wait["Addvideo"]["name"] = ""
+               if msg.contentType == 7:
+                 if msg._from in admin:
+                    if wait["Addsticker"]["status"] == True:
+                        stickers[wait["Addsticker"]["name"]] = {"STKID":msg.contentMetadata["STKID"],"STKPKGID":msg.contentMetadata["STKPKGID"]}
+                        f = codecs.open("sticker.json","w","utf-8")
+                        json.dump(stickers, f, sort_keys=True, indent=4, ensure_ascii=False)
+                        cl.sendMessage(msg.to, "Berhasil menambahkan sticker {}".format(str(wait["Addsticker"]["name"])))
+                        wait["Addsticker"]["status"] = False                
+                        wait["Addsticker"]["name"] = ""
+               if msg.contentType == 3:
+                 if msg._from in admin:
+                    if wait["Addaudio"]["status"] == True:
+                        path = cl.downloadObjectMsg(msg.id)
+                        audios[wait["Addaudio"]["name"]] = str(path)
+                        f = codecs.open("audio.json","w","utf-8")
+                        json.dump(audios, f, sort_keys=True, indent=4, ensure_ascii=False)
+                        cl.sendMessage(msg.to, "Berhasil menambahkan mp3 {}".format(str(wait["Addaudio"]["name"])))
+                        wait["Addaudio"]["status"] = False                
+                        wait["Addaudio"]["name"] = ""
                 if msg.contentType == 7:
                     if settings["messageSticker"]["addStatus"] == True:
                         name = settings["messageSticker"]["addName"]
