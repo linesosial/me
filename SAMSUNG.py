@@ -119,7 +119,7 @@ def delExpire():
                     temp_flood[tmp]["time"] = time.time()
                     try:
                         userid = "https://line.me/ti/p/~mase-pesek" + client.profile.userid
-                        client.sendFooter(tmp, "Spam is over , Now Bots Actived !", str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(clientMID).pictureStatus, client.getContact(clientMID).displayName)
+                        client.sendFooter(tmp, "bots kembali aktiv!", str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(clientMID).pictureStatus, client.getContact(clientMID).displayName)
                     except Exception as error:
                         logError(error)
 
@@ -576,7 +576,7 @@ def lineBot(op):
                                     temp_flood[receiver]["flood"] = 0
                                     temp_flood[receiver]["expire"] = True
                                     ret_ = "\n"
-                                    userid = "https://line.me/ti/p/~" + client.profile.userid
+                                    #userid = "https://line.me/ti/p/~" + client.profile.userid
                                     client.sendFooter(to, "spam detec!\n"+str(ret_), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'DETECKSI SPAM', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'}))
                             else:
                                  temp_flood[receiver]["flood"] = 0
@@ -2878,7 +2878,7 @@ def lineBot(op):
                                     msgs+="\n%i. %s" % (num, ids.displayName)
                                     num=(num+1)
                                 msgs+="\njumlah: %i persons" % len(group)
-                                client.sendMessage(to, msgs)
+                                client.sendMessage(to, msgs, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'MEMBER GROUP', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'}))
                         elif cmd == 'blocklist':
                             blockedlist = client.getBlockedContactIds()
                             kontak = client.getContacts(blockedlist)
@@ -2891,7 +2891,7 @@ def lineBot(op):
                             client.sendMessage(msg.to, msgs)
                         elif cmd == "bl" or cmd == "banlist":
                             if settings["blacklist"] == []:
-                                client.sendMessage(to,"「 banlist 」")
+                                client.sendMessage(to,"\n")
                             else:
                                 num = 1
                                 mc = "「 List of black people 」"
@@ -2899,7 +2899,7 @@ def lineBot(op):
                                     mc += "\n%i.  %s" % (num, client.getContact(me).displayName)
                                     num = (num+1)
                                 mc += "\n「jumlah %i accounts」" % len(settings["blacklist"])
-                                client.sendMessage(to, mc)
+                                client.sendMessage(to, mc,contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'DAFTAR BLACLIST', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd.startswith("gname "):
                             sep = text.split(" ")
                             if msg.toType == 2:
