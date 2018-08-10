@@ -577,7 +577,7 @@ def lineBot(op):
                                     temp_flood[receiver]["expire"] = True
                                     ret_ = "\n"
                                     #userid = "https://line.me/ti/p/~" + client.profile.userid
-                                    client.sendFooter(to, "spam detec!\n"+str(ret_), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'DETECKSI SPAM', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'}))
+                                    client.sendFooter(to, "spam detec!\n"+str(ret_), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'DETECKSI SPAM', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                             else:
                                  temp_flood[receiver]["flood"] = 0
                             temp_flood[receiver]["time"] = time.time()
@@ -728,9 +728,9 @@ def lineBot(op):
                 elif msg.text.lower() == "invite:on":
                     if msg._from in clientMID:
                         settings["winvite"] = True
-                        client.sendMessage(msg.to,"Send Contact to Invite")
+                        client.sendMessage(msg.to,"Send Contact to Invite", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'INVITE MEMBER', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
 #==============================================================================================================
-                elif "kick " in msg.text:
+                elif "hust " in msg.text:
                     if msg._from in clientMID:                                                                                                                                       
                         key = eval(msg.contentMetadata["MENTION"])
                         key["MENTIONEES"][0]["M"]                                                                                                                                
@@ -742,7 +742,7 @@ def lineBot(op):
                                 client.kickoutFromGroup(msg.to,[target])
                             except:
                                 pass
-                elif "coba " in msg.text:
+                elif "hust1 " in msg.text:
                     if msg._from in clientMID:                                                                                                                                       
                         key = eval(msg.contentMetadata["MENTION"])
                         key["MENTIONEES"][0]["M"]                                                                                                                                
@@ -1986,7 +1986,7 @@ def lineBot(op):
                         if "@!" in settings["replyPesan"]:
                             msg_ = settings["replyPesan"].split("@!")
                             sendMention(to, sender, "Sleep Mode :\n" + msg_[0], msg_[1])
-                        sendMention(to, sender, "\n", settings["replyPesan"])
+                        sendMention(to, sender, "\n", settings["replyPesan"], contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR MASIH SIBUK', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                     if settings["detectMentionPM"] == True:
                         names = re.findall(r'@(\w+)', text)
@@ -2021,7 +2021,7 @@ def lineBot(op):
                                         msg_ = settings["mentionPesan"].split("@!")
                                         return sendMention(to, sender, "Auto Reply\n" + msg_[0], msg_[1])
                                    # userid = "https://line.me/ti/p/~" + client.profile.userid				
-                                    sendMention(receiver, sender, "aih" ,"\n{}".format(str(settings['mentionPesan'])), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'DETECTMENTION', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                                    sendMention(receiver, sender, "aih" ,"\n{}".format(str(settings['mentionPesan']), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'DETECTMENTION', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                                 break
                 if 'MENTION' in msg.contentMetadata.keys() != None:
                     if settings["notag"] == True:
@@ -2389,7 +2389,7 @@ def lineBot(op):
                                 ret_ = ""
                                 for ls in lists:
                                     ret_ += "{}".format(str(ls))
-                                client.sendMessage(to, str(ret_))
+                                client.sendMessage(to, str(ret_), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'INI MID NYA', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd.startswith("gcastannoun "):
                             try:
                                 message = cmd.replace("gcastannoun ","")
@@ -2444,7 +2444,7 @@ def lineBot(op):
                                    logError(error)
                                    var= traceback.print_tb(error.__traceback__)
                                    client.sendMessage(to,str(var))
-                        elif cmd.startswith("sc "):
+                        elif cmd.startswith("kontaknya "):
                             if client != None:
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
@@ -2456,7 +2456,7 @@ def lineBot(op):
                                             lists.append(mention["M"])
                                     for ls in lists:
                                         me = client.getContact(ls)
-                                    client.sendMessage(to, text=None, contentMetadata={'mid': ls}, contentType=13)
+                                    client.sendMessage(to, text=None, contentMetadata={'mid': ls}, contentType=13, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'INI KONTAKNYA', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd.startswith("dn "):
                             if client != None:
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
@@ -2516,7 +2516,7 @@ def lineBot(op):
                                         client.sendImageWithURL(to, str(path))
                                     else:
                                         urllib.urlretrieve(path, "steal.jpg")
-                                        client.sendImage(to, "steal.jpg")
+                                        client.sendImage(to, "steal.jpg",contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'FOTO PROFILE', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd.startswith("fs: "):
                           #if msg._from in admin:
                             try:
