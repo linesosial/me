@@ -2248,7 +2248,7 @@ def lineBot(op):
                                 path = client.getProfileCoverURL(to)
                                 path = str(path)
                                 if settings["server"] == "VPS":
-                                    client.sendMessage(msg.to,"「 Display Name 」\n" + me.displayName)
+                                    client.sendMessage(msg.to,"\n" + me.displayName, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(me).pictureStatus, 'AGENT_NAME': 'NAMA', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'}))
                                     client.sendMessage(msg.to,"「 Status Message 」\n" + me.statusMessage)
                                     client.sendMessage(msg.to,"「 MID 」\n" +  to)
                                     client.sendMessage(to, text=None, contentMetadata={'mid': to}, contentType=13)
@@ -2668,7 +2668,6 @@ def lineBot(op):
 #==============================================================================================================
                                    #=========== [ Add Image ] ============#
                         elif cmd.startswith("addimg "):
-                          if msg._from in admin:
                             sep = text.split(" ")
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
@@ -2683,7 +2682,6 @@ def lineBot(op):
                                 cl.sendText(msg.to, "Foto itu sudah dalam list") 
                                 
                         elif cmd.startswith("dellimg "):
-                          if msg._from in admin:
                             sep = text.split(" ")
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
@@ -2696,8 +2694,7 @@ def lineBot(op):
                             else:
                                 cl.sendText(msg.to, "Foto itu tidak ada dalam list") 
                                  
-                        elif text.lower() == "listimage":
-                           if msg._from in admin:
+                        elif text.lower() == "listimage"
                              no = 0
                              ret_ = "「 Daftar Image 」\n\n"
                              for image in images:
@@ -2707,7 +2704,7 @@ def lineBot(op):
                              cl.sendText(to, ret_)
 #=========== [ Add Video ] ============#                               
                         elif cmd.startswith("addvideo "):
-                          if msg._from in admin:
+                          #if msg._from in admin:
                             sep = text.split(" ")
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
@@ -2722,7 +2719,7 @@ def lineBot(op):
                                 cl.sendText(msg.to, "Video itu sudah dalam list") 
                                 
                         elif cmd.startswith("dellvideo "):
-                          if msg._from in admin:
+                          #if msg._from in admin:
                             sep = text.split(" ")
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
@@ -2736,7 +2733,7 @@ def lineBot(op):
                                 cl.sendText(msg.to, "Video itu tidak ada dalam list") 
                                  
                         elif text.lower() == "listvideo":
-                           if msg._from in admin:
+                           #if msg._from in admin:
                              no = 0
                              ret_ = "「 Daftar Video 」\n\n"
                              for video in videos:
@@ -2747,7 +2744,7 @@ def lineBot(op):
                              sendMention(msg.to, msg._from,"","\nJika ingin play video nya,\nSilahkan ketik nama - judul\nBisa juga ketik namanya saja")
 #=========== [ Add Video ] ============#                               
                         elif cmd.startswith("addmp3 "):
-                          if msg._from in admin:
+                          #if msg._from in admin:
                             sep = text.split(" ")
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
@@ -2762,7 +2759,7 @@ def lineBot(op):
                                 cl.sendText(msg.to, "Mp3 itu sudah dalam list") 
                                 
                         elif cmd.startswith("dellmp3 "):
-                          if msg._from in admin:
+                          #if msg._from in admin:
                             sep = text.split(" ")
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
@@ -2776,7 +2773,7 @@ def lineBot(op):
                                 cl.sendText(msg.to, "Mp3 itu tidak ada dalam list") 
                                  
                         elif text.lower() == "listmp3":
-                           if msg._from in admin:
+                           #if msg._from in admin:
                              no = 0
                              ret_ = "「 Daftar Lagu 」\n\n"
                              for audio in audios:
@@ -2787,7 +2784,7 @@ def lineBot(op):
                              sendMention(msg.to, msg._from,"","\nJika ingin play mp3 nya,\nSilahkan ketik nama - judul\nBisa juga ketik namanya saja")
 #=========== [ Add Sticker ] ============#                                            
                         elif cmd.startswith("addsticker "):
-                          if msg._from in admin:
+                          #if msg._from in admin:
                             sep = text.split(" ")
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
@@ -2802,7 +2799,7 @@ def lineBot(op):
                                 cl.sendText(msg.to, "Sticker itu sudah dalam list") 
                                 
                         elif cmd.startswith("dellsticker "):
-                          if msg._from in admin:
+                          #if msg._from in admin:
                             sep = text.split(" ")
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
@@ -2815,7 +2812,7 @@ def lineBot(op):
                                 cl.sendText(msg.to, "Sticker itu tidak ada dalam list") 
                                  
                         elif text.lower() == "liststicker":
-                           if msg._from in admin:
+                           #if msg._from in admin:
                              no = 0
                              ret_ = "「 Daftar Sticker 」\n\n"
                              for sticker in stickers:
