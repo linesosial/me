@@ -5054,7 +5054,7 @@ def lineBot(op):
                         client.sendMessage(to, "Success Added sticker {}".format(str(settings["addSticker"]["name"])))
                         settings["addSticker"]["status"] = False
                         settings["addSticker"]["name"] = ""
-               if msg.contentType == 1:
+                if msg.contentType == 1:
                     if settings["Addimage"]["status"] == True:
                         path = client.downloadObjectMsg(msg.id)
                         images[settings["Addimage"]["name"]] = str(path)
