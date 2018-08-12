@@ -2719,6 +2719,41 @@ def lineBot(op):
                                 except:
                                     client.sendMessage(msg.to, "Gagal restore profile failure!")
 #==============================================================================================================
+                       elif cmd.startswith("addimg "):
+                           sep = text.split(" ")
+                           name = text.replace(sep[0] + " ","")
+                           name = name.lower()
+                           if name not in images:
+                               settings["Addimage"]["status"] = True
+                               settings["Addimage"]["name"] = str(name.lower())
+                               images[str(name.lower())] = ""
+                               f = codecs.open("image.json","w","utf-8")
+                               json.dump(images, f, sort_keys=True, indent=4, ensure_ascii=False)
+                               client.sendMessage(msg.to, "Silahkan kirim fotonya...") 
+                           else:
+                               client.sendMessage(msg.to, "Foto itu sudah dalam list") 
+                                
+                        elif cmd.startswith("dellimg "):
+                            sep = text.split(" ")
+                            name = text.replace(sep[0] + " ","")
+                            name = name.lower()
+                            if name in images:
+                                client.deleteFile(images[str(name.lower())])
+                                del images[str(name.lower())]
+                                f = codecs.open("image.json","w","utf-8")
+                                json.dump(images, f, sort_keys=True, indent=4, ensure_ascii=False)
+                                client.sendMessage(msg.to, "Berhasil menghapus {}".format( str(name.lower())))
+                            else:
+                                client.sendMessage(msg.to, "Foto itu tidak ada dalam list") 
+                                 
+                        elif text.lower() == "listimage":
+                            no = 0
+                            ret_ = "「 Daftar Image 」\n\n"
+                            for image in images:
+                                no += 1
+                                ret_ += str(no) + ". " + image.title() + "\n"
+                            ret_ += "\nTotal「{}」Images".format(str(len(images)))
+                            client.sendMessage(to, ret_)
                         elif cmd.startswith("gcall "):
                             sep = text.split(" ")
                             text = text.replace(sep[0] + " ","")
