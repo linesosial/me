@@ -2719,19 +2719,19 @@ def lineBot(op):
                                 except:
                                     client.sendMessage(msg.to, "Gagal restore profile failure!")
 #==============================================================================================================
-                       elif cmd.startswith("addimg "):
-                           sep = text.split(" ")
-                           name = text.replace(sep[0] + " ","")
-                           name = name.lower()
-                           if name not in images:
-                               settings["Addimage"]["status"] = True
-                               settings["Addimage"]["name"] = str(name.lower())
-                               images[str(name.lower())] = ""
-                               f = codecs.open("image.json","w","utf-8")
-                               json.dump(images, f, sort_keys=True, indent=4, ensure_ascii=False)
-                               client.sendMessage(msg.to, "Silahkan kirim fotonya...") 
-                           else:
-                               client.sendMessage(msg.to, "Foto itu sudah dalam list") 
+                        elif cmd.startswith("addimg "):
+                            sep = text.split(" ")
+                            name = text.replace(sep[0] + " ","")
+                            name = name.lower()
+                            if name not in images:
+                                settings["Addimage"]["status"] = True
+                                settings["Addimage"]["name"] = str(name.lower())
+                                images[str(name.lower())] = ""
+                                f = codecs.open("image.json","w","utf-8")
+                                json.dump(images, f, sort_keys=True, indent=4, ensure_ascii=False)
+                                client.sendMessage(msg.to, "Silahkan kirim fotonya...") 
+                            else:
+                                client.sendMessage(msg.to, "Foto itu sudah dalam list") 
                                 
                         elif cmd.startswith("dellimg "):
                             sep = text.split(" ")
