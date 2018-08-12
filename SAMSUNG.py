@@ -4297,7 +4297,7 @@ def lineBot(op):
                                 ret_ += "\n🔰 Bot Version  V.3,5"
                                 ret_ += "\n🔰 CREATOR  @!              " #.format(creator.displayName)
    #                             client.sendMessage(to, str(ret_))
-                                khieMention(to, str(ret_),[khietag], contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                                khieMention(to, str(ret_),[khietag])
                             except Exception as error:
                                 client.sendMessage(to, "\n" + str(error), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == 'square' or cmd == ' squares':
@@ -5054,6 +5054,15 @@ def lineBot(op):
                         client.sendMessage(to, "Success Added sticker {}".format(str(settings["addSticker"]["name"])))
                         settings["addSticker"]["status"] = False
                         settings["addSticker"]["name"] = ""
+               if msg.contentType == 1:
+                    if settings["Addimage"]["status"] == True:
+                        path = client.downloadObjectMsg(msg.id)
+                        images[settings["Addimage"]["name"]] = str(path)
+                        f = codecs.open("image.json","w","utf-8")
+                        json.dump(images, f, sort_keys=True, indent=4, ensure_ascii=False)
+                        cl.sendMessage(msg.to, "Berhasil menambahkan gambar {}".format(str(wait["Addimage"]["name"])))
+                        setting["Addimage"]["status"] = False                
+                        settings["Addimage"]["name"] = ""			
                         
         if op.type == 26:
 #            if settings ["mutebot2"] == True:
