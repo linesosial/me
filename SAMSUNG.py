@@ -2314,6 +2314,20 @@ def lineBot(op):
                             announce = ChatRoomAnnouncementContents(displayFields=5,text=Text,link=None,thumbnail=Logo)
                             client.createChatRoomAnnouncement(to,stype,announce)
                             sendMention(receiver, sender, "「 Create Announce 」\nType : Lock\n•", "\nSuccess Create Announce Lock "+str(Text)+" in Group : "+str(client.getGroup(to).name))
+                        elif cmd.startswith("get-fs "):
+                            sep = msg.text.split(" ")
+                            anu = msg.text.replace(sep[0] + " "," ")                
+                            with requests.session() as web:
+                                web.headers["user-agent"] = random.choice(settings["userAgent"])
+                                r = web.get("https://farzain.xyz/api/premium/fs.php?apikey=apikey_saintsbot&id={}".format(urllib.parse.quote(anu)))
+                                data = r.text
+                                data = json.loads(data)
+                                if data["status"] == "success":
+                                    ret_ = data["url"]
+                                    cl.sendImageWithURL(msg.to,ret_)
+                                else:
+                                    cl.sendMessage(msg.to, "Error")
+                                        				
                         elif cmd.startswith("announcecam"):
                             a = cmd.replace("announcecam", "")
                             z = client.getGroup(to)
