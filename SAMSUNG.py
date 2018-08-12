@@ -2800,7 +2800,7 @@ def lineBot(op):
                             txt = text.replace(sep[0] + " ","")
                             groups = client.groups
                             for group in groups:
-                                client.sendMessage(group, "「 Announcement 」\n{}".format(str(txt)))
+                                client.sendMessage(group, "\n{}".format(str(txt)))
                             client.sendMessage(to, "Send all message {} groups".format(str(len(groups))))
                         elif cmd.startswith("fbcast "):
                             sep = text.split(" ")
@@ -3084,7 +3084,7 @@ def lineBot(op):
                             except Exception as error:
                                 logError(error)
                                 traceback.print_tb(error.__traceback__)
-                        elif cmd == "ar" or cmd == " gift sticker 1":
+                        elif cmd == "gift" or cmd == " gift sticker 1":
                             client.sendGift(msg.to,'69649860','sticker')
                         elif cmd == "hore" or cmd == " gift":
                                 client.sendGift(msg.to,'69649860','sticker')
@@ -3229,10 +3229,10 @@ def lineBot(op):
                             client.sendMessage(to, "respon message dinonaktifkan")
                         elif cmd == "welcomemessage on":
                             settings["welcomeMessage"] = True
-                            client.sendMessage(to, "respon message diaktifkan")
+                            client.sendMessage(to, "respon message diaktifkan", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == "welcomemessage off":
                             settings["welcomeMessage"] = False
-                            client.sendMessage(to, "respon message dinonaktifkan")
+                            client.sendMessage(to, "respon message dinonaktifkan", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == "sibuk on":
                             settings["autoReply"] = True
                             client.sendMessage(to, "Success activated Sleep Mode", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
@@ -3349,10 +3349,10 @@ def lineBot(op):
                                         ct2 += [contact[b]]
                                     mentionMembers(to, ct1)
                                     mentionMembers(to, ct2)
-                                elif jml > 200 and jml <= 300:
+                                elif jml > 100 and jml <= 200:
                                     for a in range(0, 99):
                                         ct1 += [contact[a]]
-                                    for b in range(100, 199):
+                                    for b in range(0, 99):
                                         ct2 += [contact[b]]
                                     for c in range(200, jml):
                                         ct3 += [contact[c]]
@@ -3402,7 +3402,7 @@ def lineBot(op):
                         elif cmd == "addautoaddsticker":
                             settings["messageSticker"]["addStatus"] = True
                             settings["messageSticker"]["addName"] = "addSticker"
-                            client.sendMessage(to, "Send the sticker down")
+                            client.sendMessage(to, "Send the sticker down", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == "delautoaddsticker":
                             settings["messageSticker"]["listSticker"]["addSticker"] = None
                             client.sendMessage(to, "Remove has been sticker automatis add")
@@ -3410,7 +3410,7 @@ def lineBot(op):
                             text_ = cmd.replace("setadd:", "")
                             try:
                                 settings["addPesan"] = text_
-                                client.sendMessage(to,"AutoReply to addme : " + text_)
+                                client.sendMessage(to,"AutoReply to addme : " + text_, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                             except:
                                 client.sendMessage(to,"AutoAdd\nFailed to replace message")
                         elif cmd == "autorespon":
@@ -3427,15 +3427,15 @@ def lineBot(op):
                         elif cmd == "addresponsticker":
                             settings["messageSticker"]["addStatus"] = True
                             settings["messageSticker"]["addName"] = "responSticker"
-                            client.sendMessage(to, "silahkan kirim stickernya...")
+                            client.sendMessage(to, "send sticker", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == "delresponsticker":
                             settings["messageSticker"]["listSticker"]["responSticker"] = None
-                            client.sendMessage(to, "has been Remove the sticker respon")
+                            client.sendMessage(to, "has been Remove the sticker respon", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd.startswith("setrespon: "):
                             text_ = cmd.replace("setrespon:", "")
                             try:
                                 settings["mentionPesan"] = text_
-                                client.sendMessage(to,"tagrespon message : " + text_)
+                                client.sendMessage(to,"tagrespon message : " + text_, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                             except:
                                 client.sendMessage(to,"please retagrespon message")
                         elif cmd == "addreadsticker":
@@ -3523,7 +3523,7 @@ def lineBot(op):
                                         client.cancelGroupInvitation(to, [ls])
                                     except:
                                        client.sendMessage(to, "Limited !")
-                        elif cmd.startswith("coba "):
+                        elif cmd.startswith("coba1 "):
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -3789,7 +3789,7 @@ def lineBot(op):
                                 for i in group.members[a*100 : (a+1)*100]:
                                     b.append({"S":str(s), "E" :str(s+6), "M":i.mid})
                                     s += 7
-                                    txt += u'@RhyN_\n'
+                                    txt += u'@ar\n'
                                 client.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
 #==============================================================================================================
 #==============================================================================================================
@@ -3959,7 +3959,7 @@ def lineBot(op):
                             client.sendMessage(to, "success")
                         elif cmd == "makers" or cmd == "creator":
                             sendMention(to, sender, "「 Auto Mentions 」\n•", "\nThis is my Creator..")
-                            client.sendContact(to, "u9f478c580a9c4e1de5e407e9b10c2da1")
+                            client.sendContact(to, "u0237b0ec326fc36a91743df4a1ad2591")
                         elif cmd == " name" or cmd == "name":
                             h = client.getContact(clientMID)
                             sendMention(to, sender, "「 Auto Mention 」\n•", "\nDisplay Name : \n" + str(h.displayName))
@@ -4231,8 +4231,8 @@ def lineBot(op):
                         elif cmd == "itsme" or cmd == "about":
                             try:
                                 arr = []
-                                owner = "u31d8aba9dff04c75242f2a2097b8adae"
-                                khietag = "u9f478c580a9c4e1de5e407e9b10c2da1"                        
+                                owner = "u0237b0ec326fc36a91743df4a1ad2591"
+                                khietag = "u0237b0ec326fc36a91743df4a1ad2591"                        
              #                   creator = client.getContact(owner)
                                 contact = client.getContact(clientMID)
                                 grouplist = client.getGroupIdsJoined()
@@ -4240,17 +4240,17 @@ def lineBot(op):
                                 favoritelist = client.getFavoriteMids()
                                 blockedlist = client.getBlockedContactIds()
                                 ret_ = "「type SELFBOT」\n"
-                                ret_ += "\n👑 NAMA ➣ {}".format(contact.displayName)
-                                ret_ += "\n👑 GROUP ➣ {}".format(str(len(grouplist)))
-                                ret_ += "\n👑 TEMAN ➣ {}".format(str(len(contactlist)))
-                                ret_ += "\n👑 Favorites ➣ {}".format(str(len(favoritelist)))
-                                ret_ += "\n👑 BLOCKED ➣ {}".format(str(len(blockedlist)))
-                                ret_ += "\n👑 Bot Version ➣ V.03"
-                                ret_ += "\n👑 CREATOR ➣ @!              " #.format(creator.displayName)
+                                ret_ += "\n🔰 NAMA  {}".format(contact.displayName)
+                                ret_ += "\n🔰 GROUP  {}".format(str(len(grouplist)))
+                                ret_ += "\n🔰 TEMAN  {}".format(str(len(contactlist)))
+                                ret_ += "\n🔰 Favorites ➣ {}".format(str(len(favoritelist)))
+                                ret_ += "\n🔰 BLOCKED  {}".format(str(len(blockedlist)))
+                                ret_ += "\n🔰 Bot Version  V.3,5"
+                                ret_ += "\n🔰 CREATOR  @!              " #.format(creator.displayName)
    #                             client.sendMessage(to, str(ret_))
-                                khieMention(to, str(ret_),[khietag])
+                                khieMention(to, str(ret_),[khietag], contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                             except Exception as error:
-                                client.sendMessage(to, "「 Result Error 」\n" + str(error))
+                                client.sendMessage(to, "\n" + str(error), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == 'square' or cmd == ' squares':
                             a = client.getJoinedSquares()
                             squares = a.squares
@@ -4608,7 +4608,7 @@ def lineBot(op):
    #                              get_contact = client.getContact(clientMid)
                                 get_contact_time = time.time() - get_contact_time_start
                    #              client.sendMessage("u3b07c57b6239e5216aa4c7a02687c86d", '.')
-                                client.sendMessage(to, "TimeSpeed:%.6f" % (get_group_time/3))
+                                client.sendMessage(to, "\n%.6f" % (get_group_time/3), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
 
                         elif cmd.startswith("zodiaceng "):
                             string = cmd.replace("zodiaceng ","")   
@@ -4723,7 +4723,7 @@ def lineBot(op):
                                     client.sendMessage(to, "Porn Not Found !")
                         elif cmd == "top":
                              try:
-                                 api_key = "a53cb61cee4d4c518b69473893dba73b"
+                                 api_key = "u0237b0ec326fc36a91743df4a1ad2591"
                                  r = _session.get("https://newsapi.org/v2/top-headlines?country=id&apiKey={}".format(str(api_key)))
                                  data = r.text
                                  data = json.loads(data)
@@ -4748,7 +4748,7 @@ def lineBot(op):
                                          url = syit['url']
                                          ret_ += "\n\n{}. Judul : {}\n    Sumber : {}\n    Penulis : {}\n    Link : {}".format(str(no), str(judul), str(sumber), str(author), str(url))
                                          no += 1
-                                 client.sendMessage(to, str(ret_))
+                                 client.sendMessage(to, str(ret_), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                              except:
                                  client.sendMessage(to, "Top news Not Found !")
                         elif cmd.startswith("asking "):
