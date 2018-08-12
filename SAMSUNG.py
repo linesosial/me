@@ -2131,13 +2131,13 @@ def lineBot(op):
                             runtime = timeNow - botStart
                             runtime = format_timespan(runtime)
                             resetTime = timeNow - int(settings["timeRestart"])
-                            userid = "https://line.me/ti/p/~" + client.profile.userid
-                            client.sendFooter(to, "「Bot has been work」\n{} ".format(str(runtime)), str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)
-                        elif cmd == "gift":
+                            #userid = "https://line.me/ti/p/~" + client.profile.userid
+                            client.sendMessage(to, "\n{} ".format(str(runtime)), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                        elif cmd == "gifta":
                             client.sendMessage(to, text=None, contentMetadata=None, contentType=9)
                         elif cmd == "updatefoto":
                             settings["changePicture"] = True
-                            sendMention(to, sender, "「 Successfully converted」\n•", "\nSend pict !")
+                            sendMention(to, sender, "\n•", "\nSend pict ", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == "upvideo" and sender == clientMID:
                             settings['changeProfileVideo']['status'] = True
                             settings['changeProfileVideo']['stage'] = 1
@@ -2149,7 +2149,7 @@ def lineBot(op):
                             sendMention(to, sender, "「 Send a picture that will turn down 」\n•", "\nGroup photo !")
                         elif cmd.startswith("updatename "):
                             string = cmd.replace("updatename", "")
-                            if len(string) <= 10000000000:
+                            if len(string) <= 10000000000000000000000:
                                 pname = client.getContact(sender).displayName
                                 profile = client.getProfile()
                                 profile.displayName = string
@@ -2248,11 +2248,11 @@ def lineBot(op):
                                 path = client.getProfileCoverURL(to)
                                 path = str(path)
                                 if settings["server"] == "VPS":
-                                    client.sendMessage(msg.to,"\n" + me.displayName, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(me).pictureStatus, 'AGENT_NAME': 'NAMA', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
-                                    client.sendMessage(msg.to,"\n" + me.statusMessage, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(me).pictureStatus, 'AGENT_NAME': 'STATUS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
-                                    client.sendMessage(msg.to,"\n" +  to, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'MID', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                                    client.sendMessage(msg.to,"\n" + me.displayName)
+                                    client.sendMessage(msg.to,"\n" + me.statusMessage)
+                                    client.sendMessage(msg.to,"\n" +  to) 
                                     client.sendMessage(to, text=None, contentMetadata={'mid': to}, contentType=13)
-                                    client.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(me).pictureStatus, 'AGENT_NAME': 'FOTO PROFILE', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                                    client.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
                                     client.sendImageWithURL(to, str(path))
                                     client.sendVideoWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus + "/vp")
                                 else:
@@ -2769,7 +2769,7 @@ def lineBot(op):
                                         if mention["M"] not in lists:
                                             lists.append(mention["M"])
                                     for receiver in lists:
-                                        client.sendMessage(receiver, text=None, contentMetadata=None, contentType=9)
+                                        client.sendGift(receiver, msg.to,'69649860','sticker')
                                         client.sendMessage(to, "Send gifts in today".format(str(jml)))
                                     else:
                                         pass
@@ -3065,7 +3065,7 @@ def lineBot(op):
                             b = int("1000")
                             c = str("EN")
                             d = client.getActivePurchases(a, b, c, c)
-                            ret_ = "「 sticker saya 」"
+                            ret_ = "STICKERKU"
                             no =1
                             jmlh = []
                             for x in d.productList:
