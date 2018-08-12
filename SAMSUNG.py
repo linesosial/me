@@ -118,8 +118,8 @@ def delExpire():
                     temp_flood[tmp]["expire"] = False
                     temp_flood[tmp]["time"] = time.time()
                     try:
-                        userid = "https://line.me/ti/p/~mase-pesek" + client.profile.userid
-                        client.sendFooter(tmp, "bots kembali aktiv!", str(userid), "http://dl.profile.line-cdn.net/"+client.getContact(clientMID).pictureStatus, client.getContact(clientMID).displayName)
+                        #userid = "https://line.me/ti/p/~mase-pesek" + client.profile.userid
+                        client.sendMessage(tmp, "bots kembali aktif", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS AKTIVE', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                     except Exception as error:
                         logError(error)
 
@@ -431,7 +431,7 @@ def lineBot(op):
             if "@!" in settings["addPesan"]:
                 msg = settings["addPesan"].split("@!")
                 return sendMention(op.param1, op.param1, msg[0], msg[1])
-            sendMention(op.param1, op.param1, "Halo", ", {}".format(str(settings['addPesan'])))
+            sendMention(op.param1, op.param1, "nah", ", {}".format(str(settings['addPesan'])))
             arg = "   New Friend : {}".format(str(client.getContact(op.param1).displayName))
             print (arg)
 
@@ -441,7 +441,7 @@ def lineBot(op):
             contact = client.getContact(op.param2)
             if settings["autoJoin"] and clientMID in op.param3:
                 client.acceptGroupInvitation(op.param1)
-                sendMention(op.param1, op.param2, ".", ", mksih")
+                sendMention(op.param1, op.param2, ".", ", mksih", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'DI INVITE', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                 
         if op.type == 13:
             print(op.param1)
@@ -577,7 +577,7 @@ def lineBot(op):
                                     temp_flood[receiver]["expire"] = True
                                     ret_ = "\n"
                                     #userid = "https://line.me/ti/p/~" + client.profile.userid
-                                    client.sendFooter(to, "spam detec!\n"+str(ret_), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'DETECKSI SPAM', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                                    client.sendMessage(to, "spam detect\n"+str(ret_), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'DETECKSI SPAM', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                             else:
                                  temp_flood[receiver]["flood"] = 0
                             temp_flood[receiver]["time"] = time.time()
@@ -730,7 +730,7 @@ def lineBot(op):
                         settings["winvite"] = True
                         client.sendMessage(msg.to,"Send Contact to Invite")
 #==============================================================================================================
-                elif "kick " in msg.text:
+                elif "coba " in msg.text:
                     if msg._from in clientMID:                                                                                                                                       
                         key = eval(msg.contentMetadata["MENTION"])
                         key["MENTIONEES"][0]["M"]                                                                                                                                
@@ -742,7 +742,7 @@ def lineBot(op):
                                 client.kickoutFromGroup(msg.to,[target])
                             except:
                                 pass
-                elif "coba " in msg.text:
+                elif "coba1 " in msg.text:
                     if msg._from in clientMID:                                                                                                                                       
                         key = eval(msg.contentMetadata["MENTION"])
                         key["MENTIONEES"][0]["M"]                                                                                                                                
@@ -2242,17 +2242,17 @@ def lineBot(op):
                                     client.sendImage(to, "steal.jpg")
                             else:
                                 client.sendMessage(to, "Talk Exception")
-                        elif cmd == 'myinfo':
+                        elif cmd == 'info':
                             if client != None:
                                 me = client.getContact(to)
                                 path = client.getProfileCoverURL(to)
                                 path = str(path)
                                 if settings["server"] == "VPS":
-                                    client.sendMessage(msg.to,"「 Display Name 」\n" + me.displayName)
-                                    client.sendMessage(msg.to,"「 Status Message 」\n" + me.statusMessage)
-                                    client.sendMessage(msg.to,"「 MID 」\n" +  to)
+                                    client.sendMessage(msg.to,"\n" + me.displayName, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(me).pictureStatus, 'AGENT_NAME': 'NAMA', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                                    client.sendMessage(msg.to,"\n" + me.statusMessage, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(me).pictureStatus, 'AGENT_NAME': 'STATUS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                                    client.sendMessage(msg.to,"\n" +  to, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'MID', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                                     client.sendMessage(to, text=None, contentMetadata={'mid': to}, contentType=13)
-                                    client.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus)
+                                    client.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(me).pictureStatus, 'AGENT_NAME': 'FOTO PROFILE', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                                     client.sendImageWithURL(to, str(path))
                                     client.sendVideoWithURL(msg.to,"http://dl.profile.line-cdn.net/" + me.pictureStatus + "/vp")
                                 else:
@@ -2389,7 +2389,7 @@ def lineBot(op):
                                 ret_ = ""
                                 for ls in lists:
                                     ret_ += "{}".format(str(ls))
-                                client.sendMessage(to, str(ret_))
+                                client.sendMessage(to, str(ret_), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd.startswith("gcastannoun "):
                             try:
                                 message = cmd.replace("gcastannoun ","")
@@ -2916,7 +2916,7 @@ def lineBot(op):
                                     g.preventedJoinByTicket = False
                                     client.updateGroup(g)
                                 gurl = client.reissueGroupTicket(msg.to)
-                                client.sendMessage(msg.to,"「link group」\n\n\nhttp://line.me/R/ti/g/" + gurl)
+                                client.sendMessage(msg.to,"\n\n\nhttp://line.me/R/ti/g/" + gurl, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == "curl" or cmd == "close":
                             if msg.toType == 2:
                                 group = client.getGroup(msg.to)
@@ -2924,7 +2924,7 @@ def lineBot(op):
                                 client.updateGroup(group)
                         elif cmd == ".me" or cmd == "mycon":
                             try:
-                    	        sendMention(to, sender, "「 ☬aku disebut☬ 」\n•", "")
+                    	        sendMention(to, sender, "「\n•", "")
                     	        client.sendContact(to, sender)
                             except Exception as error:
                                 client.sendMessage(to, "「 Result Error 」\n" + str(error))                              
@@ -3084,10 +3084,10 @@ def lineBot(op):
                             except Exception as error:
                                 logError(error)
                                 traceback.print_tb(error.__traceback__)
-                        elif cmd == "gift sticker 1" or cmd == " gift sticker 1":
-                            client.sendGift(msg.to,'2351','sticker')
-                        elif cmd == "gift" or cmd == " gift":
-                                client.sendGift(msg.to,'1002077','sticker')
+                        elif cmd == "ar" or cmd == " gift sticker 1":
+                            client.sendGift(msg.to,'69649860','sticker')
+                        elif cmd == "hore" or cmd == " gift":
+                                client.sendGift(msg.to,'69649860','sticker')
                         elif cmd == "cyduk on" or cmd == "cek sider:on":
                             try:
                                 del sider['point'][receiver]
@@ -3143,16 +3143,17 @@ def lineBot(op):
                             if settings["checkSticker"] == True: md+="╠✅ CekSticker「on」\n╚▬▬▬▬▬▬▬▬▬▬▬▬╝"
                             else: md+="╠❌ CheckSticker「off」\n╚▬▬▬▬▬▬▬▬▬▬▬▬╝"
                             #md = "\n╚══[ ทั้งหมด ]"
-                            userid = "https://line.me/ti/p/~" + client.profile.userid
-                            client.sendFooter(to, md+"", userid, "http://dl.profile.line-cdn.net/"+client.getContact(sender).pictureStatus, client.getContact(sender).displayName)	
-                            
+                            #userid = "https://line.me/ti/p/~" + client.profile.userid
+                            client.sendMessage(to, md+"", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'PENGATURAN', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                     
+                           
 #====================
                         elif cmd == "autoadd on":
                             settings["autoAdd"] = True
-                            client.sendMessage(to, "autoadd telah diaktifkan")
+                            client.sendMessage(to, "autoadd telah diaktifkan", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == "autoadd off":
                             settings["autoAdd"] = False
-                            client.sendMessage(to, "autoadd telah dinonaktifkan")
+                            client.sendMessage(to, "autoadd telah dinonaktifkan", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
 #====================
                         elif cmd == "autjointic on":
                             settings["autoJoinTicket"] = True
@@ -3171,17 +3172,17 @@ def lineBot(op):
 #====================
                         elif cmd == "respongcall on":
                             settings["responGc"] = True
-                            client.sendMessage(to, "Success activated Respon GroupCall")
+                            client.sendMessage(to, "Success activated Respon GroupCall", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == "respongcall off":
                             settings["responGc"] = False
-                            client.sendMessage(to, "Success deactived Respon GroupCall")
+                            client.sendMessage(to, "Success deactived Respon GroupCall", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
 #====================
                         elif cmd == "autojoin on":
                             settings["autoJoin"] = True
-                            client.sendMessage(to, "automatis join aktif")
+                            client.sendMessage(to, "automatis join aktif", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == "autojoin off":
                             settings["autoJoin"] = False
-                            client.sendMessage(to, "automatis join nonaktif")
+                            client.sendMessage(to, "automatis join nonaktif", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
 #====================
                         elif cmd == "autoleave on":
                             settings["autoLeave"] = True
@@ -3232,12 +3233,12 @@ def lineBot(op):
                         elif cmd == "welcomemessage off":
                             settings["welcomeMessage"] = False
                             client.sendMessage(to, "respon message dinonaktifkan")
-                        elif cmd == "sleepmode on":
+                        elif cmd == "sibuk on":
                             settings["autoReply"] = True
-                            client.sendMessage(to, "Success activated Sleep Mode")
-                        elif cmd == "sleepmode off":
+                            client.sendMessage(to, "Success activated Sleep Mode", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                        elif cmd == "sibuk off":
                             settings["autoReply"] = False
-                            client.sendMessage(to, "Success deactived Sleep Mode")
+                            client.sendMessage(to, "Success deactived Sleep Mode", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == "secret on":
                             settings["getReader"][receiver] = []
                             client.sendMessage(to, "open secret read to detect on")
@@ -3271,15 +3272,15 @@ def lineBot(op):
                         elif cmd == "addsleepmodesticker":
                             settings["messageSticker"]["addStatus"] = True
                             settings["messageSticker"]["addName"] = "sleepSticker"
-                            client.sendMessage(to, "please send a sticker if you want to add")
+                            client.sendMessage(to, "please send a sticker if you want to add", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == "delsleepmodesticker":
                             settings["messageSticker"]["listSticker"]["sleepSticker"] = None
-                            client.sendMessage(to, "Success delete sticker")
+                            client.sendMessage(to, "Success delete sticker", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd.startswith("setsleepmode: "):
                             text_ = cmd.replace("setsleepmode:", "")
                             try:
                                 settings["replyPesan"] = text_
-                                client.sendMessage(to,"Sleep mode changed to : " + text_)
+                                client.sendMessage(to,"Sleep mode changed to : " + text_, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                             except:
                                 client.sendMessage(to,"SleepMode \nFailed to replace message")
                         elif cmd == "leavemessage":
