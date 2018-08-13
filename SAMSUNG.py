@@ -669,7 +669,9 @@ def lineBot(op):
                              client.sendAudio(msg.to, audios[audio])
                        for video in videos:
                           if text.lower() == video:
-                             client.sendVideo(msg.to, videos[video])			
+                             client.sendVideo(msg.to, videos[video])
+                         except:
+                             pass
 #==============================================================================================================
                 elif text.lower() == "help" or text.lower() == ".":
                     helpmessagee = helpmsg
