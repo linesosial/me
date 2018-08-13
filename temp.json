@@ -6,13 +6,34 @@
     },
     "anu": "Secret",
     "anu2": "Very Secret",
-    "autoAdd": true,
+    "autoAdd": false,
     "autoBlock": false,
     "autoCancel": {
         "members": 3,
         "on": true
     },
     "autoJoin": false,
+    "Addsticker":{
+            "name": "",
+            "status":false
+            },
+    "stk":{},
+    "selfbot":true,
+    "Images":{},
+    "Img":{},
+    "Addimage":{
+            "name": "",
+            "status":false
+            },
+    "Videos":{},
+    "Addaudio":{
+            "name": "",
+            "status":false
+            },
+    "Addvideo":{
+            "name": "",
+            "status":false
+            },    
     "autoJoinTicket": false,
     "autoLeave": false,
     "autoRead": false,
