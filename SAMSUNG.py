@@ -650,28 +650,7 @@ def lineBot(op):
                     assist.sendMessage(to, (say))
                     kicker.sendMessage(to, (say))
                     kicker2.sendMessage(to, (say))
-            if msg.contentType == 0:
-                if Setmain["autoRead1"] == True:
-                    client.sendChatChecked(msg.to, msg_id)
-                if text is None:
-                    return
-                else:
-                       for sticker in stickers:
-                          if text.lower() == sticker:
-                             sid = stickers[text.lower()]["STKID"]
-                             spkg = stickers[text.lower()]["STKPKGID"]
-                             client.sendSticker(to, spkg, sid)
-                       for image in images:
-                          if text.lower() == image:
-                             client.sendImage(msg.to, images[image])
-                       for audio in audios:
-                          if text.lower() == audio:
-                             client.sendAudio(msg.to, audios[audio])
-                       for video in videos:
-                          if text.lower() == video:
-                             client.sendVideo(msg.to, videos[video])
-                         except:
-                             pass
+
 #==============================================================================================================
                 elif text.lower() == "help" or text.lower() == ".":
                     helpmessagee = helpmsg
