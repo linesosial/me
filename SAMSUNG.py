@@ -5063,7 +5063,7 @@ def lineBot(op):
                         f = codecs.open("image.json","w","utf-8")
                         json.dump(images, f, sort_keys=True, indent=4, ensure_ascii=False)
                         client.sendMessage(msg.to, "Berhasil menambahkan gambar {}".format(str(settings["Addimage"]["name"])))
-                        setting["Addimage"]["status"] = False                
+                        settings["Addimage"]["status"] = False                
                         settings["Addimage"]["name"] = ""			
                         
         if op.type == 26:
