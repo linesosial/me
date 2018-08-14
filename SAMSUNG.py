@@ -3824,7 +3824,7 @@ def lineBot(op):
                         elif cmd.startswith("image "):
                                 sep = msg.text.split(" ")
                                 textnya = msg.text.replace(sep[0] + " ","")
-                                path = "http://chart.apis.google.com/chart?chs=480x80&cht=p3&chtt=" + textnya + "&chts=FFFFFF,70&chf=bg,s,000000"
+                                path = "http://chart.apis.google.com/chart?chs=900x400&cht=p3&chtt=" + textnya + "&chts=FFFFFF,70&chf=bg,s,000000"
                                 client.sendImageWithURL(msg.to,path)
                         elif cmd.startswith("video "):
                             try:
@@ -5111,6 +5111,12 @@ def lineBot(op):
                             spkg = stickers[sticker]["STKPKGID"]
                             sver = stickers[sticker]["STKVER"]
                             sendSticker(to, sver, spkg, sid)
+                    for audio in audios:
+                        if text.lower() == audio:
+                            client.sendAudio(msg.to, audios[audio])
+                    for video in videos:
+                        if text.lower() == video:
+                            client.sendVideo(msg.to, videos[video])				
                 if msg.contentType == 1:
                     if settings["changePicture"] == True:
                         path = client.downloadObjectMsg(msg_id)
@@ -5183,7 +5189,33 @@ def lineBot(op):
                         json.dump(images, f, sort_keys=True, indent=4, ensure_ascii=False)
                         client.sendMessage(msg.to, "Berhasil menambahkan gambar {}".format(str(settings["Addimage"]["name"])))
                         settings["Addimage"]["status"] = False                
-                        settings["Addimage"]["name"] = ""			
+                        settings["Addimage"]["name"] = ""
+                if msg.contentType == 2:
+                    if settings["Addvideo"]["status"] == True:
+                        path = cl.downloadObjectMsg(msg.id)
+                        videos[settings["Addvideo"]["name"]] = str(path)
+                        f = codecs.open("video.json","w","utf-8")
+                        json.dump(videos, f, sort_keys=True, indent=4, ensure_ascii=False)
+                        client.sendMessage(msg.to, "Berhasil menambahkan video {}".format(str(settings["Addvideo"]["name"])))
+                        settings["Addvideo"]["status"] = False                
+                        settings["Addvideo"]["name"] = ""
+                if msg.contentType == 7:
+                    if settings["Addsticker"]["status"] == True:
+                        stickers[settings["Addsticker"]["name"]] = {"STKID":msg.contentMetadata["STKID"],"STKPKGID":msg.contentMetadata["STKPKGID"]}
+                        f = codecs.open("sticker.json","w","utf-8")
+                        json.dump(stickers, f, sort_keys=True, indent=4, ensure_ascii=False)
+                        client.sendMessage(msg.to, "Berhasil menambahkan sticker {}".format(str(settings["Addsticker"]["name"])))
+                        settings["Addsticker"]["status"] = False                
+                        settings["Addsticker"]["name"] = ""
+                if msg.contentType == 3:
+                    if settings["Addaudio"]["status"] == True:
+                        path = client.downloadObjectMsg(msg.id)
+                        audios[settings["Addaudio"]["name"]] = str(path)
+                        f = codecs.open("audio.json","w","utf-8")
+                        json.dump(audios, f, sort_keys=True, indent=4, ensure_ascii=False)
+                        client.sendMessage(msg.to, "Berhasil menambahkan mp3 {}".format(str(settings["Addaudio"]["name"])))
+                        settings["Addaudio"]["status"] = False                
+                        settings["Addaudio"]["name"] = ""			
                         
         if op.type == 26:
 #            if settings ["mutebot2"] == True:
@@ -5244,25 +5276,7 @@ def lineBot(op):
                     if msg.contentType == 0:
                         if Setmain["autoRead"] == True:
                             client.sendChatChecked(msg.to, msg_id)
-                        if text is None:
-                            return
-                        else:
-                               for sticker in stickers:
-                                  if text.lower() == sticker:
-                                     sid = stickers[text.lower()]["STKID"]
-                                     spkg = stickers[text.lower()]["STKPKGID"]
-                                     client.sendSticker(to, spkg, sid)
-                               for image in images:
-                                  if text.lower() == image:
-                                     client.sendImage(msg.to, images[image])
-                               for audio in audios:
-                                  if text.lower() == audio:
-                                     client.sendAudio(msg.to, audios[audio])
-                               for video in videos:
-                                  if text.lower() == video:
-                                     client.sendVideo(msg.to, videos[video])
-                        
-                            
+
 
                     elif msg.toType == 2:
                         if settings["autoRead"] == True:
@@ -5624,6 +5638,12 @@ def backupData():
         json.dump(backup, f, sort_keys=True, indent=4, ensure_ascii=False)
         backup = images
         f = codecs.open('image.json','w','utf-8')
+        json.dump(backup, f, sort_keys=True, indent=4, ensure_ascii=False)
+        backup = videos
+        f = codecs.open('video.json','w','utf-8')
+        json.dump(backup, f, sort_keys=True, indent=4, ensure_ascii=False)
+        backup = audios
+        f = codecs.open('audio.json','w','utf-8')
         json.dump(backup, f, sort_keys=True, indent=4, ensure_ascii=False)
         return True
     except Exception as error:
