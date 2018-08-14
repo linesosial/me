@@ -51,6 +51,7 @@ squareChatMid='mdbd283c4f8e1840fbcecf1e0e0fd9288'
 msg_dict = {}
 msg_image={}
 msg_video={}
+msg_audio={}
 msg_sticker={}
 unsendchat = {}
 temp_flood = {}
@@ -126,11 +127,17 @@ def delExpire():
 def load():
     global images
     global stickers
+    global audios
+    global videos	
     with open("image.json","r") as fp:
         images = json.load(fp)
     with open("sticker.json","r") as fp:
         stickers = json.load(fp)
-        
+    with open("audio.json","r") as fp:
+        audios = json.load(fp)
+    with open("video.json","r") as fp:
+        videos = json.load(fp)
+                
 def sendSticker(to, version, packageId, stickerId):
     contentMetadata = {
         'STKVER': version,
