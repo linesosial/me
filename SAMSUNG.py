@@ -85,6 +85,8 @@ read = json.load(readOpen)
 settings = json.load(settingsOpen)
 images = json.load(imagesOpen)
 stickers = json.load(stickersOpen)
+audios = json.load(audiosOpen)
+videos = json.load(videosOpen)
 msg_dict = {}
 
 try:
@@ -2755,9 +2757,9 @@ def lineBot(op):
                                 videos[str(name.lower())] = ""
                                 f = codecs.open("video.json","w","utf-8")
                                 json.dump(videos, f, sort_keys=True, indent=4, ensure_ascii=False)
-                                client.sendText(msg.to, "Silahkan kirim videonya...") 
+                                client.sendMessage(msg.to, "Silahkan kirim videonya...") 
                             else:
-                                client.sendText(msg.to, "Video itu sudah dalam list") 
+                                client.sendMessage(msg.to, "Video itu sudah dalam list") 
                                 
                         elif cmd.startswith("dellvideo "):
                          # if msg._from in admin:
@@ -2769,9 +2771,9 @@ def lineBot(op):
                                 del videos[str(name.lower())]
                                 f = codecs.open("video.json","w","utf-8")
                                 json.dump(videos, f, sort_keys=True, indent=4, ensure_ascii=False)
-                                client.sendText(msg.to, "Berhasil menghapus video {}".format( str(name.lower())))
+                                client.sendMessage(msg.to, "Berhasil menghapus video {}".format( str(name.lower())))
                             else:
-                                client.sendText(msg.to, "Video itu tidak ada dalam list") 
+                                client.sendMessage(msg.to, "Video itu tidak ada dalam list") 
                                  
                         elif text.lower() == "listvideo":
                            #if msg._from in admin:
@@ -2781,7 +2783,7 @@ def lineBot(op):
                                  no += 1
                                  ret_ += str(no) + ". " + video.title() + "\n"
                              ret_ += "\nTotal「{}」Videos".format(str(len(videos)))
-                             client.sendText(to, ret_)
+                             client.sendMessage(to, ret_)
                              sendMention(msg.to, msg._from,"","\nJika ingin play video nya,\nSilahkan ketik nama - judul\nBisa juga ketik namanya saja")
 #=========== [ Add Video ] ============#                               
                         elif cmd.startswith("addmp3 "):
@@ -2795,9 +2797,9 @@ def lineBot(op):
                                 audios[str(name.lower())] = ""
                                 f = codecs.open("audio.json","w","utf-8")
                                 json.dump(audios, f, sort_keys=True, indent=4, ensure_ascii=False)
-                                client.sendText(msg.to, "Silahkan kirim mp3 nya...") 
+                                client.sendMessage(msg.to, "Silahkan kirim mp3 nya...") 
                             else:
-                                client.sendText(msg.to, "Mp3 itu sudah dalam list") 
+                                client.sendMessage(msg.to, "Mp3 itu sudah dalam list") 
                                 
                         elif cmd.startswith("dellmp3 "):
                           if msg._from in admin:
@@ -2809,9 +2811,9 @@ def lineBot(op):
                                 del audios[str(name.lower())]
                                 f = codecs.open("audio.json","w","utf-8")
                                 json.dump(audios, f, sort_keys=True, indent=4, ensure_ascii=False)
-                                client.sendText(msg.to, "Berhasil menghapus mp3 {}".format( str(name.lower())))
+                                client.sendMessage(msg.to, "Berhasil menghapus mp3 {}".format( str(name.lower())))
                             else:
-                                client.sendText(msg.to, "Mp3 itu tidak ada dalam list") 
+                                client.sendMessage(msg.to, "Mp3 itu tidak ada dalam list") 
                                  
                         elif text.lower() == "listmp3":
                           # if msg._from in admin:
@@ -2821,7 +2823,7 @@ def lineBot(op):
                                  no += 1
                                  ret_ += str(no) + ". " + audio.title() + "\n"
                              ret_ += "\nTotal「{}」Lagu".format(str(len(audios)))
-                             client.sendText(to, ret_)
+                             client.sendMessage(to, ret_)
                              sendMention(msg.to, msg._from,"","\nJika ingin play mp3 nya,\nSilahkan ketik nama - judul\nBisa juga ketik namanya saja")
 #=========== [ Add Sticker ] ============#                                            
                         elif cmd.startswith("addsticker "):
@@ -2835,9 +2837,9 @@ def lineBot(op):
                                 stickers[str(name.lower())] = ""
                                 f = codecs.open("sticker.json","w","utf-8")
                                 json.dump(stickers, f, sort_keys=True, indent=4, ensure_ascii=False)
-                                client.sendText(msg.to, "Silahkan kirim stickernya...") 
+                                client.sendMessage(msg.to, "Silahkan kirim stickernya...") 
                             else:
-                                client.sendText(msg.to, "Sticker itu sudah dalam list") 
+                                client.sendMessage(msg.to, "Sticker itu sudah dalam list") 
                                 
                         elif cmd.startswith("dellsticker "):
                          # if msg._from in admin:
@@ -2848,9 +2850,9 @@ def lineBot(op):
                                 del stickers[str(name.lower())]
                                 f = codecs.open("sticker.json","w","utf-8")
                                 json.dump(stickers, f, sort_keys=True, indent=4, ensure_ascii=False)
-                                client.sendText(msg.to, "Berhasil menghapus sticker {}".format( str(name.lower())))
+                                client.sendMessage(msg.to, "Berhasil menghapus sticker {}".format( str(name.lower())))
                             else:
-                                client.sendText(msg.to, "Sticker itu tidak ada dalam list") 
+                                client.sendMessage(msg.to, "Sticker itu tidak ada dalam list") 
                                  
                         elif text.lower() == "liststicker":
                            if msg._from in admin:
