@@ -23,6 +23,8 @@ readOpen = codecs.open("read.json","r","utf-8")
 settingsOpen = codecs.open("temp.json","r","utf-8")
 stickersOpen = codecs.open("sticker.json","r","utf-8")
 imagesOpen = codecs.open("image.json","r","utf-8")
+videosOpen = codecs.open("video.json","r","utf-8")
+audiosOpen = codecs.open("audio.json","r","utf-8")
 #==============================================================================================================
 mid = client.getProfile().mid
 #==============================
