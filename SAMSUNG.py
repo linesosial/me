@@ -2736,22 +2736,22 @@ def lineBot(op):
                                 client.sendMessage(msg.to, "Foto itu sudah dalam list") 
 =========== [ Add Video ] ============#                               
                         elif cmd.startswith("addvideo "):
-                          if msg._from in admin:
+                          #if msg._from in admin:
                             sep = text.split(" ")
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
                             if name not in videos:
-                                wait["Addvideo"]["status"] = True
-                                wait["Addvideo"]["name"] = str(name.lower())
+                                settings["Addvideo"]["status"] = True
+                                settings["Addvideo"]["name"] = str(name.lower())
                                 videos[str(name.lower())] = ""
                                 f = codecs.open("video.json","w","utf-8")
                                 json.dump(videos, f, sort_keys=True, indent=4, ensure_ascii=False)
-                                cl.sendText(msg.to, "Silahkan kirim videonya...") 
+                                client.sendText(msg.to, "Silahkan kirim videonya...") 
                             else:
-                                cl.sendText(msg.to, "Video itu sudah dalam list") 
+                                client.sendText(msg.to, "Video itu sudah dalam list") 
                                 
                         elif cmd.startswith("dellvideo "):
-                          if msg._from in admin:
+                         # if msg._from in admin:
                             sep = text.split(" ")
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
@@ -2760,35 +2760,35 @@ def lineBot(op):
                                 del videos[str(name.lower())]
                                 f = codecs.open("video.json","w","utf-8")
                                 json.dump(videos, f, sort_keys=True, indent=4, ensure_ascii=False)
-                                cl.sendText(msg.to, "Berhasil menghapus video {}".format( str(name.lower())))
+                                client.sendText(msg.to, "Berhasil menghapus video {}".format( str(name.lower())))
                             else:
-                                cl.sendText(msg.to, "Video itu tidak ada dalam list") 
+                                client.sendText(msg.to, "Video itu tidak ada dalam list") 
                                  
                         elif text.lower() == "listvideo":
-                           if msg._from in admin:
+                           #if msg._from in admin:
                              no = 0
                              ret_ = "「 Daftar Video 」\n\n"
                              for video in videos:
                                  no += 1
                                  ret_ += str(no) + ". " + video.title() + "\n"
                              ret_ += "\nTotal「{}」Videos".format(str(len(videos)))
-                             cl.sendText(to, ret_)
+                             client.sendText(to, ret_)
                              sendMention(msg.to, msg._from,"","\nJika ingin play video nya,\nSilahkan ketik nama - judul\nBisa juga ketik namanya saja")
 #=========== [ Add Video ] ============#                               
                         elif cmd.startswith("addmp3 "):
-                          if msg._from in admin:
+                         # if msg._from in admin:
                             sep = text.split(" ")
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
                             if name not in audios:
-                                wait["Addaudio"]["status"] = True
-                                wait["Addaudio"]["name"] = str(name.lower())
+                                settings["Addaudio"]["status"] = True
+                                settings["Addaudio"]["name"] = str(name.lower())
                                 audios[str(name.lower())] = ""
                                 f = codecs.open("audio.json","w","utf-8")
                                 json.dump(audios, f, sort_keys=True, indent=4, ensure_ascii=False)
-                                cl.sendText(msg.to, "Silahkan kirim mp3 nya...") 
+                                client.sendText(msg.to, "Silahkan kirim mp3 nya...") 
                             else:
-                                cl.sendText(msg.to, "Mp3 itu sudah dalam list") 
+                                client.sendText(msg.to, "Mp3 itu sudah dalam list") 
                                 
                         elif cmd.startswith("dellmp3 "):
                           if msg._from in admin:
@@ -2796,42 +2796,42 @@ def lineBot(op):
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
                             if name in audios:
-                                cl.deleteFile(audios[str(name.lower())])
+                                client.deleteFile(audios[str(name.lower())])
                                 del audios[str(name.lower())]
                                 f = codecs.open("audio.json","w","utf-8")
                                 json.dump(audios, f, sort_keys=True, indent=4, ensure_ascii=False)
-                                cl.sendText(msg.to, "Berhasil menghapus mp3 {}".format( str(name.lower())))
+                                client.sendText(msg.to, "Berhasil menghapus mp3 {}".format( str(name.lower())))
                             else:
-                                cl.sendText(msg.to, "Mp3 itu tidak ada dalam list") 
+                                client.sendText(msg.to, "Mp3 itu tidak ada dalam list") 
                                  
                         elif text.lower() == "listmp3":
-                           if msg._from in admin:
+                          # if msg._from in admin:
                              no = 0
                              ret_ = "「 Daftar Lagu 」\n\n"
                              for audio in audios:
                                  no += 1
                                  ret_ += str(no) + ". " + audio.title() + "\n"
                              ret_ += "\nTotal「{}」Lagu".format(str(len(audios)))
-                             cl.sendText(to, ret_)
+                             client.sendText(to, ret_)
                              sendMention(msg.to, msg._from,"","\nJika ingin play mp3 nya,\nSilahkan ketik nama - judul\nBisa juga ketik namanya saja")
 #=========== [ Add Sticker ] ============#                                            
                         elif cmd.startswith("addsticker "):
-                          if msg._from in admin:
+                         # if msg._from in admin:
                             sep = text.split(" ")
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
                             if name not in stickers:
-                                wait["Addsticker"]["status"] = True
-                                wait["Addsticker"]["name"] = str(name.lower())
+                                settings["Addsticker"]["status"] = True
+                                settings["Addsticker"]["name"] = str(name.lower())
                                 stickers[str(name.lower())] = ""
                                 f = codecs.open("sticker.json","w","utf-8")
                                 json.dump(stickers, f, sort_keys=True, indent=4, ensure_ascii=False)
-                                cl.sendText(msg.to, "Silahkan kirim stickernya...") 
+                                client.sendText(msg.to, "Silahkan kirim stickernya...") 
                             else:
-                                cl.sendText(msg.to, "Sticker itu sudah dalam list") 
+                                client.sendText(msg.to, "Sticker itu sudah dalam list") 
                                 
                         elif cmd.startswith("dellsticker "):
-                          if msg._from in admin:
+                         # if msg._from in admin:
                             sep = text.split(" ")
                             name = text.replace(sep[0] + " ","")
                             name = name.lower()
@@ -2839,9 +2839,9 @@ def lineBot(op):
                                 del stickers[str(name.lower())]
                                 f = codecs.open("sticker.json","w","utf-8")
                                 json.dump(stickers, f, sort_keys=True, indent=4, ensure_ascii=False)
-                                cl.sendText(msg.to, "Berhasil menghapus sticker {}".format( str(name.lower())))
+                                client.sendText(msg.to, "Berhasil menghapus sticker {}".format( str(name.lower())))
                             else:
-                                cl.sendText(msg.to, "Sticker itu tidak ada dalam list") 
+                                client.sendText(msg.to, "Sticker itu tidak ada dalam list") 
                                  
                         elif text.lower() == "liststicker":
                            if msg._from in admin:
@@ -2851,7 +2851,7 @@ def lineBot(op):
                                  no += 1
                                  ret_ += str(no) + ". " + sticker.title() + "\n"
                              ret_ += "\nTotal「{}」Stickers".format(str(len(stickers)))
-                             cl.sendText(to, ret_)
+                             client.sendText(to, ret_)
                              				
                                 
                         elif cmd.startswith("dellimg "):
