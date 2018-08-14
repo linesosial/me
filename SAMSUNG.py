@@ -2734,7 +2734,7 @@ def lineBot(op):
                                 client.sendMessage(msg.to, "Silahkan kirim fotonya...") 
                             else:
                                 client.sendMessage(msg.to, "Foto itu sudah dalam list") 
-=========== [ Add Video ] ============#                               
+#=========== [ Add Video ] ============#                               
                         elif cmd.startswith("addvideo "):
                           #if msg._from in admin:
                             sep = text.split(" ")
