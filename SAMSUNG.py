@@ -2473,7 +2473,13 @@ def lineBot(op):
                                     yoyok = mp4['href']
                                     video = yoyok.replace("https://adf.ly/7737506/","")
                                     client.sendMessage(to,"Type: Video\nTitle :\n"+ret_+"\n\nWait for media uploading..!")
-                                    client.sendVideoWithURL(msg.to,video)				
+                                    client.sendVideoWithURL(msg.to,video)
+                        elif cmd.startswith("smulenya "):
+                            query = cmd.replace("smulenya ","")
+                            b = urllib.parse.quote(query)
+                           #puy.sendMessage(to,"Searching to id smule..")
+                            client.sendMessage(to, "Nama : "+b+"\nId smule : http://smule.com/"+query)
+                  				
                         elif cmd.startswith("instagram "):
                                try:
                                    search = cmd.replace("instagram ","")
