@@ -3256,6 +3256,12 @@ def lineBot(op):
                             ret_ += "\n\n「 total {} tikel 」".format(str(len(jmlh)))
                             client.sendMessage(to, str(ret_),contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'STICKERNYA AR', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
 
+                        elif cmd == "ar":
+                            link = ["http://dl.profile.line-cdn.net/0hU0Km7226Ch92FCcL21F1SEpRBHIBOgxXDidFLFQRVS5YIkgcGnUVeAMVByhZJU9LSSdALAMQVXxd"]
+                            pilih = random.choice(link)
+                            client.sendImageWithURL(msg.to,pilih)
+				
+
                         elif cmd == "announclear" or cmd == " gift sticker 1":
                             a = client.getChatRoomAnnouncements(to)
                             client.sendMessage(to,"Announce cleared from group.")
