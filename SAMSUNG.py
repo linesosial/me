@@ -2466,13 +2466,13 @@ def lineBot(op):
                                     yyk = mp3['href']
                                     aud = yyk.replace("https://adf.ly/7737506/","")
                                     audio = aud.replace("\n","")
-                                    client.sendMessage(to,"Type: Audio\nTitle :\n"+ret_+"\n\nWait for media uploading..!")
+                                    client.sendMessage(to,"Type~Audio\njudul~"+ret_+"\n\ntunggu sebentar", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/0hOswWQlCKEFxKLj1P_UFvC3ZrHjE9ABYUMkBcbWp9Gz9gHFRZcEtYPWZ8G21mSQMLIh1bOm97TW5v', 'AGENT_NAME': 'AUDIO SMULE', 'AGENT_LINK': 'http://smule.com/bs1c_ar_af1rmb'})
                                     client.sendAudioWithURL(msg.to, audio)
                                 else:
                                     mp4 = data.select("a[href*=7737506]")[1]
                                     yoyok = mp4['href']
                                     video = yoyok.replace("https://adf.ly/7737506/","")
-                                    client.sendMessage(to,"Type: Video\nTitle :\n"+ret_+"\n\nWait for media uploading..!")
+                                    client.sendMessage(to,"Type~Video\njudul~"+ret_+"\n\ntunggu sebentar", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/0hOswWQlCKEFxKLj1P_UFvC3ZrHjE9ABYUMkBcbWp9Gz9gHFRZcEtYPWZ8G21mSQMLIh1bOm97TW5v', 'AGENT_NAME': 'VIDEO~SMULE', 'AGENT_LINK': 'http://smule.com/bs1c_ar_af1rmb'})
                                     client.sendVideoWithURL(msg.to,video)
                         elif cmd.startswith("smulenya "):
                             query = cmd.replace("smulenya ","")
