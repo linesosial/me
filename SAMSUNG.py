@@ -3568,7 +3568,7 @@ def lineBot(op):
                                     mentionMembers(to, ct1)
                                     mentionMembers(to, ct2)
                                 elif jml > 20 and jml <= 40:
-                                    for a in range(0, 99):
+                                    for a in range(0, 100):
                                         ct1 += [contact[a]]
                                     for b in range(0, 100):
                                         ct2 += [contact[b]]
