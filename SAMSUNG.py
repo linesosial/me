@@ -2077,11 +2077,7 @@ def lineBot(op):
                                 client.sendMessage(msg.to,"「DisplayName」:\n" + contact.displayName + "\n[mid]:\n" + msg.contentMetadata["mid"] + "\n[statusMessage]:\n" + contact.statusMessage + "\n[pictureStatus]:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n[coverURL]:\n" + str(cu))
                                 client.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + contact.pictureStatus)
                                 client.sendImageWithURL(msg.to,str(cu))
-                        elif cmd == "ar":
-                            link = ["http://dl.profile.line-cdn.net/0hU0Km7226Ch92FCcL21F1SEpRBHIBOgxXDidFLFQRVS5YIkgcGnUVeAMVByhZJU9LSSdALAMQVXxd"]
-                            pilih = random.choice(link)
-                            client.sendImageWithURL(msg.to,pilih)
-								
+ 			
 #==============================================================================================================
 #==========================================[ SCRIPT SELF START ]===============================================
 #==============================================================================================================
@@ -3071,6 +3067,11 @@ def lineBot(op):
                                 if bln == str(k): bln = bulan[k-1]
                             anu = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nเวลา : 「 " + timeNow.strftime('%H:%M:%S') + " 」"
                             client.sendMessage(to, anu)
+                       elif cmd == "fotoar":			
+                            link = ["http://dl.profile.line-cdn.net/0hU0Km7226Ch92FCcL21F1SEpRBHIBOgxXDidFLFQRVS5YIkgcGnUVeAMVByhZJU9LSSdALAMQVXxd"]
+                            pilih = random.choice(link)
+                            client.sendImageWithURL(msg.to,pilih, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'FOTO AR', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+									
                         elif cmd == "delete chat":
                             client.removeAllMessages(op.param2)
                             client.sendMessage(to, "succes Clear chat")
