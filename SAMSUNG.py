@@ -3551,6 +3551,11 @@ def lineBot(op):
                                 client.sendMessage(to,"my e-mail message : " + text_)
                             except:
                                 client.sendMessage(to,"WelcomeMessage\nFailed to replace message")
+                        elif cmd == "kedip ":
+                            txt = msg.text.replace("kedip ", "")
+                            t1 = "\xf4\x80\xb0\x82\xf4\x80\xb0\x82\xf4\x80\xb0\x82\xf4\x80\xb0\x82\xf4\x80\xa0\x81\xf4\x80\xa0\x81\xf4\x80\xa0\x81"
+                            t2 = "\xf4\x80\x82\xb3\xf4\x8f\xbf\xbf"
+                            client.sendMessage(msg.to, t1 + txt + t2)					
                         elif cmd == "tag":
                             if msg.toType == 0:
                                 sendMention(to, to)
@@ -3577,61 +3582,6 @@ def lineBot(op):
                                     mentionMembers(to, ct1)
                                     mentionMembers(to, ct2)
                                     mentionMembers(to, ct3)				
-                        elif cmd == "menu":
-                            if msg.toType == 0:
-                                sendMention(to, to)
-                            elif msg.toType == 2:
-                                group = client.getGroup(to)
-                                contact = [mem.mid for mem in group.members]
-                                ct1, ct2, ct3, ct4, ct5, jml = [], [], [], [], [], len(contact)
-                                if jml <= 20:
-                                    mentionMembers(to, contact)
-                                elif jml > 20 and jml <= 40:
-                                    for a in range(20, 40):
-                                        ct1 += [contact[a]]
-                                    for b in range(40, jml):
-                                        ct2 += [contact[b]]
-                                    mentionMembers(to, ct1)
-                                    mentionMembers(to, ct2)
-                                elif jml > 40 and jml <= 60:
-                                    for a in range(40, 60):
-                                        ct1 += [contact[a]]
-                                    for b in range(60, 80):
-                                        ct2 += [contact[b]]
-                                    for c in range(60, jml):
-                                        ct3 += [contact[c]]
-                                    mentionMembers(to, ct1)
-                                    mentionMembers(to, ct2)
-                                    mentionMembers(to, ct3)
-                                elif jml > 60 and jml <= 80:
-                                    for a in range(20, 100):
-                                        ct1 += [contact[a]]
-                                    for b in range(100, 100):
-                                        ct2 += [contact[b]]
-                                    for c in range(100, 100):
-                                        ct3 += [contact[c]]
-                                    for d in range(60, jml):
-                                        ct4 += [contact[d]]
-                                    mentionMembers(to, ct1)
-                                    mentionMembers(to, ct2)
-                                    mentionMembers(to, ct3)
-                                    mentionMembers(to, ct4)
-                                elif jml > 80 and jml <= 100:
-                                    for a in range(20, 100):
-                                        ct1 += [contact[a]]
-                                    for b in range(20, 100):
-                                        ct2 += [contact[b]]
-                                    for c in range(20, 100):
-                                        ct3 += [contact[c]]
-                                    for d in range(20, 100):
-                                        ct4 += [contact[d]]
-                                    for e in range(80, jml):
-                                        ct4 += [contact[e]]
-                                    mentionMembers(to, ct1)
-                                    mentionMembers(to, ct2)
-                                    mentionMembers(to, ct3)
-                                    mentionMembers(to, ct4)
-                                    mentionMembers(to, ct5)				
                         
                         elif cmd == "autoadd":
                             if settings["addPesan"] is not None:
@@ -4034,7 +3984,7 @@ def lineBot(op):
                                 for i in group.members[a*20 : (a+1)*20]:
                                     b.append({"S":str(s), "E" :str(s+6), "M":i.mid})
                                     s += 7
-                                    txt += u'@x \n'
+                                    txt += u'@RhyN_ \n'
                                 client.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
 #==============================================================================================================
 #==============================================================================================================
