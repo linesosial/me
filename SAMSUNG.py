@@ -3560,29 +3560,29 @@ def lineBot(op):
                                 ct1, ct2, ct3, ct4, ct5, jml = [], [], [], [], [], len(contact)
                                 if jml <= 20:
                                     mentionMembers(to, contact)
-                                elif jml > 20 and jml <= 200:
+                                elif jml > 20 and jml <= 20:
                                     for a in range(20, 99):
                                         ct1 += [contact[a]]
-                                    for b in range(100, jml):
+                                    for b in range(20, jml):
                                         ct2 += [contact[b]]
                                     mentionMembers(to, ct1)
                                     mentionMembers(to, ct2)
-                                elif jml > 20 and jml <= 200:
-                                    for a in range(20, 99):
+                                elif jml > 20 and jml <= 20:
+                                    for a in range(20, 20):
                                         ct1 += [contact[a]]
-                                    for b in range(20, 99):
+                                    for b in range(20, 20):
                                         ct2 += [contact[b]]
                                     for c in range(20, jml):
                                         ct3 += [contact[c]]
                                     mentionMembers(to, ct1)
                                     mentionMembers(to, ct2)
                                     mentionMembers(to, ct3)
-                                elif jml > 20 and jml <= 400:
-                                    for a in range(0, 99):
+                                elif jml > 20 and jml <= 20:
+                                    for a in range(20, 20):
                                         ct1 += [contact[a]]
-                                    for b in range(20, 199):
+                                    for b in range(20, 20):
                                         ct2 += [contact[b]]
-                                    for c in range(20, 299):
+                                    for c in range(20, 20):
                                         ct3 += [contact[c]]
                                     for d in range(20, jml):
                                         ct4 += [contact[d]]
@@ -3590,16 +3590,16 @@ def lineBot(op):
                                     mentionMembers(to, ct2)
                                     mentionMembers(to, ct3)
                                     mentionMembers(to, ct4)
-                                elif jml > 20 and jml <= 500:
-                                    for a in range(0, 99):
+                                elif jml > 20 and jml <= 20:
+                                    for a in range(20, 20):
                                         ct1 += [contact[a]]
-                                    for b in range(20, 199):
+                                    for b in range(20, 20):
                                         ct2 += [contact[b]]
-                                    for c in range(200, 299):
+                                    for c in range(20, 20):
                                         ct3 += [contact[c]]
-                                    for d in range(300, 399):
+                                    for d in range(20, 20):
                                         ct4 += [contact[d]]
-                                    for e in range(400, jml):
+                                    for e in range(20, jml):
                                         ct4 += [contact[e]]
                                     mentionMembers(to, ct1)
                                     mentionMembers(to, ct2)
