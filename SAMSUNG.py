@@ -2227,8 +2227,8 @@ def lineBot(op):
                             else:
                                 client.sendMessage(to, "")
 #==============================================================================================================
-                        elif cmd == 'idku':
-                            client.sendMessage(to,"「 •⊰✯⊱MID⊰✯⊱• 」\n" +  to)
+                        elif cmd == 'smuleku':
+                            client.sendMessage(to,"klik footer di bawah", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/0hOswWO5rtEFxKLj1PjltvC3ZrHjE9ABYUMkBcbWp9Gz9gHFRZcEtYPWZ8G21mSQMLIh1bOm97TW5v', 'AGENT_NAME': 'KLIK DISINI', 'AGENT_LINK': 'http://smule.com/bs1c_ar_af1rmb'})
                         elif cmd == 'scku':
                             client.sendMessage(to, text=None, contentMetadata={'mid': receiver}, contentType=13)
                         elif cmd == 'nameku':
@@ -3070,7 +3070,7 @@ def lineBot(op):
                         elif cmd == "fotoar":			
                             link = ["http://dl.profile.line-cdn.net/0hU0Km7226Ch92FCcL21F1SEpRBHIBOgxXDidFLFQRVS5YIkgcGnUVeAMVByhZJU9LSSdALAMQVXxd"]
                             pilih = random.choice(link)
-                            client.sendImageWithURL(msg.to,pilih, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'FOTO AR', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                            client.sendImageWithFooter(msg.to,pilih, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'FOTO AR', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
 									
                         elif cmd == "delete chat":
                             client.removeAllMessages(op.param2)
