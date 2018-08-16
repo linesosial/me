@@ -3561,16 +3561,16 @@ def lineBot(op):
                                 if jml <= 20:
                                     mentionMembers(to, contact)
                                 elif jml > 20 and jml <= 40:
-                                    for a in range(0, 100):
+                                    for a in range(20, 100):
                                         ct1 += [contact[a]]
-                                    for b in range(100, jml):
+                                    for b in range(20, jml):
                                         ct2 += [contact[b]]
                                     mentionMembers(to, ct1)
                                     mentionMembers(to, ct2)
                                 elif jml > 20 and jml <= 40:
-                                    for a in range(0, 100):
+                                    for a in range(20, 100):
                                         ct1 += [contact[a]]
-                                    for b in range(0, 100):
+                                    for b in range(20, 100):
                                         ct2 += [contact[b]]
                                     for c in range(40, jml):
                                         ct3 += [contact[c]]
@@ -3578,7 +3578,7 @@ def lineBot(op):
                                     mentionMembers(to, ct2)
                                     mentionMembers(to, ct3)
                                 elif jml > 60 and jml <= 80:
-                                    for a in range(0, 100):
+                                    for a in range(20, 100):
                                         ct1 += [contact[a]]
                                     for b in range(100, 100):
                                         ct2 += [contact[b]]
@@ -3591,13 +3591,13 @@ def lineBot(op):
                                     mentionMembers(to, ct3)
                                     mentionMembers(to, ct4)
                                 elif jml > 80 and jml <= 100:
-                                    for a in range(0, 100):
+                                    for a in range(20, 100):
                                         ct1 += [contact[a]]
-                                    for b in range(100, 100):
+                                    for b in range(20, 100):
                                         ct2 += [contact[b]]
-                                    for c in range(100, 100):
+                                    for c in range(20, 100):
                                         ct3 += [contact[c]]
-                                    for d in range(100, 100):
+                                    for d in range(20, 100):
                                         ct4 += [contact[d]]
                                     for e in range(80, jml):
                                         ct4 += [contact[e]]
