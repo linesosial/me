@@ -3070,7 +3070,7 @@ def lineBot(op):
                         elif cmd == "fotoar":			
                             link = ["http://dl.profile.line-cdn.net/0hU0Km7226Ch92FCcL21F1SEpRBHIBOgxXDidFLFQRVS5YIkgcGnUVeAMVByhZJU9LSSdALAMQVXxd"]
                             pilih = random.choice(link)
-                            client.sendImageWithFooter(msg.to,pilih, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'FOTO AR', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                            client.sendImageWithUrl(msg.to,pilih)
 									
                         elif cmd == "delete chat":
                             client.removeAllMessages(op.param2)
@@ -3134,7 +3134,7 @@ def lineBot(op):
                                     g.preventedJoinByTicket = False
                                     client.updateGroup(g)
                                 gurl = client.reissueGroupTicket(msg.to)
-                                client.sendMessage(msg.to,"\n\n\nhttp://line.me/R/ti/g/" + gurl, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                                client.sendMessage(msg.to,"\n", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'KLIK DISI', 'AGENT_LINK': 'http://line.me/R/ti/g/"' + gurl'})
                         elif cmd == "curl" or cmd == "close":
                             if msg.toType == 2:
                                 group = client.getGroup(msg.to)
