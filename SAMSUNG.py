@@ -3070,7 +3070,7 @@ def lineBot(op):
                         elif cmd == "fotoar":			
                             link = ["http://dl.profile.line-cdn.net/0hU0Km7226Ch92FCcL21F1SEpRBHIBOgxXDidFLFQRVS5YIkgcGnUVeAMVByhZJU9LSSdALAMQVXxd"]
                             pilih = random.choice(link)
-                            client.sendImageWithUrl(msg.to,pilih)
+                            client.sendImageWithURL(msg.to,pilih)
 									
                         elif cmd == "delete chat":
                             client.removeAllMessages(op.param2)
@@ -3973,7 +3973,7 @@ def lineBot(op):
                                     for kontak in blockedlist:
                                         client.sendMessage(to, text=None, contentMetadata={'mid': kontak}, contentType=13)
 #==============================================================================================================
-                        elif cmd == "mention" or cmd == "tagall" or cmd == "desah" or cmd == "jembot":
+                        elif cmd == "hm" or cmd == "tagall" or cmd == "desah" or cmd == "jembot":
                             group = client.getGroup(msg.to)
                             nama = [contact.mid for contact in group.members]
                             k = len(nama)//20
@@ -3984,7 +3984,7 @@ def lineBot(op):
                                 for i in group.members[a*20 : (a+1)*20]:
                                     b.append({"S":str(s), "E" :str(s+6), "M":i.mid})
                                     s += 7
-                                    txt += u'@RhyN_ \n'
+                                    txt += u'@Rh \n'
                                 client.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
 #==============================================================================================================
 #==============================================================================================================
@@ -4442,10 +4442,10 @@ def lineBot(op):
                                 ret_ += "\n🔰 BLOCKED  {}".format(str(len(blockedlist)))
                                 ret_ += "\n🔰 Bot Version  V.3,5"
                                 ret_ += "\n🔰 CREATOR  @!              " #.format(creator.displayName)
-   #                             client.sendMessage(to, str(ret_))
+                                client.sendMessage(to, str(ret_))
                                 khieMention(to, str(ret_),[khietag])
                             except Exception as error:
-                                client.sendMessage(to, "\n" + str(error), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                                #client.sendMessage(to, "\n" + str(error), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == 'square' or cmd == ' squares':
                             a = client.getJoinedSquares()
                             squares = a.squares
