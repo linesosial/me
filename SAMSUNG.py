@@ -3551,6 +3551,32 @@ def lineBot(op):
                                 client.sendMessage(to,"my e-mail message : " + text_)
                             except:
                                 client.sendMessage(to,"WelcomeMessage\nFailed to replace message")
+                        elif cmd == "tag":
+                            if msg.toType == 0:
+                                sendMention(to, to)
+                            elif msg.toType == 2:
+                                group = client.getGroup(to)
+                                contact = [mem.mid for mem in group.members]
+                                ct1, ct2, ct3, ct4, ct5, jml = [], [], [], [], [], len(contact)
+                                if jml <= 20:
+                                    mentionMembers(to, contact)
+                                elif jml > 20 and jml <= 40:
+                                    for a in range(0, 100):
+                                        ct1 += [contact[a]]
+                                    for b in range(100, jml):
+                                        ct2 += [contact[b]]
+                                    mentionMembers(to, ct1)
+                                    mentionMembers(to, ct2)
+                                elif jml > 20 and jml <= 40:
+                                    for a in range(0, 100):
+                                        ct1 += [contact[a]]
+                                    for b in range(0, 100):
+                                        ct2 += [contact[b]]
+                                    for c in range(20, jml):
+                                        ct3 += [contact[c]]
+                                    mentionMembers(to, ct1)
+                                    mentionMembers(to, ct2)
+                                    mentionMembers(to, ct3)				
                         elif cmd == "menu":
                             if msg.toType == 0:
                                 sendMention(to, to)
