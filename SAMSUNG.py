@@ -3134,7 +3134,7 @@ def lineBot(op):
                                     g.preventedJoinByTicket = False
                                     client.updateGroup(g)
                                 gurl = client.reissueGroupTicket(msg.to)
-                                client.sendMessage(msg.to,"\n", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'KLIK DISI', 'AGENT_LINK': 'http://line.me/R/ti/g/"' + gurl'})
+                                client.sendMessage(msg.to,"\n", contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'KLIK DISINI', 'AGENT_LINK': 'http://line.me/R/ti/g/' + gurl})
                         elif cmd == "curl" or cmd == "close":
                             if msg.toType == 2:
                                 group = client.getGroup(msg.to)
@@ -3561,16 +3561,16 @@ def lineBot(op):
                                 if jml <= 20:
                                     mentionMembers(to, contact)
                                 elif jml > 20 and jml <= 200:
-                                    for a in range(0, 99):
+                                    for a in range(20, 99):
                                         ct1 += [contact[a]]
                                     for b in range(100, jml):
                                         ct2 += [contact[b]]
                                     mentionMembers(to, ct1)
                                     mentionMembers(to, ct2)
                                 elif jml > 20 and jml <= 200:
-                                    for a in range(0, 99):
+                                    for a in range(20, 99):
                                         ct1 += [contact[a]]
-                                    for b in range(0, 99):
+                                    for b in range(20, 99):
                                         ct2 += [contact[b]]
                                     for c in range(20, jml):
                                         ct3 += [contact[c]]
@@ -3999,12 +3999,12 @@ def lineBot(op):
                         elif cmd == "mention" or cmd == "tagall" or cmd == "desah" or cmd == "jembot":
                             group = client.getGroup(msg.to)
                             nama = [contact.mid for contact in group.members]
-                            k = len(nama)//100
+                            k = len(nama)//20
                             for a in range(k+1):
                                 txt = u''
                                 s=0
                                 b=[]
-                                for i in group.members[a*100 : (a+1)*100]:
+                                for i in group.members[a*20 : (a+1)*20]:
                                     b.append({"S":str(s), "E" :str(s+6), "M":i.mid})
                                     s += 7
                                     txt += u'@ar\n'
