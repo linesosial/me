@@ -2077,6 +2077,11 @@ def lineBot(op):
                                 client.sendMessage(msg.to,"「DisplayName」:\n" + contact.displayName + "\n[mid]:\n" + msg.contentMetadata["mid"] + "\n[statusMessage]:\n" + contact.statusMessage + "\n[pictureStatus]:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\n[coverURL]:\n" + str(cu))
                                 client.sendImageWithURL(msg.to,"http://dl.profile.line-cdn.net/" + contact.pictureStatus)
                                 client.sendImageWithURL(msg.to,str(cu))
+                        elif cmd == "ar":
+                            link = ["http://dl.profile.line-cdn.net/0hU0Km7226Ch92FCcL21F1SEpRBHIBOgxXDidFLFQRVS5YIkgcGnUVeAMVByhZJU9LSSdALAMQVXxd"]
+                            pilih = random.choice(link)
+                            client.sendImageWithURL(msg.to,pilih)
+								
 #==============================================================================================================
 #==========================================[ SCRIPT SELF START ]===============================================
 #==============================================================================================================
@@ -3286,12 +3291,6 @@ def lineBot(op):
                                 jmlh.append(x.title)
                             ret_ += "\n\n「 total {} tikel 」".format(str(len(jmlh)))
                             client.sendMessage(to, str(ret_),contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'STICKERNYA AR', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
-
-                        elif cmd == "ar":
-                            link = ["http://dl.profile.line-cdn.net/0hU0Km7226Ch92FCcL21F1SEpRBHIBOgxXDidFLFQRVS5YIkgcGnUVeAMVByhZJU9LSSdALAMQVXxd"]
-                            pilih = random.choice(link)
-                            client.sendImageWithURL(msg.to,pilih)
-				
 
                         elif cmd == "announclear" or cmd == " gift sticker 1":
                             a = client.getChatRoomAnnouncements(to)
