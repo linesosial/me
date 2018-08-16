@@ -4008,7 +4008,7 @@ def lineBot(op):
                                 for i in group.members[a*20 : (a+1)*20]:
                                     b.append({"S":str(s), "E" :str(s+6), "M":i.mid})
                                     s += 7
-                                    txt += u'@ar\n'
+                                    txt += u'@x \n'
                                 client.sendMessage(to, text=txt, contentMetadata={u'MENTION': json.dumps({'MENTIONEES':b})}, contentType=0)
 #==============================================================================================================
 #==============================================================================================================
