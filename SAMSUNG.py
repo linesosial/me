@@ -3067,7 +3067,7 @@ def lineBot(op):
                                 if bln == str(k): bln = bulan[k-1]
                             anu = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nเวลา : 「 " + timeNow.strftime('%H:%M:%S') + " 」"
                             client.sendMessage(to, anu)
-                       elif cmd == "fotoar":			
+                        elif cmd == "fotoar":			
                             link = ["http://dl.profile.line-cdn.net/0hU0Km7226Ch92FCcL21F1SEpRBHIBOgxXDidFLFQRVS5YIkgcGnUVeAMVByhZJU9LSSdALAMQVXxd"]
                             pilih = random.choice(link)
                             client.sendImageWithURL(msg.to,pilih, contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'FOTO AR', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
