@@ -4445,7 +4445,7 @@ def lineBot(op):
                                 client.sendMessage(to, str(ret_))
                                 khieMention(to, str(ret_),[khietag])
                             except Exception as error:
-                                #client.sendMessage(to, "\n" + str(error), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
+                                client.sendMessage(to, "\n" + str(error), contentMetadata = {'AGENT_ICON': 'http://dl.profile.line-cdn.net/'+client.getContact(clientMID).pictureStatus, 'AGENT_NAME': 'AR BOTS', 'AGENT_LINK': 'http://line.me/ti/p/~mase-pesek'})
                         elif cmd == 'square' or cmd == ' squares':
                             a = client.getJoinedSquares()
                             squares = a.squares
