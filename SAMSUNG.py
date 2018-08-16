@@ -3560,52 +3560,53 @@ def lineBot(op):
                                 ct1, ct2, ct3, ct4, ct5, jml = [], [], [], [], [], len(contact)
                                 if jml <= 20:
                                     mentionMembers(to, contact)
-                                elif jml > 20 and jml <= 20:
-                                    for a in range(20, 99):
+                                elif jml > 20 and jml <= 40:
+                                    for a in range(0, 100):
                                         ct1 += [contact[a]]
-                                    for b in range(20, jml):
+                                    for b in range(100, jml):
                                         ct2 += [contact[b]]
                                     mentionMembers(to, ct1)
                                     mentionMembers(to, ct2)
-                                elif jml > 20 and jml <= 20:
-                                    for a in range(20, 20):
+                                elif jml > 20 and jml <= 40:
+                                    for a in range(0, 99):
                                         ct1 += [contact[a]]
-                                    for b in range(20, 20):
+                                    for b in range(0, 100):
                                         ct2 += [contact[b]]
-                                    for c in range(20, jml):
+                                    for c in range(40, jml):
                                         ct3 += [contact[c]]
                                     mentionMembers(to, ct1)
                                     mentionMembers(to, ct2)
                                     mentionMembers(to, ct3)
-                                elif jml > 20 and jml <= 20:
-                                    for a in range(20, 20):
+                                elif jml > 60 and jml <= 80:
+                                    for a in range(0, 100):
                                         ct1 += [contact[a]]
-                                    for b in range(20, 20):
+                                    for b in range(100, 100):
                                         ct2 += [contact[b]]
-                                    for c in range(20, 20):
+                                    for c in range(100, 100):
                                         ct3 += [contact[c]]
-                                    for d in range(20, jml):
+                                    for d in range(60, jml):
                                         ct4 += [contact[d]]
                                     mentionMembers(to, ct1)
                                     mentionMembers(to, ct2)
                                     mentionMembers(to, ct3)
                                     mentionMembers(to, ct4)
-                                elif jml > 20 and jml <= 20:
-                                    for a in range(20, 20):
+                                elif jml > 80 and jml <= 100:
+                                    for a in range(0, 100):
                                         ct1 += [contact[a]]
-                                    for b in range(20, 20):
+                                    for b in range(100, 100):
                                         ct2 += [contact[b]]
-                                    for c in range(20, 20):
+                                    for c in range(100, 100):
                                         ct3 += [contact[c]]
-                                    for d in range(20, 20):
+                                    for d in range(100, 100):
                                         ct4 += [contact[d]]
-                                    for e in range(20, jml):
+                                    for e in range(80, jml):
                                         ct4 += [contact[e]]
                                     mentionMembers(to, ct1)
                                     mentionMembers(to, ct2)
                                     mentionMembers(to, ct3)
                                     mentionMembers(to, ct4)
-                                    mentionMembers(to, ct5)
+                                    mentionMembers(to, ct5)				
+                        
                         elif cmd == "autoadd":
                             if settings["addPesan"] is not None:
                                 client.sendMessage(to,"Your Autoadd is : " + str(settings["addPesan"]))
